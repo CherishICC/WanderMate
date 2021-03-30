@@ -48,12 +48,12 @@
          <div>
           <label><strong>Email:</strong></label> {{ currentGuide.email }}
         </div>
-        <div>
+        <!-- <div>
           <label><strong>Status:</strong></label> {{ currentGuide.published ? "Published" : "Pending" }}
-        </div>
+        </div> -->
 
         <a class="badge badge-warning"
-          :href="'/guides/' + currentGuide.id"
+          :href="'/#/guides/' + currentGuide.id"
         >
           Edit
         </a>

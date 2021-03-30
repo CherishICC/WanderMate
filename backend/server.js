@@ -24,7 +24,7 @@ app.get('/', function (req,res) {
   res.sendFile(path + "index.html");
 });
 
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/guide.routes")(app);
 
 db.mongoose
   .connect(db.url, {

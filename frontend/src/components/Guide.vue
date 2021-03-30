@@ -37,14 +37,14 @@
           v-model="currentGuide.email"
         />
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label><strong>Status:</strong></label>
         {{ currentGuide.published ? "Published" : "Pending" }}
-      </div>
+      </div> -->
       
     </form>
 
-    <button class="badge badge-primary mr-2"
+    <!-- <button class="badge badge-primary mr-2"
       v-if="currentGuide.published"
       @click="updatePublished(false)"
     >
@@ -54,7 +54,7 @@
       @click="updatePublished(true)"
     >
       Publish
-    </button>
+    </button> -->
 
     <button class="badge badge-danger mr-2"
       @click="deleteGuide"
