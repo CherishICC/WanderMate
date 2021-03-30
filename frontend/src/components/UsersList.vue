@@ -50,7 +50,7 @@
         </div>
 
         <a class="badge badge-warning"
-          :href="'/users/' + currentUser.id"
+          :href="'/#/users/' + currentUser.id"
         >
           Edit
         </a>

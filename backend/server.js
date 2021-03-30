@@ -25,6 +25,7 @@ app.get('/', function (req,res) {
 });
 
 require("./app/routes/guide.routes")(app);
+require("./app/routes/user.routes")(app);
 
 db.mongoose
   .connect(db.url, {

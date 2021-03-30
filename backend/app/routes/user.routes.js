@@ -1,28 +1,28 @@
 module.exports = app => {
-    const guides = require("../controllers/user.controller.js");
+    const users = require("../controllers/user.controller.js");
   
     var router = require("express").Router();
   
     // Create a new Guide
-    router.post("/", guides.create);
+    router.post("/", users.create);
   
-    // Retrieve all guides
-    router.get("/", guides.findAll);
+    // Retrieve all users
+    router.get("/", users.findAll);
   
-    // Retrieve all published guides
-    router.get("/published", guides.findAllPublished);
+    // Retrieve all published users
+    router.get("/published", users.findAllPublished);
   
     // Retrieve a single Guide with id
-    router.get("/:id", guides.findOne);
+    router.get("/:id", users.findOne);
   
     // Update a Guide with id
-    router.put("/:id", guides.update);
+    router.put("/:id", users.update);
   
     // Delete a Guide with id
-    router.delete("/:id", guides.delete);
+    router.delete("/:id", users.delete);
   
     // Create a new Guide
-    router.delete("/", guides.deleteAll);
+    router.delete("/", users.deleteAll);
   
     app.use("/api/users", router);
   };
