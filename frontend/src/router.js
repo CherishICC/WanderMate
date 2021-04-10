@@ -36,13 +36,13 @@ export const router = new Router({
       path: '/admin',
       name: 'guide',
       // lazy-loaded
-      component: () => import('./views/CustomerList.vue'),
+      component: () => import('./views/UserList.vue'),
     },
     {
       path: '/admin/:id',
       name: 'guide-details',
       // lazy-loaded
-      component: () => import('./views/Customer.vue'),
+      component: () => import('./views/User.vue'),
     },
     {
       path: '/addUser',
@@ -60,7 +60,7 @@ export const router = new Router({
       path: '/package/:id',
       name: 'package',
       // lazy-loaded
-      component: () => import('./views/AllPackages.vue'),
+      component: () => import('./views/EditPackage.vue'),
     },
     {
       path: '/addPackage',
@@ -73,6 +73,18 @@ export const router = new Router({
       name: 'user',
       // lazy-loaded
       component: () => import('./views/PackageList.vue'),
+    },
+    {
+      path: '/writeblog',
+      name: 'writeblog',
+      // lazy-loaded
+      component: () => import('./views/writeblog.vue'),
+    },
+    {
+      path: '/allblogs',
+      name: 'allblogs',
+      // lazy-loaded
+      component: () => import('./views/Blog.vue'),
     },
   ],
 });

@@ -21,13 +21,13 @@
           <router-link to="/addPackage" class="nav-link">Add Packages</router-link>
         </li>
         <li v-if="showUserBoard" class="nav-item">
-          <router-link to="/allPackages" class="nav-link">All Packages</router-link>
+          <router-link to="/allPackages" class="nav-link">Book Tour</router-link>
         </li>
         <li v-if="showUserBoard" class="nav-item">
           <router-link to="/mytours" class="nav-link">My Bookings</router-link>
         </li>
         <li v-if="showUserBoard" class="nav-item">
-          <router-link to="/myblog" class="nav-link">Write Blog</router-link>
+          <router-link to="/writeblog" class="nav-link">Write Blog</router-link>
         </li>
         <li v-if="showUserBoard" class="nav-item">
           <router-link to="/allblogs" class="nav-link">All Blogs</router-link>

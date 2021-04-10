@@ -52,10 +52,10 @@
         <div>
           <label><strong>Email:</strong></label> {{ currentUser.email }}
         </div>
-        <div>
+        <!-- <div>
           <label><strong>Status:</strong></label>
           {{ currentUser.published ? 'Published' : 'Pending' }}
-        </div>
+        </div> -->
 
         <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
           Edit
