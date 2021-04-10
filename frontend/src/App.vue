@@ -3,11 +3,11 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a href class="navbar-brand" >Wandermate</a>
       <div class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <router-link to="/home" class="nav-link">
             <font-awesome-icon icon="home" />Home
           </router-link>
-        </li>
+        </li> -->
         <li v-if="showAdminBoard" class="nav-item">
           <router-link to="/admin" class="nav-link">All Users</router-link>
         </li>
@@ -21,7 +21,8 @@
           <router-link to="/addPackage" class="nav-link">Add Packages</router-link>
         </li>
         <li v-if="showUserBoard" class="nav-item">
-          <router-link to="/allPackages" class="nav-link">Book Tour</router-link>
+          <router-link to="/tours" class="nav-link"> 
+          <font-awesome-icon icon="home" />Home</router-link>
         </li>
         <li v-if="showUserBoard" class="nav-item">
           <router-link to="/mytours" class="nav-link">My Bookings</router-link>

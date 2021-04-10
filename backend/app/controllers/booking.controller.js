@@ -1,5 +1,5 @@
 const db = require("../models");
-const Itinerary = db.itinerary;
+const Booking = db.booking;
 
 // Create and Save a new User
 exports.create = (req, res) => {
@@ -10,17 +10,20 @@ exports.create = (req, res) => {
   }
 
   // Create a User
-  const itinerary = new Itinerary({
+  const booking = new Booking({
     username:req.body.username,
+    guide: req.body.guide,
     package_name: req.body.package_name,
     location: req.body.location,
-    days:req.body.days,
-    cost: req.body.cost,
+    start_date:req.body.start_date,
+    end_date:req.body.end_date,
+    review:req.body.review,
+    rating:req.body.rating,
     // published: req.body.published ? req.body.published : false
   });
 
-  itinerary
-    .save(itinerary)
+  booking
+    .save(booking)
     .then(data => {
       res.send(data);
     })
@@ -34,9 +37,9 @@ exports.create = (req, res) => {
 
 // Retrieve all itineraries from the database.
 exports.findAll = (req, res) => {
-  const package_name = req.query.package_name;
-  var condition = package_name ? { package_name: { $regex: new RegExp(package_name), $options: "i" } } : {};
-  Itinerary.find(condition)
+  const location = req.query.location;
+  var condition = location ? { location: { $regex: new RegExp(location), $options: "i" } } : {};
+  Booking.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -52,7 +55,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Itinerary.findById(id)
+  Booking.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found User with id " + id });
@@ -75,7 +78,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Itinerary.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Booking.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -94,31 +97,31 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Itinerary.findByIdAndRemove(id, { useFindAndModify: false })
+  Booking.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete itinerary with id=${id}. Maybe itinerary was not found!`
+          message: `Cannot delete booking with id=${id}. Maybe booking was not found!`
         });
       } else {
         res.send({
-          message: "itinerary was deleted successfully!"
+          message: "booking was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete itinerary with id=" + id
+        message: "Could not delete booking with id=" + id
       });
     });
 };
 
 // Delete all itineraries from the database.
 exports.deleteAll = (req, res) => {
-    Itinerary.deleteMany({})
+    Booking.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} itinerary were deleted successfully!`
+        message: `${data.deletedCount} booking were deleted successfully!`
       });
     })
     .catch(err => {
@@ -131,7 +134,7 @@ exports.deleteAll = (req, res) => {
 
 // Find all published itineraries
 // exports.findAllPublished = (req, res) => {
-//     Itinerary.find({ published: true })
+//     booking.find({ published: true })
 //     .then(data => {
 //       res.send(data);
 //     })

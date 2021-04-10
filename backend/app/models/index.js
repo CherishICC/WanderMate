@@ -8,6 +8,7 @@ db.mongoose = mongoose;
 db.user = require("./user.model");
 db.role = require("./role.model");
 db.itinerary = require("./itinerary.model");
+db.booking = require("./booking.model")
 
 db.ROLES = ["user", "admin", "guide"];
 

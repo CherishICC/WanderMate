@@ -2,6 +2,7 @@ const { authJwt } = require("../middlewares");
 const controller = require("../controllers/user.controller");
 const cust_controller = require("../controllers/customer.controller");
 const guide_controller = require("../controllers/itinerary.controller");
+const book_controller = require("../controllers/booking.controller");
 
 
 module.exports = function(app) {
@@ -15,7 +16,48 @@ module.exports = function(app) {
 
   app.get("/api/test/all", controller.allAccess);
 
-  app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
+  // user booking
+  app.post(
+    "/api/test/booking",
+    [authJwt.verifyToken, authJwt.isUser],
+    book_controller.create
+  );
+  app.get(
+    "/api/test/booking",
+    [authJwt.verifyToken, authJwt.isUser],
+    book_controller.findAll
+  );
+  app.get(
+    "/api/test/booking/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    book_controller.findOne
+  );
+  app.put(
+    "/api/test/booking/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    book_controller.update
+  );
+  app.delete(
+    "/api/test/booking/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    book_controller.delete
+  );
+  app.delete(
+    "/api/test/booking",
+    [authJwt.verifyToken, authJwt.isUser],
+    book_controller.deleteAll
+  );
+  // 
+  app.get(
+    "/api/test/package-booking",
+    [authJwt.verifyToken, authJwt.isUser],
+    guide_controller.findAll
+  );
+  app.get(
+    "/api/test/package-booking/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    guide_controller.findOne
+  );
 
 
   // guide

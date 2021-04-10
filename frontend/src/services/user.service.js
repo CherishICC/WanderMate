@@ -8,10 +8,20 @@ class UserService {
     return axios.get(API_URL + 'all');
   }
 
-  getUserBoard() {
-    return axios.get(API_URL + 'user', { headers: authHeader() });
+ 
+  // customer
+  userPackageListAll()
+  {
+    return axios.get(API_URL + `package-booking`, { headers: authHeader() });
   }
-
+  userPackageList(id)
+  {
+    return axios.get(API_URL + `package-booking/${id}`, { headers: authHeader() });
+  }
+  packagefindByLocation(location)
+  {
+    return axios.get(API_URL + `package-booking?location=${location}`, { headers: authHeader()});
+  }
 
 
   // guide

@@ -75,6 +75,12 @@ export const router = new Router({
       component: () => import('./views/PackageList.vue'),
     },
     {
+      path: '/tours',
+      name: 'tours',
+      // lazy-loaded
+      component: () => import('./views/tours.vue'),
+    },
+    {
       path: '/writeblog',
       name: 'writeblog',
       // lazy-loaded

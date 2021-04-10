@@ -8,10 +8,17 @@
           type="text"
           class="form-control"
           id="username"
-          required
           v-model="pack_info.username"
+          v-validate="'required|min:3|max:20'"
           name="username"
         />
+        <div class="invalid-feedback">{{ errors.first("username") }}</div>        
+        <div
+              v-if="submitted && errors.has('username')"
+              class="alert-danger"
+            >
+              {{ errors.first('username') }}
+        </div>
       </div>
       <div class="form-group">
         <label for="package_name">Package Name</label>
@@ -21,8 +28,16 @@
           id="package_name"
           required
           v-model="pack_info.package_name"
+          v-validate="'required|min:3|max:50'"
           name="package_name"
         />
+        <div class="invalid-feedback">{{ errors.first("username") }}</div>        
+        <div
+              v-if="submitted && errors.has('username')"
+              class="alert-danger"
+            >
+              {{ errors.first('username') }}
+        </div>
       </div>  
     
       <div class="form-group">
@@ -33,8 +48,16 @@
           id="location"
           required
           v-model="pack_info.location"
+          v-validate="'required|min:3|max:30'"
           name="location"
         />
+        <div class="invalid-feedback">{{ errors.first("username") }}</div>        
+        <div
+              v-if="submitted && errors.has('username')"
+              class="alert-danger"
+            >
+              {{ errors.first('username') }}
+        </div>
       </div>
 
       <div class="form-group">
@@ -85,7 +108,6 @@
 // import AuthService from "../services/auth.service.js";
 import UserService from "../services/user.service";
 import $ from "jquery";
-
 export default {
   name: "addPackage",
   data() {

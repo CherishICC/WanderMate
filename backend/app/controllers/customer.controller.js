@@ -130,15 +130,15 @@ exports.deleteAll = (req, res) => {
 };
 
 // Find all published Users
-exports.findAllPublished = (req, res) => {
-  User.find({ published: true })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving users."
-      });
-    });
-};
+// exports.findAllPublished = (req, res) => {
+//   User.find({ published: true })
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while retrieving users."
+//       });
+//     });
+// };

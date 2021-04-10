@@ -5,14 +5,14 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Search by Package Name"
-          v-model="username"
+          placeholder="Search by Location"
+          v-model="location"
         />
         <div class="input-group-append">
           <button
             class="btn btn-outline-secondary"
             type="button"
-            @click="searchUsername"
+            @click="searchLocation"
           >
             Search
           </button>
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Packages List</h4>
+      <h4>Users List</h4>
       <ul class="list-group">
         <li
           class="list-group-item"
@@ -57,12 +57,12 @@
         </div>
 
         <a class="badge badge-warning" :href="'/package/' + currentUser._id">
-          Edit
+          Book
         </a>
       </div>
       <div v-else>
         <br />
-        <p>Please click on a Package...</p>
+        <p>Please click on a Tour...</p>
       </div>
     </div>
   </div>
@@ -70,6 +70,7 @@
 
 <script>
 import UserDataService from '../services/user.service';
+
 export default {
   name: 'users-list',
   data() {
@@ -77,12 +78,12 @@ export default {
       users: [],
       currentUser: null,
       currentIndex: -1,
-      username: '',
+      location: '',
     };
   },
   methods: {
     retrieveUsers() {
-      UserDataService.packagegetAll()
+      UserDataService.userPackageListAll()
         .then((response) => {
           this.users = response.data;
           console.log(response.data);
@@ -91,27 +92,20 @@ export default {
           console.log(e);
         });
     },
+
     refreshList() {
       this.retrieveUsers();
       this.currentUser = null;
       this.currentIndex = -1;
     },
+
     setActiveUser(user, index) {
       this.currentUser = user;
       this.currentIndex = index;
     },
-    removeAllUsers() {
-      UserDataService.packagedeleteAll()
-        .then((response) => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-    searchUsername() {
-      UserDataService.packagefindByUsername(this.package_name)
+
+    searchLocation() {
+      UserDataService.packagefindByLocation(this.location)
         .then((response) => {
           this.users = response.data;
           console.log(response.data);
