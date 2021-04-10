@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Users List</h4>
+      <h4>Packages List</h4>
       <ul class="list-group">
         <li
           class="list-group-item"
@@ -62,7 +62,7 @@
       </div>
       <div v-else>
         <br />
-        <p>Please click on a User...</p>
+        <p>Please click on a Package...</p>
       </div>
     </div>
   </div>
