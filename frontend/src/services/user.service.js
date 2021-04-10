@@ -10,6 +10,21 @@ class UserService {
 
  
   // customer
+  userBookingAll()
+  {
+    return axios.get(API_URL + `booking`, { headers: authHeader() });
+  }
+  userBooking(id)
+  {
+    return axios.get(API_URL + `booking${id}`, { headers: authHeader() });
+  }
+  bookingfindByLocation(location)
+  {
+    return axios.get(API_URL + `booking?location=${location}`, { headers: authHeader()});
+  }
+
+
+  // packages in user page
   userPackageListAll()
   {
     return axios.get(API_URL + `package-booking`, { headers: authHeader() });

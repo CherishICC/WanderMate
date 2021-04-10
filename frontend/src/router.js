@@ -81,6 +81,12 @@ export const router = new Router({
       component: () => import('./views/tours.vue'),
     },
     {
+      path: '/mytours',
+      name: 'mytours',
+      // lazy-loaded
+      component: () => import('./views/mybooking.vue'),
+    },
+    {
       path: '/writeblog',
       name: 'writeblog',
       // lazy-loaded
