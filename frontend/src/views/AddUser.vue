@@ -12,6 +12,7 @@
           v-validate="'required|min:3'"
           name="username"
         />
+        <div class="invalid-feedback">{{ errors.first("username") }}</div>        
         <div
               v-if="submitted && errors.has('username')"
               class="alert-danger"
@@ -30,6 +31,7 @@
           v-validate="'required|min:6'"
           name="password"
         />
+        <div class="invalid-feedback">{{ errors.first("password") }}</div>        
         <div
               v-if="submitted && errors.has('password')"
               class="alert-danger"
@@ -76,27 +78,32 @@
       <div class="form-group">
         <label for="phone">Phone</label>
         <input
-          type="text"
+          v-model="guide.phone"
+          v-validate="'required|min:10|max:10'"          
+          type="phone"
           class="form-control"
           id="phone"
-          required
-          v-model="guide.phone"
           name="phone"
         />
+        <div class="invalid-feedback">{{ errors.first("phone") }}</div>        
+        <div v-if="submitted && errors.has('phone')" class="alert-danger">
+          {{ errors.first('phone') }}
+        </div>        
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
         <input
-          type="email"
-          class="form-control"
-          id="email"
           v-model="guide.email"
           v-validate="'required|email|max:50'"
+          type="text"
+          class="form-control"
+          id="email"
           name="email"
         />
+        <div class="invalid-feedback">{{ errors.first("email") }}</div>        
         <div v-if="submitted && errors.has('email')" class="alert-danger">
-              {{ errors.first('email') }}
+          {{ errors.first('email') }}
         </div>
       </div>
 
@@ -126,7 +133,7 @@ export default {
         roles:"",
         // published: false
       },
-      submitted: false
+      submitted: false,
     };
   },
   mounted(){
