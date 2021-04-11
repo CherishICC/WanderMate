@@ -56,7 +56,7 @@
           <label><strong>Cost:</strong></label> {{ currentUser.cost }}
         </div>
 
-        <a class="badge badge-warning" :href="'/package/' + currentUser._id">
+        <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
           Book
         </a>
       </div>

@@ -98,6 +98,12 @@ export const router = new Router({
       // lazy-loaded
       component: () => import('./views/Blog.vue'),
     },
+    {
+      path: '/booking/:id',
+      name: 'mytours-details',
+      // lazy-loaded
+      component: () => import('./views/Booking.vue'),
+    },
   ],
 });
 

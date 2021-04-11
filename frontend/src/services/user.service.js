@@ -22,7 +22,10 @@ class UserService {
   {
     return axios.get(API_URL + `booking?location=${location}`, { headers: authHeader()});
   }
-
+  bookingcreate(data)
+  {
+    return axios.post(API_URL + `booking`, {headers: authHeader()},data);
+  }
 
   // packages in user page
   userPackageListAll()
@@ -50,7 +53,7 @@ class UserService {
   }
   packagecreate(data)
   {
-    return axios.get(API_URL + `package`, {headers: authHeader()},data);
+    return axios.post(API_URL + `package`, {headers: authHeader()},data);
   }
   packageupdate(id,data) {
     return axios.put(API_URL + `package/${id}`, { headers: authHeader()},data);
