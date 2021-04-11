@@ -40,9 +40,9 @@
     <div class="col-md-6">
       <div v-if="currentUser">
         <h4>User</h4>
-        <!-- <div>
+        <div>
           <label><strong>Username:</strong></label> {{ currentUser.username }}
-        </div> -->
+        </div>
         <div>
           <label><strong>Package:</strong></label> {{ currentUser.package_name }}
         </div>

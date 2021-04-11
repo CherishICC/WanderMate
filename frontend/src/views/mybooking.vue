@@ -83,6 +83,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       username: '',
+      location: '',
     };
   },
   methods: {
