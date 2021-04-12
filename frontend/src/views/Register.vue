@@ -8,7 +8,6 @@
       />
       <form name="form" @submit.prevent="handleRegister">
         <div v-if="!successful">
-
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -24,7 +23,6 @@
             >
               {{ errors.first('username') }}
             </div>
-            
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>

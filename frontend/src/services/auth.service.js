@@ -32,7 +32,7 @@ class AuthService {
   }
 
   create(data) {
-    return axios.post(API_URL + 'signup',data);
+    return axios.post(API_URL + 'signup', data);
   }
 }
 

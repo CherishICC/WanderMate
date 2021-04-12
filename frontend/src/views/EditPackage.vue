@@ -2,7 +2,6 @@
   <div v-if="currentUser" class="edit-form">
     <h4>Package</h4>
     <form>
-
       <!-- <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username"
@@ -14,30 +13,37 @@
 
       <div class="form-group">
         <label for="package_name">Package</label>
-        <input type="text" class="form-control" id="package_name"
+        <input
+          type="text"
+          class="form-control"
+          id="package_name"
           v-model="currentUser.package_name"
           v-validate="'required|min:3|max:40'"
           name="package_name"
         />
 
-      <!-- </div>
+        <!-- </div>
       <div class="form-group">
         <label for="description">Description</label>
         <input type="text" class="form-control" id="description"
           v-model="currentUser.description"
         /> -->
-
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone"
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
           v-model="currentUser.phone"
         />
-
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control" id="email"
+        <input
+          type="text"
+          class="form-control"
+          id="email"
           v-model="currentUser.email"
           v-validate="'required|email|max:50'"
           name="email"
@@ -47,9 +53,7 @@
         <label><strong>Status:</strong></label>
         {{ currentUser.published ? "Published" : "Pending" }}
       </div> -->
-      
     </form>
-    
 
     <!-- <button class="badge badge-primary mr-2"
       v-if="currentUser.published"
@@ -63,25 +67,20 @@
       Publish
     </button> -->
 
-    <button class="badge badge-danger mr-2"
-      @click="deletePackage"
-    >
+    <button class="badge badge-danger mr-2" @click="deletePackage">
       Delete
     </button>
     <p>{{ message }}</p>
-    <button type="submit" class="badge badge-success"
-      @click="updatePackage"
-    >
+    <button type="submit" class="badge badge-success" @click="updatePackage">
       Update
     </button>
     <p>{{ message }}</p>
   </div>
-  
+
   <div v-else>
     <br />
     <p>Please click on a Guide...</p>
   </div>
- 
 </template>
 
 <script>
@@ -89,23 +88,23 @@ import UserDataService from '../services/user.service';
 // import UserAuthService from '../services/auth.service';
 
 export default {
-  name: "guide",
+  name: 'guide',
   data() {
     return {
       currentUser: null,
-      updated:false,
-      deleted:false,
-      message: ''
+      updated: false,
+      deleted: false,
+      message: '',
     };
   },
   methods: {
     getGuide(id) {
       UserDataService.get(id)
-        .then(response => {
+        .then((response) => {
           this.currentUser = response.data;
           console.log(response.data);
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     },
@@ -133,32 +132,32 @@ export default {
 
     updatePackage() {
       UserDataService.packageupdate(this.currentUser._id, this.currentUser)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
           this.message = 'The User was updated successfully!';
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     },
 
     deletePackage() {
       UserDataService.packagedelete(this.currentUser._id)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
           // this.$router.push({ name: "Guides" });
           this.message = 'The User was deleted successfully!';
-          this.deleted=true
+          this.deleted = true;
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
-    }
+    },
   },
   mounted() {
     this.message = '';
     this.getGuide(this.$route.params.id);
-  }
+  },
 };
 </script>
 

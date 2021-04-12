@@ -44,7 +44,8 @@
           <label><strong>Username:</strong></label> {{ currentUser.username }}
         </div>
         <div>
-          <label><strong>Package:</strong></label> {{ currentUser.package_name }}
+          <label><strong>Package:</strong></label>
+          {{ currentUser.package_name }}
         </div>
         <div>
           <label><strong>Location:</strong></label> {{ currentUser.location }}
@@ -72,7 +73,7 @@
 import UserDataService from '../services/user.service';
 
 export default {
-  name: 'users-list',
+  name: 'tours-list',
   data() {
     return {
       users: [],

@@ -23,9 +23,9 @@ Vue.config.productionTip = false;
 Vue.use(VeeValidate, {
   classes: true,
   classNames: {
-    valid: "is-valid",
-    invalid: "is-invalid"
-  }
+    valid: 'is-valid',
+    invalid: 'is-invalid',
+  },
 });
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

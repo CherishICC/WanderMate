@@ -8,68 +8,63 @@ class UserService {
     return axios.get(API_URL + 'all');
   }
 
- 
   // customer
-  userBookingAll()
-  {
+  userBookingAll() {
     return axios.get(API_URL + `booking`, { headers: authHeader() });
   }
-  userBooking(id)
-  {
+  userBooking(id) {
     return axios.get(API_URL + `booking${id}`, { headers: authHeader() });
   }
-  bookingfindByLocation(location)
-  {
-    return axios.get(API_URL + `booking?location=${location}`, { headers: authHeader()});
+  bookingfindByLocation(location) {
+    return axios.get(API_URL + `booking?location=${location}`, {
+      headers: authHeader(),
+    });
   }
-  bookingcreate(data)
-  {
-    return axios.post(API_URL + `booking`, {headers: authHeader()},data);
+  bookingcreate(data) {
+    console.log(authHeader(), data);
+    return axios.post(API_URL + `booking`,data, { headers: authHeader()});
   }
 
   // packages in user page
-  userPackageListAll()
-  {
+  userPackageListAll() {
     return axios.get(API_URL + `package-booking`, { headers: authHeader() });
   }
-  userPackageList(id)
-  {
-    return axios.get(API_URL + `package-booking/${id}`, { headers: authHeader() });
+  userPackageList(id) {
+    return axios.get(API_URL + `package-booking/${id}`, {
+      headers: authHeader(),
+    });
   }
-  packagefindByLocation(location)
-  {
-    return axios.get(API_URL + `package-booking?location=${location}`, { headers: authHeader()});
+  packagefindByLocation(location) {
+    return axios.get(API_URL + `package-booking?location=${location}`, {
+      headers: authHeader(),
+    });
   }
-
 
   // guide
-  packagegetAll()
-  {
+  packagegetAll() {
     return axios.get(API_URL + `package`, { headers: authHeader() });
   }
-  packageget(id)
-  {
+  packageget(id) {
     return axios.get(API_URL + `package/${id}`, { headers: authHeader() });
   }
-  packagecreate(data)
-  {
-    return axios.post(API_URL + `package`, {headers: authHeader()},data);
+  packagecreate(data) {
+    return axios.post(API_URL + `package`,data, { headers: authHeader() });
   }
-  packageupdate(id,data) {
-    return axios.put(API_URL + `package/${id}`, { headers: authHeader()},data);
+  packageupdate(id, data) {
+    return axios.put(
+      API_URL + `package/${id}`, { headers: authHeader(),data });
   }
   packagedelete(id) {
-    return axios.delete(API_URL + `package/${id}`, { headers: authHeader()});
+    return axios.delete(API_URL + `package/${id}`, { headers: authHeader() });
   }
   packagedeleteAll() {
-    return axios.delete(API_URL + `package`, { headers: authHeader()} );
+    return axios.delete(API_URL + `package`, { headers: authHeader() });
   }
-  packagefindByUsername(package_name)
-  {
-    return axios.get(API_URL + `package?package_name=${package_name}`, { headers: authHeader()});
+  packagefindByUsername(package_name) {
+    return axios.get(API_URL + `package?package_name=${package_name}`, {
+      headers: authHeader(),
+    });
   }
-
-
 
   // admin
   getAll() {
@@ -79,23 +74,23 @@ class UserService {
     return axios.get(API_URL + `admin/${id}`, { headers: authHeader() });
   }
   create(data) {
-    return axios.post(API_URL + `admin`, { headers: authHeader()},data);
+    return axios.post(API_URL + `admin`,data, { headers: authHeader() });
   }
-  update(id,data) {
-    return axios.put(API_URL + `admin/${id}`, { headers: authHeader()},data);
+  update(id, data) {
+    return axios.put(API_URL + `admin/${id}`, data,{ headers: authHeader() });
   }
   delete(id) {
-    return axios.delete(API_URL + `admin/${id}`, { headers: authHeader()});
+    return axios.delete(API_URL + `admin/${id}`, { headers: authHeader() });
   }
   deleteAll() {
-    return axios.delete(API_URL + `admin`, { headers: authHeader()} );
+    return axios.delete(API_URL + `admin`, { headers: authHeader() });
   }
-  findByUsername(username)
-  {
-    return axios.get(API_URL + `admin?username=${username}`, { headers: authHeader()});
+  findByUsername(username) {
+    return axios.get(API_URL + `admin?username=${username}`, {
+      headers: authHeader(),
+    });
   }
 }
-
 
 const userService = new UserService();
 

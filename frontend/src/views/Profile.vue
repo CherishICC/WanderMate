@@ -29,7 +29,7 @@
       </li>
     </ul>
     <a class="badge badge-warning" :href="'/package/' + currentUser._id">
-          Edit
+      Edit
     </a>
   </div>
 </template>

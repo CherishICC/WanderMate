@@ -1,7 +1,6 @@
 <template>
   <div id="AddPackage" class="submit-form">
     <div v-if="!submitted">
-
       <div class="form-group">
         <label for="username">Username</label>
         <input
@@ -12,12 +11,9 @@
           v-validate="'required|min:3|max:20'"
           name="username"
         />
-        <div class="invalid-feedback">{{ errors.first("username") }}</div>        
-        <div
-              v-if="submitted && errors.has('username')"
-              class="alert-danger"
-            >
-              {{ errors.first('username') }}
+        <div class="invalid-feedback">{{ errors.first('username') }}</div>
+        <div v-if="submitted && errors.has('username')" class="alert-danger">
+          {{ errors.first('username') }}
         </div>
       </div>
       <div class="form-group">
@@ -31,15 +27,12 @@
           v-validate="'required|min:3|max:50'"
           name="package_name"
         />
-        <div class="invalid-feedback">{{ errors.first("username") }}</div>        
-        <div
-              v-if="submitted && errors.has('username')"
-              class="alert-danger"
-            >
-              {{ errors.first('username') }}
+        <div class="invalid-feedback">{{ errors.first('username') }}</div>
+        <div v-if="submitted && errors.has('username')" class="alert-danger">
+          {{ errors.first('username') }}
         </div>
-      </div>  
-    
+      </div>
+
       <div class="form-group">
         <label for="location">Location</label>
         <input
@@ -51,12 +44,9 @@
           v-validate="'required|min:3|max:30'"
           name="location"
         />
-        <div class="invalid-feedback">{{ errors.first("username") }}</div>        
-        <div
-              v-if="submitted && errors.has('username')"
-              class="alert-danger"
-            >
-              {{ errors.first('username') }}
+        <div class="invalid-feedback">{{ errors.first('username') }}</div>
+        <div v-if="submitted && errors.has('username')" class="alert-danger">
+          {{ errors.first('username') }}
         </div>
       </div>
 
@@ -106,28 +96,28 @@
 
 <script>
 // import AuthService from "../services/auth.service.js";
-import UserService from "../services/user.service";
-import $ from "jquery";
+import UserService from '../services/user.service';
+import $ from 'jquery';
 export default {
-  name: "addPackage",
+  name: 'addPackage',
   data() {
     return {
       pack_info: {
         id: null,
-        username:"",
-        package_name: "",
-        location: "",
-        days:"",
-        cost:""
+        username: '',
+        package_name: '',
+        location: '',
+        days: '',
+        cost: '',
         // published: false
       },
-      submitted: false
+      submitted: false,
     };
   },
-  mounted(){
-    const ref= this;
+  mounted() {
+    const ref = this;
     $('.dropdown-toggle').dropdown();
-     $('.dropdown-menu a').click(function () {
+    $('.dropdown-menu a').click(function () {
       $('#dropdownMenuButton').text($(this).text());
       // $('#AddPackage').__vue__.setRole($(this).text());
       ref.setRole($(this).text());
@@ -136,20 +126,20 @@ export default {
   methods: {
     savePackage() {
       var data = {
-        username:this.pack_info.username,
+        username: this.pack_info.username,
         package_name: this.pack_info.package_name,
         location: this.pack_info.location,
         days: this.pack_info.days,
-        cost: this.pack_info.cost
+        cost: this.pack_info.cost,
       };
       console.log(data);
       UserService.packagecreate(data)
-        .then(response => {
+        .then((response) => {
           this.pack_info.id = response.data.id;
           console.log(response.data);
           this.submitted = true;
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     },
@@ -159,8 +149,8 @@ export default {
     newPackage() {
       this.submitted = false;
       this.pack_info = {};
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -168,6 +158,6 @@ export default {
 .submit-form {
   max-width: 300px;
   margin: auto;
-  margin-top:30px;
+  margin-top: 30px;
 }
 </style>

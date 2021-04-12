@@ -44,13 +44,15 @@
           <label><strong>Username:</strong></label> {{ currentUser.username }}
         </div>
         <div>
-          <label><strong>Package:</strong></label> {{ currentUser.package_name }}
+          <label><strong>Package:</strong></label>
+          {{ currentUser.package_name }}
         </div>
         <div>
           <label><strong>Location:</strong></label> {{ currentUser.location }}
         </div>
         <div>
-          <label><strong>Start Date:</strong></label> {{ currentUser.start_date }}
+          <label><strong>Start Date:</strong></label>
+          {{ currentUser.start_date }}
         </div>
         <div>
           <label><strong>End Date:</strong></label> {{ currentUser.end_date }}
@@ -82,7 +84,6 @@ export default {
       users: [],
       currentUser: null,
       currentIndex: -1,
-      username: '',
       location: '',
     };
   },

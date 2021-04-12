@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href class="navbar-brand" >Wandermate</a>
+      <a href class="navbar-brand">Wandermate</a>
       <div class="navbar-nav mr-auto">
         <!-- <li class="nav-item">
           <router-link to="/home" class="nav-link">
@@ -18,11 +18,14 @@
           <router-link to="/package" class="nav-link">Packages</router-link>
         </li>
         <li v-if="showGuideBoard" class="nav-item">
-          <router-link to="/addPackage" class="nav-link">Add Packages</router-link>
+          <router-link to="/addPackage" class="nav-link"
+            >Add Packages</router-link
+          >
         </li>
         <li v-if="showUserBoard" class="nav-item">
-          <router-link to="/tours" class="nav-link"> 
-          <font-awesome-icon icon="home" />Home</router-link>
+          <router-link to="/tours" class="nav-link">
+            <font-awesome-icon icon="home" />Home</router-link
+          >
         </li>
         <li v-if="showUserBoard" class="nav-item">
           <router-link to="/mytours" class="nav-link">My Bookings</router-link>
