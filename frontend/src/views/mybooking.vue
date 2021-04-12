@@ -62,7 +62,7 @@
           {{ currentUser.published ? 'Published' : 'Pending' }}
         </div> -->
 
-        <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
+        <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
           Edit
         </a>
       </div>

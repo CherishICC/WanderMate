@@ -21,13 +21,6 @@
           v-validate="'required|min:3|max:40'"
           name="package_name"
         />
-
-        <!-- </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description"
-          v-model="currentUser.description"
-        /> -->
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
@@ -79,7 +72,7 @@
 
   <div v-else>
     <br />
-    <p>Please click on a Guide...</p>
+    <p>Please click on a Guides...</p>
   </div>
 </template>
 
@@ -99,7 +92,7 @@ export default {
   },
   methods: {
     getGuide(id) {
-      UserDataService.get(id)
+      UserDataService.packageget(id)
         .then((response) => {
           this.currentUser = response.data;
           console.log(response.data);

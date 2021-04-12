@@ -52,7 +52,7 @@ class UserService {
   }
   packageupdate(id, data) {
     return axios.put(
-      API_URL + `package/${id}`, { headers: authHeader(),data });
+      API_URL + `package/${id}`,data, { headers: authHeader()});
   }
   packagedelete(id) {
     return axios.delete(API_URL + `package/${id}`, { headers: authHeader() });

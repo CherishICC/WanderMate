@@ -52,13 +52,13 @@ export const router = new Router({
     },
     {
       path: '/package',
-      name: 'package-details',
+      name: 'package',
       // lazy-loaded
       component: () => import('./views/PackageList.vue'),
     },
     {
       path: '/package/:id',
-      name: 'package',
+      name: 'package-details',
       // lazy-loaded
       component: () => import('./views/EditPackage.vue'),
     },

@@ -104,6 +104,7 @@ export default {
       updated: false,
       deleted: false,
       message: '',
+      submitted:''
     };
   },
   methods: {
