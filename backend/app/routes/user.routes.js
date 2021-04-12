@@ -3,7 +3,7 @@ const controller = require("../controllers/user.controller");
 const cust_controller = require("../controllers/customer.controller");
 const guide_controller = require("../controllers/itinerary.controller");
 const book_controller = require("../controllers/booking.controller");
-
+const blog_controller = require("../controllers/blog.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -42,12 +42,8 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isUser],
     book_controller.delete
   );
-  app.delete(
-    "/api/test/booking",
-    [authJwt.verifyToken, authJwt.isUser],
-    book_controller.deleteAll
-  );
-  // 
+
+  // list all available packages
   app.get(
     "/api/test/package-booking",
     [authJwt.verifyToken, authJwt.isUser],
@@ -58,6 +54,35 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isUser],
     guide_controller.findOne
   );
+
+
+  // user blog
+  app.post(
+    "/api/test/blog",
+    [authJwt.verifyToken, authJwt.isUser],
+    blog_controller.create
+  );
+  app.get(
+    "/api/test/blog",
+    [authJwt.verifyToken, authJwt.isUser],
+    blog_controller.findAll
+  );
+  app.get(
+    "/api/test/blog/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    blog_controller.findOne
+  );
+  app.put(
+    "/api/test/blog/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    blog_controller.update
+  );
+  app.delete(
+    "/api/test/blog/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    blog_controller.delete
+  );
+
 
 
   // guide
