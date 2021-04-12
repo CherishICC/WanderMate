@@ -65,13 +65,11 @@ export default {
     savePackage() {
       var data = {
         username: this.pack_info.username,
-        package_name: this.pack_info.package_name,
         location: this.pack_info.location,
-        days: this.pack_info.days,
-        cost: this.pack_info.cost,
+        experience: this.pack_info.experience,
       };
       console.log(data);
-      UserService.packagecreate(data)
+      UserService.createblog(data)
         .then((response) => {
           this.pack_info.id = response.data.id;
           console.log(response.data);

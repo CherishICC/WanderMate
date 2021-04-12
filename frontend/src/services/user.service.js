@@ -40,6 +40,35 @@ class UserService {
     });
   }
 
+  // blogs in user page
+  bloggetAll() {
+    return axios.get(API_URL + `blog`, { headers: authHeader() });
+  }
+  getblog(id) {
+    return axios.get(API_URL + `blog/${id}`, { headers: authHeader() });
+  }
+  createblog(data) {
+    return axios.post(API_URL + `blog`,data, { headers: authHeader() });
+  }
+  updateblog(id, data) {
+    return axios.put(
+      API_URL + `blog/${id}`,data, { headers: authHeader()});
+  }
+  deleteblog(id) {
+    return axios.delete(API_URL + `blog/${id}`, { headers: authHeader() });
+  }
+  blogdeleteAll() {
+    return axios.delete(API_URL + `blog`, { headers: authHeader() });
+  }
+  blogfindBylocation(location) {
+    return axios.get(API_URL + `blog?location=${location}`, {
+      headers: authHeader(),
+    });
+  }
+
+
+
+
   // guide
   packagegetAll() {
     return axios.get(API_URL + `package`, { headers: authHeader() });

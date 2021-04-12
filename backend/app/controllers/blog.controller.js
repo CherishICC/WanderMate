@@ -4,7 +4,7 @@ const Blog = db.blog;
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.package_name) {
+  if (!req.body.location) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }

@@ -29,7 +29,7 @@
           :key="index"
           @click="setActiveUser(user, index)"
         >
-          {{ user.username }}
+          {{ user.location }}
         </li>
       </ul>
 
@@ -43,27 +43,20 @@
         <div>
           <label><strong>Username:</strong></label> {{ currentUser.username }}
         </div>
+        <div>
+          <label><strong>Location:</strong></label> {{ currentUser.location }}
+        </div>
+        <div>
+          <label><strong>Experience:</strong></label> {{ currentUser.experience }}
+        </div>
         <!-- <div>
-          <label><strong>Password:</strong></label> {{ currentUser.password }}
-        </div> -->
-        <div>
-          <label><strong>Phone:</strong></label> {{ currentUser.phone }}
-        </div>
-        <div>
-          <label><strong>Email:</strong></label> {{ currentUser.email }}
-        </div>
-        <div>
           <label><strong>Status:</strong></label>
           {{ currentUser.published ? 'Published' : 'Pending' }}
-        </div>
-
-        <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
-          Edit
-        </a>
+        </div> -->
       </div>
       <div v-else>
         <br />
-        <p>Please click on a Package...</p>
+        <p>Please click on a Blog to view...</p>
       </div>
     </div>
   </div>
@@ -85,7 +78,7 @@ export default {
   },
   methods: {
     retrieveUsers() {
-      UserDataService.getAll()
+      UserDataService.bloggetAll()
         .then((response) => {
           this.users = response.data;
           console.log(response.data);

@@ -87,6 +87,12 @@ export const router = new Router({
       component: () => import('./views/mybooking.vue'),
     },
     {
+      path: '/booking/:id',
+      name: 'mytours-details',
+      // lazy-loaded
+      component: () => import('./views/Booking.vue'),
+    },
+    {
       path: '/writeblog',
       name: 'writeblog',
       // lazy-loaded
@@ -97,12 +103,6 @@ export const router = new Router({
       name: 'allblogs',
       // lazy-loaded
       component: () => import('./views/Blog.vue'),
-    },
-    {
-      path: '/booking/:id',
-      name: 'mytours-details',
-      // lazy-loaded
-      component: () => import('./views/Booking.vue'),
     },
   ],
 });
