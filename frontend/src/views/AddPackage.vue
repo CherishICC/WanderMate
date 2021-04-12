@@ -73,16 +73,6 @@
         />
       </div>
 
-      <!-- <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          class="form-control"
-          id="description"
-          required
-          v-model="pack_info.description"
-          name="description"
-        />
-      </div> -->
 
       <button @click="savePackage" class="btn btn-success">Submit</button>
     </div>

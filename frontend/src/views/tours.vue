@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Users List</h4>
+      <h4>Available Packages</h4>
       <ul class="list-group">
         <li
           class="list-group-item"

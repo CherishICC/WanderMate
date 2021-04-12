@@ -63,7 +63,7 @@
         </div> -->
 
         <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
-          Edit
+          Review
         </a>
       </div>
       <div v-else>
