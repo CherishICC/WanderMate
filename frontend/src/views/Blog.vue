@@ -111,7 +111,7 @@ export default {
     },
 
     searchUsername() {
-      UserDataService.findByUsername(this.username)
+      UserDataService.blogfindBylocation(this.location)
         .then((response) => {
           this.users = response.data;
           console.log(response.data);

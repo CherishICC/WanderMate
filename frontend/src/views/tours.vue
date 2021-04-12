@@ -29,7 +29,7 @@
           :key="index"
           @click="setActiveUser(user, index)"
         >
-          {{ user.package_name }}
+          {{ user.location }}
         </li>
       </ul>
 
