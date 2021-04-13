@@ -1,6 +1,6 @@
 <template>
   <div v-if="currentUser" class="edit-form">
-    <h4>Guide</h4>
+    <h4>User Details</h4>
     <form>
       <div class="form-group">
         <label for="username">Username</label>
@@ -11,6 +11,7 @@
           v-model="currentUser.username"
           v-validate="'required|min:3|max:20'"
           name="username"
+          :disabled="validated ? disabled : ''"
         />
         <div class="invalid-feedback">{{ errors.first('username') }}</div>
         <div v-if="submitted && errors.has('username')" class="alert-danger">

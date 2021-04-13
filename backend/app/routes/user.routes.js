@@ -83,7 +83,41 @@ module.exports = function(app) {
     blog_controller.delete
   );
 
+  // guide profile
+  app.get(
+    "/api/test/guide/:id",
+    [authJwt.verifyToken, authJwt.isGuide],
+    cust_controller.findOne
+  );
+  app.put(
+    "/api/test/guide/:id",
+    [authJwt.verifyToken, authJwt.isGuide],
+    cust_controller.update
+  );
 
+  // user profile
+  app.get(
+    "/api/test/user/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    cust_controller.findOne
+  );
+  app.put(
+    "/api/test/user/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    cust_controller.update
+  );
+
+  // admin profile
+  app.get(
+    "/api/test/adminprofile/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    cust_controller.findOne
+  );
+  app.put(
+    "/api/test/adminprofile/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    cust_controller.update
+  );
 
   // guide
   app.post(

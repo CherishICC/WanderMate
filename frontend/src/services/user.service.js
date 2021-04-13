@@ -66,6 +66,22 @@ class UserService {
     });
   }
 
+    // user profile
+    userget(id) {
+      return axios.get(API_URL + `user/${id}`, { headers: authHeader() });
+    }
+    userupdate(id, data) {
+      return axios.put(API_URL + `user/${id}`, data, { headers: authHeader() });
+    }
+  
+    // guide profile
+    guideget(id) {
+      return axios.get(API_URL + `guide/${id}`, { headers: authHeader() });
+    }
+    guideupdate(id, data) {
+      return axios.put(API_URL + `guide/${id}`, data, { headers: authHeader() });
+    }
+
   // admin
   getAll() {
     return axios.get(API_URL + `admin`, { headers: authHeader() });

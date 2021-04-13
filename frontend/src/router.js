@@ -27,10 +27,22 @@ export const router = new Router({
       component: Register,
     },
     {
-      path: '/profile',
+      path: '/adminprofile',
       name: 'profile',
       // lazy-loaded
       component: () => import('./views/Profile.vue'),
+    },
+    {
+      path: '/userprofile',
+      name: 'userprofile',
+      // lazy-loaded
+      component: () => import('./views/UserProfile.vue'),
+    },
+    {
+      path: '/guideprofile',
+      name: 'guideprofile',
+      // lazy-loaded
+      component: () => import('./views/GuideProfile.vue'),
     },
     {
       path: '/admin',
@@ -42,7 +54,25 @@ export const router = new Router({
       path: '/admin/:id',
       name: 'guide-details',
       // lazy-loaded
-      component: () => import('./views/User.vue'),
+      component: () => import('./views/AdminUserEdit.vue'),
+    },
+    {
+      path: '/adminprofile/:id',
+      name: 'profile',
+      // lazy-loaded
+      component: () => import('./views/AdminProfileEdit.vue'),
+    },
+    {
+      path: '/user/:id',
+      name: 'user-profile-edit',
+      // lazy-loaded
+      component: () => import('./views/UserProfileEdit.vue'),
+    },
+    {
+      path: '/guide/:id',
+      name: 'guide-profile-edit',
+      // lazy-loaded
+      component: () => import('./views/GuideProfileEdit.vue'),
     },
     {
       path: '/addUser',

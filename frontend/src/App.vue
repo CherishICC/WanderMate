@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href class="navbar-brand"><img src="/assets/logo1.png">Wandermate</a>
+       <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+      <a href class="navbar-brand"><img src="/assets/logo.png">WanderMate</a>
       <div class="navbar-nav mr-auto">
         <!-- <li class="nav-item">
           <router-link to="/home" class="nav-link">
@@ -38,6 +39,32 @@
         </li>
       </div>
 
+      <div class="navbar-nav ml-auto">
+        <li v-if="showAdminBoard" class="nav-item">
+          <router-link to="/adminprofile" class="nav-link">
+            <font-awesome-icon icon="user" />
+            {{ currentUser.username }}
+          </router-link>
+        </li>
+        <li v-if="showGuideBoard" class="nav-item">
+          <router-link to="/guideprofile" class="nav-link">
+            <font-awesome-icon icon="user" />
+            {{ currentUser.username }}
+          </router-link>
+        </li>
+        <li v-if="showUserBoard" class="nav-item">
+          <router-link to="/userprofile" class="nav-link">
+            <font-awesome-icon icon="user" />
+            {{ currentUser.username }}
+          </router-link>
+        </li>
+        <li v-if="currentUser" class="nav-item">
+          <a class="nav-link" href @click.prevent="logOut">
+            <font-awesome-icon icon="sign-out-alt" />LogOut
+          </a>
+        </li>
+      </div>
+
       <div v-if="!currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
@@ -51,19 +78,6 @@
         </li>
       </div>
 
-      <div v-if="currentUser" class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <router-link to="/profile" class="nav-link">
-            <font-awesome-icon icon="user" />
-            {{ currentUser.username }}
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href @click.prevent="logOut">
-            <font-awesome-icon icon="sign-out-alt" />LogOut
-          </a>
-        </li>
-      </div>
     </nav>
 
     <div class="container">

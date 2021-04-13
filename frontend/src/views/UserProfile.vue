@@ -18,7 +18,7 @@
         {{ role }}
       </li>
     </ul>
-    <a class="badge badge-warning" :href="'/adminprofile/' + currentUser.id">
+    <a class="badge badge-warning" :href="'/user/' + currentUser.id">
       Edit
     </a>
   </div>
