@@ -80,6 +80,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       location: '',
+      username: '',
     };
   },
   methods: {
@@ -106,6 +107,7 @@ export default {
     },
 
     searchLocation() {
+      console.log(this.location);
       UserDataService.packagefindByLocation(this.location)
         .then((response) => {
           this.users = response.data;

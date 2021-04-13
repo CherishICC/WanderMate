@@ -155,7 +155,7 @@ export default {
           this.submitted = true;
         })
         .catch((e) => {
-          console.log("err:",e);
+          console.log('err:', e);
         });
     },
   },

@@ -47,7 +47,8 @@
           <label><strong>Location:</strong></label> {{ currentUser.location }}
         </div>
         <div>
-          <label><strong>Experience:</strong></label> {{ currentUser.experience }}
+          <label><strong>Experience:</strong></label>
+          {{ currentUser.experience }}
         </div>
         <!-- <div>
           <label><strong>Status:</strong></label>
@@ -73,7 +74,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       username: '',
-      location:''
+      location: '',
     };
   },
   methods: {

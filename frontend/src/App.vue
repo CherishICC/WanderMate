@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-       <!-- <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img> -->
-      <a href class="navbar-brand"><img src="/assets/logo.png">WanderMate</a>
+      <!-- <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img> -->
+      <a href class="navbar-brand"
+        ><img src="/assets/favicon.ico" />WanderMate</a
+      >
       <div class="navbar-nav mr-auto">
         <!-- <li class="nav-item">
           <router-link to="/home" class="nav-link">
@@ -77,7 +79,6 @@
           </router-link>
         </li>
       </div>
-
     </nav>
 
     <div class="container">

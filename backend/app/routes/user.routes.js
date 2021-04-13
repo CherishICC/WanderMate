@@ -45,12 +45,12 @@ module.exports = function(app) {
 
   // list all available packages
   app.get(
-    "/api/test/package-booking",
+    "/api/test/packagebooking",
     [authJwt.verifyToken, authJwt.isUser],
     guide_controller.findAll
   );
   app.get(
-    "/api/test/package-booking/:id",
+    "/api/test/packagebooking/:id",
     [authJwt.verifyToken, authJwt.isUser],
     guide_controller.findOne
   );
