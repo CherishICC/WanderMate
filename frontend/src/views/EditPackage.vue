@@ -2,14 +2,6 @@
   <div v-if="currentUser" class="edit-form">
     <h4>Package</h4>
     <form>
-      <!-- <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username"
-          v-model="currentUser.username"
-          v-validate="'required|min:3|max:20'"
-          name="username"
-        />
-      </div> -->
       <div class="form-group">
         <label for="username">Username</label>
         <input
@@ -113,6 +105,7 @@ export default {
       updated: false,
       deleted: false,
       message: '',
+      submitted:''
     };
   },
   methods: {
