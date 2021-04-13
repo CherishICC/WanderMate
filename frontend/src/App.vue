@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-       <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+       <!-- <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img> -->
       <a href class="navbar-brand"><img src="/assets/logo.png">WanderMate</a>
       <div class="navbar-nav mr-auto">
         <!-- <li class="nav-item">

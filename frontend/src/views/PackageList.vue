@@ -6,7 +6,7 @@
           type="text"
           class="form-control"
           placeholder="Search by Package Name"
-          v-model="username"
+          v-model="package_name"
         />
         <div class="input-group-append">
           <button
@@ -79,6 +79,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       username: '',
+      package_name:''
     };
   },
   methods: {

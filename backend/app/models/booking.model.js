@@ -7,8 +7,8 @@ const Booking = mongoose.model(
     guide:String,
     package_name: String,
     location: String,
-    start_date: Date,
-    end_date: Date,
+    start_date: String,
+    end_date: String,
     review: String,
     rating:Number
   })

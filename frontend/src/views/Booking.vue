@@ -98,7 +98,7 @@
     </form>
 
     <button @click="saveBooking" class="btn btn-success">Submit</button>
-    <!-- <p>{{ message }}</p> -->
+    <p>{{ message }}</p>
   </div>
 
   <div v-else>

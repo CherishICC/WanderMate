@@ -58,7 +58,7 @@ export const router = new Router({
     },
     {
       path: '/adminprofile/:id',
-      name: 'profile',
+      name: 'profile-details',
       // lazy-loaded
       component: () => import('./views/AdminProfileEdit.vue'),
     },
