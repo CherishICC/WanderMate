@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'Profile',
+  name: 'GuideProfile',
   computed: {
     currentUser() {
       return this.$store.state.auth.user;

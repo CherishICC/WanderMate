@@ -120,7 +120,7 @@
 import AuthService from '../services/auth.service.js';
 import $ from 'jquery';
 export default {
-  name: 'addGuide',
+  name: 'AddUser',
   data() {
     return {
       guide: {

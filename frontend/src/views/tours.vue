@@ -73,7 +73,7 @@
 import UserDataService from '../services/user.service';
 
 export default {
-  name: 'tours-list',
+  name: 'tours',
   data() {
     return {
       users: [],

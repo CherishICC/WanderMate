@@ -98,7 +98,7 @@
 import UserDataService from '../services/user.service';
 // import UserAuthService from '../services/auth.service';
 export default {
-  name: 'guide',
+  name: 'AdminUserEdit',
   data() {
     return {
       currentUser: null,

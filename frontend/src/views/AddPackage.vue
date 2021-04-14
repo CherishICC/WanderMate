@@ -88,7 +88,7 @@
 import UserService from '../services/user.service';
 import $ from 'jquery';
 export default {
-  name: 'addPackage',
+  name: 'AddPackage',
   data() {
     return {
       pack_info: {

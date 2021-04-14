@@ -72,7 +72,7 @@
 <script>
 import UserDataService from '../services/user.service';
 export default {
-  name: 'users-list',
+  name: 'PackageList',
   data() {
     return {
       users: [],

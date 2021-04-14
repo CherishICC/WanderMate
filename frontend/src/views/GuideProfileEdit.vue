@@ -80,7 +80,7 @@
 import UserDataService from '../services/user.service';
 // import UserAuthService from '../services/auth.service';
 export default {
-  name: 'guide',
+  name: 'GuideProfileEdit',
   data() {
     return {
       currentUser: null,

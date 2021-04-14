@@ -1,14 +1,25 @@
 <template>
   <div id="AddPackage" class="submit-form">
     <div v-if="!submitted">
+      <!-- <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          v-model="pack_info.location"
+          v-validate="'required|min:3|max:20'"
+          name="username"
+        />
+      </div> -->
       <div class="form-group">
         <label for="location">Location</label>
         <input
           type="text"
           class="form-control"
           id="location"
-          required
           v-model="pack_info.location"
+          v-validate="'required|min:3|max:20'"
           name="location"
         />
       </div>
@@ -18,8 +29,8 @@
           type="text"
           class="form-control"
           id="experience"
-          required
           v-model="pack_info.experience"
+          v-validate="'required|min:10'"
           name="experience"
         />
       </div>
@@ -39,7 +50,7 @@ import UserService from '../services/user.service';
 import $ from 'jquery';
 
 export default {
-  name: 'addPackage',
+  name: 'writeblog',
   data() {
     return {
       pack_info: {

@@ -67,7 +67,7 @@
 import UserDataService from '../services/user.service';
 
 export default {
-  name: 'users-list',
+  name: 'Blog',
   data() {
     return {
       users: [],
