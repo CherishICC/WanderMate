@@ -12,7 +12,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/vue-fontawesome": "^0.1.7",
     "axios": "^0.21.1",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.6.0",
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^2.6.5",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
@@ -54,6 +55,8 @@
       "autoprefixer": {}
     }
   },
+  "postcss-loader": "1.0.0",
+  "postcss-load-config": "1.0.0",
   "browserslist": [
     "> 1%",
     "last 2 versions"

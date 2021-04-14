@@ -3,7 +3,7 @@
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a href class="navbar-brand"
-        ><img src="../public/logo1(2).png" width="225" height="50"/></a
+        ><img src="../public/logo1(2).png" width="200" height="50"/></a
       >
       <div class="navbar-nav mr-auto">
         <li v-if="showAdminBoard" class="nav-item">
