@@ -23,7 +23,8 @@
       <h4>Packages List</h4>
       <ul class="list-group">
         <li
-          class="list-group-item"
+          class="list-group-item bg-transparent"
+          style="border: none"
           :class="{ active: index == currentIndex }"
           v-for="(user, index) in users"
           :key="index"

@@ -23,7 +23,8 @@
       <h4>Users List</h4>
       <ul class="list-group">
         <li
-          class="list-group-item"
+          class="list-group-item bg-transparent"
+          style="border: none"
           :class="{ active: index == currentIndex }"
           v-for="(user, index) in users"
           :key="index"
@@ -32,10 +33,6 @@
           {{ user.username }}
         </li>
       </ul>
-
-      <!-- <button class="m-3 btn btn-sm btn-danger" @click="removeAllUsers">
-        Remove All
-      </button> -->
     </div>
     <div class="col-md-6">
       <div v-if="currentUser">
@@ -52,6 +49,9 @@
         <div>
           <label><strong>Email:</strong></label> {{ currentUser.email }}
         </div>
+        <div>
+          <label><strong>Role:</strong></label> {{ currentUser.role }}
+        </div>
         <!-- <div>
           <label><strong>Status:</strong></label>
           {{ currentUser.published ? 'Published' : 'Pending' }}
@@ -63,7 +63,7 @@
       </div>
       <div v-else>
         <br />
-        <p>Please click on a User...</p>
+        <!-- <p>Please click on a User...</p> -->
       </div>
     </div>
   </div>

@@ -1,16 +1,11 @@
 <template>
+<div id="background">
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <!-- <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img> -->
       <a href class="navbar-brand"
-        ><img src="/assets/favicon.ico" />WanderMate</a
+        ><img src="../public/logo1(2).png" width="225" height="50"/></a
       >
       <div class="navbar-nav mr-auto">
-        <!-- <li class="nav-item">
-          <router-link to="/home" class="nav-link">
-            <font-awesome-icon icon="home" />Home
-          </router-link>
-        </li> -->
         <li v-if="showAdminBoard" class="nav-item">
           <router-link to="/admin" class="nav-link">All Users</router-link>
         </li>
@@ -85,6 +80,7 @@
       <router-view />
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -123,3 +119,30 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+  #app{
+  min-height: 100vh;    
+  }
+
+  #background {
+    background: url(../public/bg1.jpg);
+    background-repeat: no-repeat;
+    align-items: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  /* #container{
+  background-color: lightgrey;
+  border-color: black; */
+  /* justify-content: center; */
+  /* border-style: dotted;
+  border-width: 1px;
+  padding: 8px;
+  } */
+
+</style>

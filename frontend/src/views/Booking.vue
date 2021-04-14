@@ -11,8 +11,8 @@
           v-model="Booking.username"
           v-validate="'required|min:3|max:20'"
           name="username"
+        :disabled="validated ? disabled : ''"
         />
-        <!-- :disabled="validated ? disabled : ''" -->
       </div>
 
       <div class="form-group">
@@ -24,8 +24,8 @@
           v-model="Booking.username"
           v-validate="'required|min:3|max:20'"
           name="guide"
+        :disabled="validated ? disabled : ''"
         />
-        <!-- :disabled="validated ? disabled : ''" -->
       </div>
       <div class="form-group">
         <label for="package_name">Package</label>
@@ -36,8 +36,8 @@
           v-model="Booking.package_name"
           v-validate="'required|min:6|max:40'"
           name="package_name"
+        :disabled="validated ? disabled : ''"
         />
-        <!-- :disabled="validated ? disabled : ''" -->
       </div>
       <div class="form-group">
         <label for="location">Location</label>
@@ -47,8 +47,8 @@
           id="location"
           v-model="Booking.location"
           v-validate="'required|min:3|max:30'"
+        :disabled="validated ? disabled : ''"       
         />
-        <!-- :disabled="validated ? disabled : ''"        -->
       </div>
       <div class="form-group">
         <label for="days">Days</label>
@@ -58,8 +58,8 @@
           id="days"
           v-model="Booking.days"
           name="days"
+        :disabled="validated ? disabled : ''"
         />
-        <!-- :disabled="validated ? disabled : ''" -->
       </div>
 
       <div class="form-group">
@@ -70,8 +70,8 @@
           id="cost"
           v-model="Booking.cost"
           name="cost"
+        :disabled="validated ? disabled : ''"
         />
-        <!-- :disabled="validated ? disabled : ''" -->
       </div>
 
       <div class="form-group">
@@ -103,7 +103,7 @@
 
   <div v-else>
     <br />
-    <p>Please click on a Guide...</p>
+    <p>Booking Successful!</p>
   </div>
 </template>
 
@@ -142,10 +142,10 @@ export default {
       var data = {
         username: this.Booking.username,
         package_name: this.Booking.package_name,
-        // guide: this.Booking.guide,
+        guide: this.Booking.guide,
         location: this.Booking.location,
-        // start_date: this.Booking.start_date,
-        // end_date: this.Booking.end_date,
+        start_date: this.Booking.start_date,
+        end_date: this.Booking.end_date,  
       };
       console.log(data);
       UserDataService.bookingcreate(data)
