@@ -121,7 +121,7 @@ export default {
         // to be changed
         imgUrl:this.pack_info.imgUrl,
         userId:this.userId,
-        username: this.pack_info.username,
+        username: this.username,
         package_name: this.pack_info.package_name,
         location: this.pack_info.location,
         days: this.pack_info.days,
