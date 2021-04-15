@@ -19,7 +19,6 @@
         </div>
       </div>
     </div>
-    <div class="spacer5"></div>
     <div class="col-md-6">
       <h4>Bookings List</h4>
       <ul class="list-group">
@@ -145,8 +144,5 @@ export default {
   text-align: left;
   max-width: 750px;
   margin: auto;
-}
-.spacer5 {
-  height: 50px;
 }
 </style>

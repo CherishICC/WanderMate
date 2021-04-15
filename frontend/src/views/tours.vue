@@ -1,24 +1,21 @@
 <template>
-  <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by Location"
-          v-model="location"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            @click="searchLocation"
-          >
-            Search
-          </button>
+  <div>
+    <div class="search">
+      <div class="pad-15-hor pad-15-ver search-parent">
+        <div class="search-bar" >
+          <b-form-input
+            @input="searchLocation()"
+            v-model="location"
+            type="text"
+            placeholder="Search by Name"
+          ></b-form-input>
+          <span class="search-icon">
+            <i class="fas fa-search"></i>
+          </span>
         </div>
       </div>
     </div>
+  <div class="list row">
     <div class="col-md-6">
       <h4>Available Packages</h4>
       <ul class="list-group">
@@ -33,10 +30,6 @@
           {{ user.location }}
         </li>
       </ul>
-
-      <!-- <button class="m-3 btn btn-sm btn-danger" @click="removeAllUsers">
-        Remove All
-      </button> -->
     </div>
     <div class="col-md-6">
       <div v-if="currentUser">
@@ -68,11 +61,11 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 import UserDataService from '../services/user.service';
-
 export default {
   name: 'tours',
   data() {
@@ -95,18 +88,15 @@ export default {
           console.log(e);
         });
     },
-
     refreshList() {
       this.retrieveUsers();
       this.currentUser = null;
       this.currentIndex = -1;
     },
-
     setActiveUser(user, index) {
       this.currentUser = user;
       this.currentIndex = index;
     },
-
     searchLocation() {
       console.log(this.location);
       UserDataService.packagefindByLocation(this.location)
