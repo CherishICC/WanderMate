@@ -47,7 +47,7 @@ module.exports = function(app) {
   app.get(
     "/api/test/packagebooking",
     [authJwt.verifyToken, authJwt.isUser],
-    guide_controller.findAll
+    guide_controller.findAllpackages
   );
   app.get(
     "/api/test/packagebooking/:id",

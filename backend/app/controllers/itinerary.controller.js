@@ -32,11 +32,26 @@ exports.create = (req, res) => {
     });
 };
 
+exports.findAllpackages = (req, res) => {
+  var location = req.query.location; 
+  var condition = location ? { location: { $regex: new RegExp(location), $options: "i" } }: {};
+  Itinerary.find(condition)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving itineraries."
+      });
+    });
+};
+
 // Retrieve all itineraries from the database.
 exports.findAll = (req, res) => {
   const package_name = req.query.package_name;
   var condition = package_name ? { package_name: { $regex: new RegExp(package_name), $options: "i" } } : {};
-  Itinerary.find(condition)
+  Itinerary.find({ $and: [ {"userId": new ObjectID(req.userId)}, condition ] })
     .then(data => {
       res.send(data);
     })

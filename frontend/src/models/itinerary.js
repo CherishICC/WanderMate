@@ -1,5 +1,6 @@
 export default class Itinerary {
-  constructor(username, package_name, location, days, cost) {
+  constructor(userid,username, package_name, location, days, cost) {
+    this.userid = userid;
     this.username = username;
     this.package_name = package_name;
     this.location = location;

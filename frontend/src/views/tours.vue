@@ -1,25 +1,21 @@
 <template>
   <div>
     <p class="ex1">Available Packages</p>
-    <div class="search">
-      <div class="search-parent">
-        <div class="search-bar">
-          <b-form-input
-            @input="searchLocation()"
-            v-model="location"
-            type="text"
-            placeholder="Search by Location"
-          ></b-form-input>
+<div class="search">
+        <div class="pad-15-hor pad-15-ver search-parent">
+          <div class="search-bar" >
+            <b-form-input
+              @input="searchLocation()"
+              v-model="location"
+              type="text"
+              placeholder="Search by Location"
+            ></b-form-input>
+          </div>
+          <div>
+            <b-form-select @input="sort()" v-model="search.filter" :options="options"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <b-form-select
-        @input="sort()"
-        v-model="search.filter"
-        :options="options"
-      />
-    </div>
     <div class="list row">
       <div class="col-md-6">
         <ul class="list-group">

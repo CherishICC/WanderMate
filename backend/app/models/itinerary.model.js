@@ -7,7 +7,12 @@ const Itinerary = mongoose.model(
     package_name: String,
     location: String,
     days: Number,
-    cost: Number
+    cost: Number,
+    userId:{ 
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+  },
   })
 );
 

@@ -7,7 +7,7 @@ const Booking = mongoose.model(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true
-  },
+    },
     username:String,
     guide:String,
     package_name: String,

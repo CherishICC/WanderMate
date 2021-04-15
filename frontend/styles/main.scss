@@ -5,6 +5,7 @@
 
 .search {
     &-parent {
+        width : 700px;
         padding: 10px 20px;
         display: flex;
         flex-flow: row wrap;
@@ -15,7 +16,7 @@
     &-bar {
         left: 190px;
         position: relative;
-        width: 500px;    
+        width: 300px;    
 
         input {
             padding-left: 10px;
