@@ -13,6 +13,9 @@
         </div>
       </div>
     </div>
+    <div>
+      <b-form-select @input="sort()" v-model="search.filter" :options="options"/>
+    </div>
   <div class="list row">
     <div class="col-md-6">
       <ul class="list-group">
@@ -72,6 +75,12 @@ export default {
       currentIndex: -1,
       location: '',
       username: '',
+      options: [
+        { value: null, text: "Sort By" },
+        { value: "a", text: "Days" },
+        { value: "b", text: "Cost" }
+      ],
+      search: { filter: null, text: "" },
     };
   },
   methods: {
@@ -104,6 +113,16 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+    },
+    sort() {
+      //console.log(this.search.filter);
+      this.search.filter == "b"
+        ? this.users.sort(function(a, b) {
+            return b.cost - a.cost;
+          })
+        : this.users.sort(function(a, b) {
+            return b.days - a.days;
+          });
     },
   },
   mounted() {
