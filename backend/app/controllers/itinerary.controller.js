@@ -11,6 +11,8 @@ exports.create = (req, res) => {
 
   // Create a User
   const itinerary = new Itinerary({
+    imgUrl:req.body.imgUrl,
+    userId:req.body.userId,
     username:req.body.username,
     package_name: req.body.package_name,
     location: req.body.location,
@@ -49,6 +51,7 @@ exports.findAllpackages = (req, res) => {
 
 // Retrieve all itineraries from the database.
 exports.findAll = (req, res) => {
+  var ObjectID = require('mongodb').ObjectID; 
   const package_name = req.query.package_name;
   var condition = package_name ? { package_name: { $regex: new RegExp(package_name), $options: "i" } } : {};
   Itinerary.find({ $and: [ {"userId": new ObjectID(req.userId)}, condition ] })

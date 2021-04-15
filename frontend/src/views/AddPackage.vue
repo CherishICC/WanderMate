@@ -7,9 +7,10 @@
           type="text"
           class="form-control"
           id="username"
-          v-model="pack_info.username"
+          v-model="username"
           v-validate="'required|min:3|max:20'"
           name="username"
+          :disabled="validated ? disabled : ''"
         />
         <div class="invalid-feedback">{{ errors.first('username') }}</div>
         <div v-if="submitted && errors.has('username')" class="alert-danger">
@@ -84,9 +85,10 @@
 </template>
 
 <script>
-// import AuthService from "../services/auth.service.js";
+import { mapGetters } from 'vuex';
 import UserService from '../services/user.service';
 import $ from 'jquery';
+
 export default {
   name: 'AddPackage',
   data() {
@@ -101,6 +103,7 @@ export default {
         // published: false
       },
       submitted: false,
+      validated:'',
     };
   },
   mounted() {
@@ -115,13 +118,16 @@ export default {
   methods: {
     savePackage() {
       var data = {
+        // to be changed
+        imgUrl:this.pack_info.imgUrl,
+        userId:this.userId,
         username: this.pack_info.username,
         package_name: this.pack_info.package_name,
         location: this.pack_info.location,
         days: this.pack_info.days,
         cost: this.pack_info.cost,
       };
-      console.log(data);
+      // console.log(data);
       UserService.packagecreate(data)
         .then((response) => {
           this.pack_info.id = response.data.id;
@@ -132,13 +138,13 @@ export default {
           console.log(e);
         });
     },
-    // setRole(role){
-    //   this.pack_info.roles=role;
-    // },
     newPackage() {
       this.submitted = false;
       this.pack_info = {};
     },
+  },
+  computed: {
+    ...mapGetters({username:'auth/getUsername',userId:'auth/getUserId'}),
   },
 };
 </script>
