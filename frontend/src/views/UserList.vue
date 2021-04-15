@@ -1,26 +1,20 @@
 <template>
-  <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by username"
-          v-model="username"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            @click="searchUsername"
-          >
-            Search
-          </button>
+  <div>
+    <p class="ex1">User List</p>    
+    <div class="search">
+      <div class="search-parent">
+        <div class="search-bar" >
+          <b-form-input
+            @input="searchUsername"
+            v-model="username"
+            type="text"
+            placeholder="Search by Username"
+          ></b-form-input>
         </div>
       </div>
     </div>
+  <div class="list row">
     <div class="col-md-6">
-      <h4>Users List</h4>
       <ul class="list-group">
         <li
           class="list-group-item bg-transparent"
@@ -40,9 +34,6 @@
         <div>
           <label><strong>Username:</strong></label> {{ currentUser.username }}
         </div>
-        <!-- <div>
-          <label><strong>Password:</strong></label> {{ currentUser.password }}
-        </div> -->
         <div>
           <label><strong>Phone:</strong></label> {{ currentUser.phone }}
         </div>
@@ -52,20 +43,16 @@
         <div>
           <label><strong>Role:</strong></label> {{ currentUser.role }}
         </div>
-        <!-- <div>
-          <label><strong>Status:</strong></label>
-          {{ currentUser.published ? 'Published' : 'Pending' }}
-        </div> -->
-
         <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
           Edit
         </a>
       </div>
       <div v-else>
         <br />
-        <!-- <p>Please click on a User...</p> -->
+        <p>Please click on a Tour...</p>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -80,6 +67,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       username: '',
+      validated:'',
     };
   },
   methods: {
@@ -139,4 +127,13 @@ export default {
   max-width: 750px;
   margin: auto;
 }
+
+p.ex1{
+  margin-top: 25px;
+  font-size:30px;
+  margin-left:400px;
+}
+</style>
+<style scoped  lang="scss">
+  @import "/styles/main.scss";
 </style>

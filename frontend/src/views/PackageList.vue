@@ -1,26 +1,20 @@
 <template>
-  <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by Package Name"
-          v-model="package_name"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            @click="searchUsername"
-          >
-            Search
-          </button>
+  <div>
+    <p class="ex1">Packages List</p>
+    <div class="search">
+      <div class="search-parent">
+        <div class="search-bar" >
+          <b-form-input
+            @input="searchUsername"
+            v-model="package_name"
+            type="text"
+            placeholder="Search by Package"
+          ></b-form-input>
         </div>
       </div>
     </div>
+  <div class="list row">    
     <div class="col-md-6">
-      <h4>Packages List</h4>
       <ul class="list-group">
         <li
           class="list-group-item bg-transparent"
@@ -33,10 +27,6 @@
           {{ user.package_name }}
         </li>
       </ul>
-
-      <!-- <button class="m-3 btn btn-sm btn-danger" @click="removeAllUsers">
-        Remove All
-      </button> -->
     </div>
     <div class="col-md-6">
       <div v-if="currentUser">
@@ -68,6 +58,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -86,7 +77,7 @@ export default {
   methods: {
     retrieveUsers() {
       console.log(this.username);
-      UserDataService.packagegetbyusername(this.usename)
+      UserDataService.packagegetbyusername(this.username)
         .then((response) => {
           this.users = response.data;
           console.log(response.data);
@@ -137,4 +128,13 @@ export default {
   max-width: 750px;
   margin: auto;
 }
+
+p.ex1{
+  margin-top: 25px;
+  font-size:30px;
+  margin-left:330px;
+}
+</style>
+<style scoped  lang="scss">
+  @import "/styles/main.scss";
 </style>

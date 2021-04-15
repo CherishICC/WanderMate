@@ -1,26 +1,20 @@
 <template>
-  <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by location name"
-          v-model="location"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            @click="searchUsername"
-          >
-            Search
-          </button>
+  <div>
+    <p class="ex1">All Blogs</p>
+    <div class="search">
+      <div class="search-parent">
+        <div class="search-bar" >
+          <b-form-input
+            @input="searchUsername()"
+            v-model="location"
+            type="text"
+            placeholder="Search by Location"
+          ></b-form-input>
         </div>
       </div>
     </div>
+  <div class="list row">
     <div class="col-md-6">
-      <h4>All Blogs</h4>
       <ul class="list-group">
         <li
           class="list-group-item bg-transparent"
@@ -33,10 +27,6 @@
           {{ user.location }}
         </li>
       </ul>
-
-      <!-- <button class="m-3 btn btn-sm btn-danger" @click="removeAllUsers">
-        Remove All
-      </button> -->
     </div>
     <div class="col-md-6">
       <div v-if="currentUser">
@@ -51,16 +41,13 @@
           <label><strong>Experience:</strong></label>
           {{ currentUser.experience }}
         </div>
-        <!-- <div>
-          <label><strong>Status:</strong></label>
-          {{ currentUser.published ? 'Published' : 'Pending' }}
-        </div> -->
       </div>
       <div v-else>
         <br />
         <p>Please click on a Blog to view...</p>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -135,4 +122,13 @@ export default {
   max-width: 750px;
   margin: auto;
 }
+
+p.ex1{
+  margin-top: 25px;
+  font-size:30px;
+  margin-left:400px;
+}
+</style>
+<style scoped  lang="scss">
+  @import "/styles/main.scss";
 </style>

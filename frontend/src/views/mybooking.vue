@@ -1,26 +1,20 @@
 <template>
-  <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by location"
-          v-model="location"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            @click="searchLocation"
-          >
-            Search
-          </button>
+  <div>
+    <p class="ex1">My Bookings</p>
+    <div class="search">
+      <div class="search-parent">
+        <div class="search-bar" >
+          <b-form-input
+            @input="searchLocation()"
+            v-model="location"
+            type="text"
+            placeholder="Search by Location"
+          ></b-form-input>
         </div>
       </div>
     </div>
+    <div class="list row">
     <div class="col-md-6">
-      <h4>Bookings List</h4>
       <ul class="list-group">
         <li
           class="list-group-item bg-transparent"
@@ -30,13 +24,9 @@
           :key="index"
           @click="setActiveUser(user, index)"
         >
-          {{ user.username }}
+          {{ user.location }}
         </li>
       </ul>
-
-      <!-- <button class="m-3 btn btn-sm btn-danger" @click="removeAllUsers">
-        Remove All
-      </button> -->
     </div>
     <div class="col-md-6">
       <div v-if="currentUser">
@@ -58,10 +48,6 @@
         <div>
           <label><strong>End Date:</strong></label> {{ currentUser.end_date }}
         </div>
-        <!-- <div>
-          <label><strong>Status:</strong></label>
-          {{ currentUser.published ? 'Published' : 'Pending' }}
-        </div> -->
 
         <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
           Review
@@ -72,6 +58,7 @@
         <p>Please click on a Booking...</p>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -145,4 +132,13 @@ export default {
   max-width: 750px;
   margin: auto;
 }
+p.ex1{
+  margin-top: 25px;
+  font-size:30px;
+  margin-left:375px;
+}
+
+</style>
+<style scoped  lang="scss">
+  @import "/styles/main.scss";
 </style>

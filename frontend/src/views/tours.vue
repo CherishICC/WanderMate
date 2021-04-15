@@ -1,23 +1,20 @@
 <template>
   <div>
+    <p class="ex1">Available Packages</p>
     <div class="search">
-      <div class="pad-15-hor pad-15-ver search-parent">
+      <div class="search-parent">
         <div class="search-bar" >
           <b-form-input
             @input="searchLocation()"
             v-model="location"
             type="text"
-            placeholder="Search by Name"
+            placeholder="Search by Location"
           ></b-form-input>
-          <span class="search-icon">
-            <i class="fas fa-search"></i>
-          </span>
         </div>
       </div>
     </div>
   <div class="list row">
     <div class="col-md-6">
-      <h4>Available Packages</h4>
       <ul class="list-group">
         <li
           class="list-group-item bg-transparent"
@@ -121,4 +118,13 @@ export default {
   max-width: 750px;
   margin: auto;
 }
+
+p.ex1{
+  margin-top: 25px;
+  font-size:30px;
+  margin-left:330px;
+}
+</style>
+<style scoped  lang="scss">
+  @import "/styles/main.scss";
 </style>
