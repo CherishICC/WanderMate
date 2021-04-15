@@ -34,7 +34,7 @@
 </template>
 
 <script>
-// import AuthService from "../services/auth.service.js";
+import { mapGetters } from 'vuex';
 import UserService from '../services/user.service';
 import $ from 'jquery';
 
@@ -64,7 +64,7 @@ export default {
   methods: {
     savePackage() {
       var data = {
-        username: this.pack_info.username,
+        username: this.username,
         location: this.pack_info.location,
         experience: this.pack_info.experience,
       };
@@ -86,6 +86,9 @@ export default {
       this.submitted = false;
       this.pack_info = {};
     },
+  },
+  computed: {
+    ...mapGetters({username:'auth/getUsername',userId:'auth/getUserId'}),
   },
 };
 </script>

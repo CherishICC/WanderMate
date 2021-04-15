@@ -38,8 +38,7 @@
             <label><strong>Guide:</strong></label> {{ currentUser.guide }}
           </div>
           <div>
-            <label><strong>Package:</strong></label>
-            {{ currentUser.package_name }}
+            <label><strong>Package:</strong></label> {{ currentUser.package_name }}
           </div>
           <div>
             <label><strong>Location:</strong></label> {{ currentUser.location }}
