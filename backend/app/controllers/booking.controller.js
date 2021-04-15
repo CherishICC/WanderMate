@@ -11,6 +11,7 @@ exports.create = (req, res) => {
 
   // Create a User
   const booking = new Booking({
+    userId:req.body.userId,
     username:req.body.username,
     guide: req.body.guide,
     package_name: req.body.package_name,
@@ -35,11 +36,14 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all itineraries from the database.
+// Retrieve all booking from the database.
 exports.findAll = (req, res) => {
+  var ObjectID = require('mongodb').ObjectID;   
   const location = req.query.location;
-  var condition = location ? { location: { $regex: new RegExp(location), $options: "i" } } : {};
-  Booking.find(condition)
+  // const package_name = req.query.package_name;
+  // var condition = location ? { location: { $regex: new RegExp(location), $options: "i" } }: {};
+  var condition1 = {"userId": new ObjectID(req.userId)};
+  Booking.find(condition1)
     .then(data => {
       res.send(data);
     })

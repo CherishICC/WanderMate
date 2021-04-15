@@ -3,7 +3,7 @@
     <p class="ex1">All Blogs</p>
     <div class="search">
       <div class="search-parent">
-        <div class="search-bar" >
+        <div class="search-bar">
           <b-form-input
             @input="searchUsername()"
             v-model="location"
@@ -13,41 +13,41 @@
         </div>
       </div>
     </div>
-  <div class="list row">
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li
-          class="list-group-item bg-transparent"
-          style="border: none"
-          :class="{ active: index == currentIndex }"
-          v-for="(user, index) in users"
-          :key="index"
-          @click="setActiveUser(user, index)"
-        >
-          {{ user.location }}
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <div v-if="currentUser">
-        <h4>User</h4>
-        <div>
-          <label><strong>Username:</strong></label> {{ currentUser.username }}
+    <div class="list row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li
+            class="list-group-item bg-transparent"
+            style="border: none"
+            :class="{ active: index == currentIndex }"
+            v-for="(user, index) in users"
+            :key="index"
+            @click="setActiveUser(user, index)"
+          >
+            {{ user.location }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div v-if="currentUser">
+          <h4>User</h4>
+          <div>
+            <label><strong>Username:</strong></label> {{ currentUser.username }}
+          </div>
+          <div>
+            <label><strong>Location:</strong></label> {{ currentUser.location }}
+          </div>
+          <div>
+            <label><strong>Experience:</strong></label>
+            {{ currentUser.experience }}
+          </div>
         </div>
-        <div>
-          <label><strong>Location:</strong></label> {{ currentUser.location }}
-        </div>
-        <div>
-          <label><strong>Experience:</strong></label>
-          {{ currentUser.experience }}
+        <div v-else>
+          <br />
+          <p>Please click on a Blog to view...</p>
         </div>
       </div>
-      <div v-else>
-        <br />
-        <p>Please click on a Blog to view...</p>
-      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -123,12 +123,12 @@ export default {
   margin: auto;
 }
 
-p.ex1{
+p.ex1 {
   margin-top: 25px;
-  font-size:30px;
-  margin-left:400px;
+  font-size: 30px;
+  margin-left: 400px;
 }
 </style>
-<style scoped  lang="scss">
-  @import "/styles/main.scss";
+<style scoped lang="scss">
+@import '/styles/main.scss';
 </style>

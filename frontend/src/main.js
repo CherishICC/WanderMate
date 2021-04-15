@@ -3,9 +3,9 @@ import App from './App.vue';
 import { router } from './router';
 import store from './store';
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import { BootstrapVue} from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import { BootstrapVue } from 'bootstrap-vue';
 import VeeValidate from 'vee-validate';
 import Vuex from 'vuex';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -21,7 +21,7 @@ import {
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 
 Vue.config.productionTip = false;
-Vue.use(  BootstrapVue)
+Vue.use(BootstrapVue);
 Vue.use(VeeValidate, {
   classes: true,
   classNames: {

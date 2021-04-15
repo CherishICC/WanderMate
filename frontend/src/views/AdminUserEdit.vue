@@ -106,7 +106,7 @@ export default {
       deleted: false,
       message: '',
       submitted: '',
-      validated:'',
+      validated: '',
     };
   },
   methods: {

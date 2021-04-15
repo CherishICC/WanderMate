@@ -34,8 +34,8 @@ exports.create = (req, res) => {
 
 // Retrieve all itineraries from the database.
 exports.findAll = (req, res) => {
-  const location = req.query.location;
-  var condition = location ? { location: { $regex: new RegExp(location), $options: "i" } } : {};
+  const package_name = req.query.package_name;
+  var condition = package_name ? { package_name: { $regex: new RegExp(package_name), $options: "i" } } : {};
   Itinerary.find(condition)
     .then(data => {
       res.send(data);

@@ -58,4 +58,12 @@ export const auth = {
       state.status.loggedIn = false;
     },
   },
+  getters: {
+    getUsername(state) {
+      return state.user.username;
+    },
+    getUserId(state) {
+      return state.user.id;
+    },
+  },
 };

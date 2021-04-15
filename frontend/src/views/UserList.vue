@@ -1,9 +1,9 @@
 <template>
   <div>
-    <p class="ex1">User List</p>    
+    <p class="ex1">User List</p>
     <div class="search">
       <div class="search-parent">
-        <div class="search-bar" >
+        <div class="search-bar">
           <b-form-input
             @input="searchUsername"
             v-model="username"
@@ -13,46 +13,46 @@
         </div>
       </div>
     </div>
-  <div class="list row">
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li
-          class="list-group-item bg-transparent"
-          style="border: none"
-          :class="{ active: index == currentIndex }"
-          v-for="(user, index) in users"
-          :key="index"
-          @click="setActiveUser(user, index)"
-        >
-          {{ user.username }}
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <div v-if="currentUser">
-        <h4>User</h4>
-        <div>
-          <label><strong>Username:</strong></label> {{ currentUser.username }}
-        </div>
-        <div>
-          <label><strong>Phone:</strong></label> {{ currentUser.phone }}
-        </div>
-        <div>
-          <label><strong>Email:</strong></label> {{ currentUser.email }}
-        </div>
-        <div>
-          <label><strong>Role:</strong></label> {{ currentUser.role }}
-        </div>
-        <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
-          Edit
-        </a>
+    <div class="list row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li
+            class="list-group-item bg-transparent"
+            style="border: none"
+            :class="{ active: index == currentIndex }"
+            v-for="(user, index) in users"
+            :key="index"
+            @click="setActiveUser(user, index)"
+          >
+            {{ user.username }}
+          </li>
+        </ul>
       </div>
-      <div v-else>
-        <br />
-        <p>Please click on a Tour...</p>
+      <div class="col-md-6">
+        <div v-if="currentUser">
+          <h4>User</h4>
+          <div>
+            <label><strong>Username:</strong></label> {{ currentUser.username }}
+          </div>
+          <div>
+            <label><strong>Phone:</strong></label> {{ currentUser.phone }}
+          </div>
+          <div>
+            <label><strong>Email:</strong></label> {{ currentUser.email }}
+          </div>
+          <div>
+            <label><strong>Role:</strong></label> {{ currentUser.role }}
+          </div>
+          <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
+            Edit
+          </a>
+        </div>
+        <div v-else>
+          <br />
+          <p>Please click on a Tour...</p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -67,7 +67,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       username: '',
-      validated:'',
+      validated: '',
     };
   },
   methods: {
@@ -128,12 +128,12 @@ export default {
   margin: auto;
 }
 
-p.ex1{
+p.ex1 {
   margin-top: 25px;
-  font-size:30px;
-  margin-left:400px;
+  font-size: 30px;
+  margin-left: 400px;
 }
 </style>
-<style scoped  lang="scss">
-  @import "/styles/main.scss";
+<style scoped lang="scss">
+@import '/styles/main.scss';
 </style>

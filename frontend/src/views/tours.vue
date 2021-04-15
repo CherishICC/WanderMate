@@ -3,7 +3,7 @@
     <p class="ex1">Available Packages</p>
     <div class="search">
       <div class="search-parent">
-        <div class="search-bar" >
+        <div class="search-bar">
           <b-form-input
             @input="searchLocation()"
             v-model="location"
@@ -14,53 +14,57 @@
       </div>
     </div>
     <div>
-      <b-form-select @input="sort()" v-model="search.filter" :options="options"/>
+      <b-form-select
+        @input="sort()"
+        v-model="search.filter"
+        :options="options"
+      />
     </div>
-  <div class="list row">
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li
-          class="list-group-item bg-transparent"
-          style="border: none"
-          :class="{ active: index == currentIndex }"
-          v-for="(user, index) in users"
-          :key="index"
-          @click="setActiveUser(user, index)"
-        >
-          {{ user.location }}
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <div v-if="currentUser">
-        <h4>User</h4>
-        <div>
-          <label><strong>Username:</strong></label> {{ currentUser.username }}
-        </div>
-        <div>
-          <label><strong>Package:</strong></label>
-          {{ currentUser.package_name }}
-        </div>
-        <div>
-          <label><strong>Location:</strong></label> {{ currentUser.location }}
-        </div>
-        <div>
-          <label><strong>Days:</strong></label> {{ currentUser.days }}
-        </div>
-        <div>
-          <label><strong>Cost:</strong></label> {{ currentUser.cost }}
-        </div>
+    <div class="list row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li
+            class="list-group-item bg-transparent"
+            style="border: none"
+            :class="{ active: index == currentIndex }"
+            v-for="(user, index) in users"
+            :key="index"
+            @click="setActiveUser(user, index)"
+          >
+            {{ user.location }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div v-if="currentUser">
+          <h4>User</h4>
+          <div>
+            <label><strong>Username:</strong></label> {{ currentUser.username }}
+          </div>
+          <div>
+            <label><strong>Package:</strong></label>
+            {{ currentUser.package_name }}
+          </div>
+          <div>
+            <label><strong>Location:</strong></label> {{ currentUser.location }}
+          </div>
+          <div>
+            <label><strong>Days:</strong></label> {{ currentUser.days }}
+          </div>
+          <div>
+            <label><strong>Cost:</strong></label> {{ currentUser.cost }}
+          </div>
 
-        <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
-          Book
-        </a>
-      </div>
-      <div v-else>
-        <br />
-        <p>Please click on a Tour...</p>
+          <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
+            Book
+          </a>
+        </div>
+        <div v-else>
+          <br />
+          <p>Please click on a Tour...</p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -76,11 +80,11 @@ export default {
       location: '',
       username: '',
       options: [
-        { value: null, text: "Sort By" },
-        { value: "a", text: "Days" },
-        { value: "b", text: "Cost" }
+        { value: null, text: 'Sort By' },
+        { value: 'a', text: 'Days' },
+        { value: 'b', text: 'Cost' },
       ],
-      search: { filter: null, text: "" },
+      search: { filter: null, text: '' },
     };
   },
   methods: {
@@ -116,11 +120,11 @@ export default {
     },
     sort() {
       //console.log(this.search.filter);
-      this.search.filter == "b"
-        ? this.users.sort(function(a, b) {
+      this.search.filter == 'b'
+        ? this.users.sort(function (a, b) {
             return b.cost - a.cost;
           })
-        : this.users.sort(function(a, b) {
+        : this.users.sort(function (a, b) {
             return b.days - a.days;
           });
     },
@@ -138,12 +142,12 @@ export default {
   margin: auto;
 }
 
-p.ex1{
+p.ex1 {
   margin-top: 25px;
-  font-size:30px;
-  margin-left:330px;
+  font-size: 30px;
+  margin-left: 330px;
 }
 </style>
-<style scoped  lang="scss">
-  @import "/styles/main.scss";
+<style scoped lang="scss">
+@import '/styles/main.scss';
 </style>

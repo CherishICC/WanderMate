@@ -8,10 +8,10 @@
           type="text"
           class="form-control"
           id="username"
-          v-model="Booking.username"
+          v-model="username"
           v-validate="'required|min:3|max:20'"
           name="username"
-        :disabled="validated ? disabled : ''"
+          :disabled="validated ? disabled : ''"
         />
       </div>
 
@@ -24,7 +24,7 @@
           v-model="Booking.username"
           v-validate="'required|min:3|max:20'"
           name="guide"
-        :disabled="validated ? disabled : ''"
+          :disabled="validated ? disabled : ''"
         />
       </div>
       <div class="form-group">
@@ -36,7 +36,7 @@
           v-model="Booking.package_name"
           v-validate="'required|min:6|max:40'"
           name="package_name"
-        :disabled="validated ? disabled : ''"
+          :disabled="validated ? disabled : ''"
         />
       </div>
       <div class="form-group">
@@ -47,7 +47,7 @@
           id="location"
           v-model="Booking.location"
           v-validate="'required|min:3|max:30'"
-        :disabled="validated ? disabled : ''"       
+          :disabled="validated ? disabled : ''"
         />
       </div>
       <div class="form-group">
@@ -58,7 +58,7 @@
           id="days"
           v-model="Booking.days"
           name="days"
-        :disabled="validated ? disabled : ''"
+          :disabled="validated ? disabled : ''"
         />
       </div>
 
@@ -70,7 +70,7 @@
           id="cost"
           v-model="Booking.cost"
           name="cost"
-        :disabled="validated ? disabled : ''"
+          :disabled="validated ? disabled : ''"
         />
       </div>
 
@@ -109,6 +109,8 @@
 
 <script>
 import UserDataService from '../services/user.service';
+import { mapGetters } from 'vuex';
+
 
 export default {
   name: 'Booking',
@@ -125,6 +127,7 @@ export default {
       },
       submitted: false,
       message: '',
+      validated:'',
     };
   },
   methods: {
@@ -140,12 +143,14 @@ export default {
     },
     saveBooking() {
       var data = {
-        username: this.Booking.username,
+        userId:this.userId,
+        username: this.username,
+        guide: this.Booking.username,
         package_name: this.Booking.package_name,
-        guide: this.Booking.guide,
+        // guide: this.Booking.guide,
         location: this.Booking.location,
         start_date: this.Booking.start_date,
-        end_date: this.Booking.end_date,  
+        end_date: this.Booking.end_date,
       };
       console.log(data);
       UserDataService.bookingcreate(data)
@@ -158,6 +163,9 @@ export default {
           console.log('err:', e);
         });
     },
+  },
+  computed: {
+    ...mapGetters({username:'auth/getUsername',userId:'auth/getUserId'}),
   },
   mounted() {
     this.message = '';

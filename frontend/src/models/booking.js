@@ -1,5 +1,6 @@
 export default class Booking {
   constructor(
+    userid,
     username,
     guide,
     package_name,
@@ -9,6 +10,7 @@ export default class Booking {
     review,
     rating
   ) {
+    this.userid = userid;
     this.username = username;
     this.guide = guide;
     this.package_name = package_name;

@@ -3,7 +3,7 @@
     <p class="ex1">My Bookings</p>
     <div class="search">
       <div class="search-parent">
-        <div class="search-bar" >
+        <div class="search-bar">
           <b-form-input
             @input="searchLocation()"
             v-model="location"
@@ -14,56 +14,60 @@
       </div>
     </div>
     <div class="list row">
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li
-          class="list-group-item bg-transparent"
-          style="border: none"
-          :class="{ active: index == currentIndex }"
-          v-for="(user, index) in users"
-          :key="index"
-          @click="setActiveUser(user, index)"
-        >
-          {{ user.location }}
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <div v-if="currentUser">
-        <h4>User</h4>
-        <div>
-          <label><strong>Username:</strong></label> {{ currentUser.username }}
-        </div>
-        <div>
-          <label><strong>Package:</strong></label>
-          {{ currentUser.package_name }}
-        </div>
-        <div>
-          <label><strong>Location:</strong></label> {{ currentUser.location }}
-        </div>
-        <div>
-          <label><strong>Start Date:</strong></label>
-          {{ currentUser.start_date }}
-        </div>
-        <div>
-          <label><strong>End Date:</strong></label> {{ currentUser.end_date }}
-        </div>
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li
+            class="list-group-item bg-transparent"
+            style="border: none"
+            :class="{ active: index == currentIndex }"
+            v-for="(user, index) in users"
+            :key="index"
+            @click="setActiveUser(user, index)"
+          >
+            {{ user.location }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div v-if="currentUser">
+          <h4>User</h4>
+          <div>
+            <label><strong>Username:</strong></label> {{ currentUser.username }}
+          </div>
+          <div>
+            <label><strong>Guide:</strong></label> {{ currentUser.guide }}
+          </div>
+          <div>
+            <label><strong>Package:</strong></label>
+            {{ currentUser.package_name }}
+          </div>
+          <div>
+            <label><strong>Location:</strong></label> {{ currentUser.location }}
+          </div>
+          <div>
+            <label><strong>Start Date:</strong></label>
+            {{ currentUser.start_date }}
+          </div>
+          <div>
+            <label><strong>End Date:</strong></label> {{ currentUser.end_date }}
+          </div>
 
-        <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
-          Review
-        </a>
-      </div>
-      <div v-else>
-        <br />
-        <p>Please click on a Booking...</p>
+          <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
+            Review
+          </a>
+        </div>
+        <div v-else>
+          <br />
+          <p>Please click on a Booking...</p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
 import UserDataService from '../services/user.service';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'mybooking',
@@ -73,6 +77,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       location: '',
+      // username:'',
     };
   },
   methods: {
@@ -120,6 +125,9 @@ export default {
         });
     },
   },
+  computed: {
+    ...mapGetters({username:'auth/getUsername'}),
+  },
   mounted() {
     this.retrieveUsers();
   },
@@ -132,13 +140,12 @@ export default {
   max-width: 750px;
   margin: auto;
 }
-p.ex1{
+p.ex1 {
   margin-top: 25px;
-  font-size:30px;
-  margin-left:375px;
+  font-size: 30px;
+  margin-left: 375px;
 }
-
 </style>
-<style scoped  lang="scss">
-  @import "/styles/main.scss";
+<style scoped lang="scss">
+@import '/styles/main.scss';
 </style>
