@@ -34,20 +34,22 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="location">Location</label>
-        <input
-          type="text"
-          class="form-control"
-          id="location"
-          required
-          v-model="pack_info.location"
-          v-validate="'required|min:3|max:30'"
-          name="location"
-        />
-        <div class="invalid-feedback">{{ errors.first('username') }}</div>
-        <div v-if="submitted && errors.has('username')" class="alert-danger">
-          {{ errors.first('username') }}
+      <div class="dropdown" id="locationDropdown">
+        <label for="dropdownMenuButton" style="margin-right: 30px">Location</label>
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Location
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Bangalore</a>
+          <a class="dropdown-item" href="#">Hyderabad</a>
+          <a class="dropdown-item" href="#">Chennai</a>
         </div>
       </div>
 
@@ -100,7 +102,6 @@ export default {
         location: '',
         days: '',
         cost: '',
-        // published: false
       },
       submitted: false,
       validated:'',
@@ -112,7 +113,7 @@ export default {
     $('.dropdown-menu a').click(function () {
       $('#dropdownMenuButton').text($(this).text());
       // $('#AddPackage').__vue__.setRole($(this).text());
-      ref.setRole($(this).text());
+      ref.setLocation($(this).text());
     });
   },
   methods: {
@@ -137,6 +138,16 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+    },
+    setLocation(location) {
+      this.pack_info.location = location;
+      if (location == "Bangalore") {
+        this.pack_info.imgUrl = "https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-taj-mahal.jpg.rend.hgtvcom.616.462.suffix/1491581548979.jpeg"
+      } else if (location == "Hyderabad") {
+        this.pack_info.imgUrl = "https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-great-wall-of-china.jpg.rend.hgtvcom.616.462.suffix/1491581549051.jpeg"
+      } else if (location == "Chennai") {
+        this.pack_info.imgUrl = "https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-christ-the-redeemer.jpg.rend.hgtvcom.616.462.suffix/1491581548898.jpeg"
+      }
     },
     newPackage() {
       this.submitted = false;

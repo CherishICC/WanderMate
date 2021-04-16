@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p class="ex1">Available Packages</p>
-<div class="search">
+      <div class="search">
         <div class="pad-15-hor pad-15-ver search-parent">
           <div class="search-bar" >
             <b-form-input
@@ -16,48 +15,45 @@
           </div>
         </div>
       </div>
-    <div class="list row">
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li
-            class="list-group-item bg-transparent"
-            style="border: none"
-            :class="{ active: index == currentIndex }"
-            v-for="(user, index) in users"
-            :key="index"
-            @click="setActiveUser(user, index)"
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 pad-15-ver card" v-for="(user, index) in users" :key="index">
+          <div
+            class="card-inner"
+            @mouseover="show_hover(true,index)"
+            @mouseout="show_hover(false,0)"
           >
-            {{ user.location }}
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-6">
-        <div v-if="currentUser">
-          <h4>User</h4>
-          <div>
-            <label><strong>Username:</strong></label> {{ currentUser.username }}
-          </div>
-          <div>
-            <label><strong>Package:</strong></label>
-            {{ currentUser.package_name }}
-          </div>
-          <div>
-            <label><strong>Location:</strong></label> {{ currentUser.location }}
-          </div>
-          <div>
-            <label><strong>Days:</strong></label> {{ currentUser.days }}
-          </div>
-          <div>
-            <label><strong>Cost:</strong></label> {{ currentUser.cost }}
-          </div>
+            <img class="card-img" :src="user.imgUrl">
 
-          <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
+            <div class="card-bottom pad-15-hor" v-show="!hover_flag || active_id != index">
+              <!-- <div class="min-width-160">
+                <span class="bold">Ratings:</span> -->
+                <!-- <star-rating
+                  :rating="wonder.ratings"
+                  :show-rating="false"
+                  :inline="true"
+                  :star-size="15"
+                ></star-rating> -->
+              <!-- </div> -->
+              <div class="max-width-160">
+                <span class="bold">{{user.location}}</span>
+              </div>
+            </div>
+
+            <div :class="{'card-hover':1}" v-show="hover_flag && active_id == index">
+              <span
+                @click="make_active(index)"
+                :class="{ 'green':check_active(index)}"
+              ></span>
+              <h5>Location : {{user.location}}</h5>
+              <h6>Guide : {{user.username}}</h6>
+              <h6>Days : {{user.days}}</h6>
+              <h6>Price : {{user.cost}}</h6>
+          <a class="badge badge-warning" :href="'/booking/' + user._id">
             Book
           </a>
-        </div>
-        <div v-else>
-          <br />
-          <p>Please click on a Tour...</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -70,13 +66,17 @@ export default {
   name: 'tours',
   data() {
     return {
+      hover_flag: false,
+      wonders_data_actual: [],
+      wonders_data: [],
+      active_id: 0,
       users: [],
       currentUser: null,
       currentIndex: -1,
       location: '',
       username: '',
       options: [
-        { value: null, text: 'Sort By' },
+        { value: null, text: "Sort By", disabled: true },
         { value: 'a', text: 'Days' },
         { value: 'b', text: 'Cost' },
       ],
@@ -84,6 +84,10 @@ export default {
     };
   },
   methods: {
+    show_hover(flag, active_id) {
+      this.hover_flag = flag;
+      this.active_id = active_id;
+    },
     retrieveUsers() {
       UserDataService.userPackageListAll()
         .then((response) => {
@@ -124,6 +128,32 @@ export default {
             return b.days - a.days;
           });
     },
+    check_active(id) {
+      var flag = false;
+      this.wonders_data_actual.map(function(wonder) {
+        if (wonder.id == id) {
+          flag = wonder.active_like;
+        }
+      });
+      return flag;
+    },
+    make_active(id) {
+      this.likes.hit++;
+      this.wonders_data_actual = this.wonders_data_actual.map(function(wonder) {
+        if (wonder.id == id) {
+          wonder.active_like = !wonder.active_like;
+          wonder.active_like ? wonder.likes++ : wonder.likes--;
+        }
+
+        return wonder;
+      });
+      var inside = this;
+
+      inside.likes.count = 0;
+      this.wonders_data_actual.map(function(wonder) {
+        inside.likes.count += wonder.likes;
+      });
+    }
   },
   mounted() {
     this.retrieveUsers();
