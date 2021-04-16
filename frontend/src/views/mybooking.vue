@@ -50,10 +50,13 @@
           <div>
             <label><strong>End Date:</strong></label> {{ currentUser.end_date }}
           </div>
-
-          <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
+          
+          <div v-if="review">
+            <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
             Review
           </a>
+          </div>
+          
         </div>
         <div v-else>
           <br />
@@ -76,7 +79,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       location: '',
-      // username:'',
+      review:'',
     };
   },
   methods: {
@@ -100,6 +103,14 @@ export default {
     setActiveUser(user, index) {
       this.currentUser = user;
       this.currentIndex = index;
+      var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+      console.log(this.currentUser.end_date);
+      console.log(currentDateWithFormat);
+      if (this.currentUser.end_date <= currentDateWithFormat) {    
+           this.review = true;   
+       }else {    
+           this.review = false    
+       } 
     },
 
     removeAllUsers() {
@@ -123,6 +134,14 @@ export default {
           console.log(e);
         });
     },
+    // CompareDate() {    
+
+    //   if (this.currentUser.start_date > this.currentUser.end_date) {    
+    //        this.review = true;   
+    //    }else {    
+    //        this.review = false    
+    //    }    
+    // },    
   },
   computed: {
     ...mapGetters({username:'auth/getUsername'}),
