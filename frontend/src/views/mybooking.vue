@@ -104,9 +104,7 @@ export default {
       this.currentUser = user;
       this.currentIndex = index;
       var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'-');
-      console.log(this.currentUser.end_date);
-      console.log(currentDateWithFormat);
-      if (this.currentUser.end_date <= currentDateWithFormat) {    
+      if ((this.currentUser.end_date) <= currentDateWithFormat) {    
            this.review = true;   
        }else {    
            this.review = false    
@@ -133,15 +131,7 @@ export default {
         .catch((e) => {
           console.log(e);
         });
-    },
-    // CompareDate() {    
-
-    //   if (this.currentUser.start_date > this.currentUser.end_date) {    
-    //        this.review = true;   
-    //    }else {    
-    //        this.review = false    
-    //    }    
-    // },    
+    },    
   },
   computed: {
     ...mapGetters({username:'auth/getUsername'}),
