@@ -76,14 +76,7 @@
 
       <div class="form-group">
         <label for="date">Start Date</label>
-        <input
-          type="date"
-          class="form-control"
-          id="date"
-          v-model="Booking.start_date"
-          name="date"
-          :disabled-dates = "disableddates"
-        />
+         <b-form-datepicker v-model="Booking.start_date" :min="min"></b-form-datepicker>
       </div>
 
     </form>
@@ -106,6 +99,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Booking',
   data() {
+    const minDate = new Date()
     return {
       Booking: {
         id: null,
@@ -119,7 +113,7 @@ export default {
       submitted: false,
       message: '',
       validated:'',
-      disableddates:{to:new Date(Date.now()-8640000)},
+      min: minDate,
     };
   },
   methods: {
