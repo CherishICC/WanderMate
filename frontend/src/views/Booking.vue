@@ -76,25 +76,9 @@
 
       <div class="form-group">
         <label for="date">Start Date</label>
-        <input
-          type="date"
-          class="form-control"
-          id="date"
-          v-model="Booking.start_date"
-          name="date"
-        />
+         <b-form-datepicker v-model="Booking.start_date" :min="min"></b-form-datepicker>
       </div>
 
-      <div class="form-group">
-        <label for="date">End Date</label>
-        <input
-          type="date"
-          class="form-control"
-          id="date"
-          v-model="Booking.end_date"
-          name="date"
-        />
-      </div>
     </form>
 
     <button @click="saveBooking" class="btn btn-success">Submit</button>
@@ -115,6 +99,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Booking',
   data() {
+    const minDate = new Date()
     return {
       Booking: {
         id: null,
@@ -128,6 +113,7 @@ export default {
       submitted: false,
       message: '',
       validated:'',
+      min: minDate,
     };
   },
   methods: {
@@ -142,15 +128,17 @@ export default {
         });
     },
     saveBooking() {
+      var dt = new Date(this.Booking.start_date);
+      dt.setDate(dt.getDate() + this.Booking.days);
+      dt = dt.toJSON().slice(0,10).replace(/-/g,'-');
       var data = {
         userId:this.userId,
         username: this.username,
         guide: this.Booking.username,
         package_name: this.Booking.package_name,
-        // guide: this.Booking.guide,
         location: this.Booking.location,
         start_date: this.Booking.start_date,
-        end_date: this.Booking.end_date,
+        end_date: dt,
       };
       console.log(data);
       UserDataService.bookingcreate(data)

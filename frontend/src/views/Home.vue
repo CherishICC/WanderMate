@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <header class="jumbotron">
-      <h3>{{ content }}</h3>
+      <h3>Welcome to Wander Mate!</h3>
     </header>
   </div>
 </template>
