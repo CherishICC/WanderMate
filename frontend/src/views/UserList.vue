@@ -41,7 +41,8 @@
             <label><strong>Email:</strong></label> {{ currentUser.email }}
           </div>
           <div>
-            <label><strong>Role:</strong></label> {{ currentUser.role }}
+            <label><strong>Role:</strong></label>
+             {{ currentUser.roles }}
           </div>
           <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
             Edit
