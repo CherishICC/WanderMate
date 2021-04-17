@@ -42,7 +42,7 @@
           </div>
           <div>
             <label><strong>Role:</strong></label>
-             {{ currentUser.roles }}
+            {{ currentUser.roles }}
           </div>
           <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
             Edit

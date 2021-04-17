@@ -1,6 +1,7 @@
 const db = require("../models");
 const User = db.user;
 
+var bcrypt = require("bcryptjs");
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
@@ -74,7 +75,7 @@ exports.update = (req, res) => {
   }
 
   const id = req.params.id;
-
+  req.body.password = bcrypt.hashSync(req.body.password, 8)
   User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {

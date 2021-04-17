@@ -88,7 +88,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({username:'auth/getUsername',userId:'auth/getUserId'}),
+    ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
 };
 </script>

@@ -35,7 +35,9 @@
       </div>
 
       <div class="dropdown" id="locationDropdown">
-        <label for="dropdownMenuButton" style="margin-right: 30px">Location</label>
+        <label for="dropdownMenuButton" style="margin-right: 30px"
+          >Location</label
+        >
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
@@ -104,7 +106,7 @@ export default {
         cost: '',
       },
       submitted: false,
-      validated:'',
+      validated: '',
     };
   },
   mounted() {
@@ -120,8 +122,8 @@ export default {
     savePackage() {
       var data = {
         // to be changed
-        imgUrl:this.pack_info.imgUrl,
-        userId:this.userId,
+        imgUrl: this.pack_info.imgUrl,
+        userId: this.userId,
         username: this.username,
         package_name: this.pack_info.package_name,
         location: this.pack_info.location,
@@ -141,12 +143,15 @@ export default {
     },
     setLocation(location) {
       this.pack_info.location = location;
-      if (location == "Bangalore") {
-        this.pack_info.imgUrl = "https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-taj-mahal.jpg.rend.hgtvcom.616.462.suffix/1491581548979.jpeg"
-      } else if (location == "Hyderabad") {
-        this.pack_info.imgUrl = "https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-great-wall-of-china.jpg.rend.hgtvcom.616.462.suffix/1491581549051.jpeg"
-      } else if (location == "Chennai") {
-        this.pack_info.imgUrl = "https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-christ-the-redeemer.jpg.rend.hgtvcom.616.462.suffix/1491581548898.jpeg"
+      if (location == 'Bangalore') {
+        this.pack_info.imgUrl =
+          'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-taj-mahal.jpg.rend.hgtvcom.616.462.suffix/1491581548979.jpeg';
+      } else if (location == 'Hyderabad') {
+        this.pack_info.imgUrl =
+          'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-great-wall-of-china.jpg.rend.hgtvcom.616.462.suffix/1491581549051.jpeg';
+      } else if (location == 'Chennai') {
+        this.pack_info.imgUrl =
+          'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-christ-the-redeemer.jpg.rend.hgtvcom.616.462.suffix/1491581548898.jpeg';
       }
     },
     newPackage() {
@@ -155,7 +160,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({username:'auth/getUsername',userId:'auth/getUserId'}),
+    ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
 };
 </script>

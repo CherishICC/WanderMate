@@ -20,6 +20,9 @@
               >Add Packages</router-link
             >
           </li>
+          <li v-if="showGuideBoard" class="nav-item">
+            <router-link to="/guidechat" class="nav-link">Chat</router-link>
+          </li>
           <li v-if="showUserBoard" class="nav-item">
             <router-link to="/tours" class="nav-link">
               <font-awesome-icon icon="home" />Home</router-link

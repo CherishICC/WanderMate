@@ -13,7 +13,7 @@ class UserService {
     return axios.get(API_URL + `booking`, { headers: authHeader() });
   }
   userBooking(id) {
-    return axios.get(API_URL + `booking${id}`, { headers: authHeader() });
+    return axios.get(API_URL + `booking/${id}`, { headers: authHeader() });
   }
   bookingfindByLocation(location) {
     return axios.get(API_URL + `booking?location=${location}`, {
@@ -24,7 +24,9 @@ class UserService {
     console.log(authHeader(), data);
     return axios.post(API_URL + `booking`, data, { headers: authHeader() });
   }
-
+  bookingupdate(id, data) {
+    return axios.put(API_URL + `booking/${id}`, data, { headers: authHeader() });
+  }
   // packages in user page
   userPackageListAll() {
     return axios.get(API_URL + `packagebooking`, { headers: authHeader() });
@@ -35,10 +37,28 @@ class UserService {
     });
   }
   packagefindByLocation(location) {
-    console.log(API_URL + `packagebooking?location=${location}`);
     return axios.get(API_URL + `packagebooking?location=${location}`, {
       headers: authHeader(),
     });
+  }
+
+  // chat
+  userChatAll() {
+    return axios.get(API_URL + `chat`, { headers: authHeader() });
+  }
+  guideChatAll() {
+    return axios.get(API_URL + `guidechat`, { headers: authHeader() });
+  }
+  GetChatByreceiver(receiver) {
+    return axios.get(API_URL + `chat?receiver=${receiver}`, {
+      headers: authHeader(),
+    });
+  }
+  chatcreate(data) {
+    return axios.post(API_URL + `chat`, data, { headers: authHeader() });
+  }
+  guidechatcreate(data) {
+    return axios.post(API_URL + `guidechat`, data, { headers: authHeader() });
   }
 
   // blogs in user page

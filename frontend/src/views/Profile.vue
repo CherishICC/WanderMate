@@ -25,12 +25,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'Profile',
   computed: {
     currentUser() {
+      console.log(this.$store.state.auth.user);
       return this.$store.state.auth.user;
     },
+    ...mapGetters({ phone: 'auth/getUsername' }),
   },
   mounted() {
     if (!this.currentUser) {

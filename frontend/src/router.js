@@ -123,6 +123,24 @@ export const router = new Router({
       component: () => import('./views/Booking.vue'),
     },
     {
+      path: '/chat/:id',
+      name: 'chat',
+      // lazy-loaded
+      component: () => import('./views/UserChat.vue'),
+    },
+    {
+      path: '/guidechat',
+      name: 'guidechat',
+      // lazy-loaded
+      component: () => import('./views/GuideChat.vue'),
+    },
+    {
+      path: '/review/:id',
+      name: 'review',
+      // lazy-loaded
+      component: () => import('./views/Review.vue'),
+    },
+    {
       path: '/writeblog',
       name: 'writeblog',
       // lazy-loaded

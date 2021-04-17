@@ -4,6 +4,8 @@ const cust_controller = require("../controllers/customer.controller");
 const guide_controller = require("../controllers/itinerary.controller");
 const book_controller = require("../controllers/booking.controller");
 const blog_controller = require("../controllers/blog.controller");
+const chat_controller = require("../controllers/chat.controller");
+
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -83,6 +85,59 @@ module.exports = function(app) {
     blog_controller.delete
   );
 
+
+
+  // user chat
+  app.post(
+    "/api/test/chat",
+    [authJwt.verifyToken, authJwt.isUser],
+    chat_controller.create
+  );
+  app.get(
+    "/api/test/chat",
+    [authJwt.verifyToken, authJwt.isUser],
+    chat_controller.findAll
+  );
+  app.get(
+    "/api/test/chat/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    chat_controller.findOne
+  );
+  app.delete(
+    "/api/test/chat/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    chat_controller.delete
+  );
+
+  // guide chat
+  app.post(
+    "/api/test/guidechat",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.create
+  );
+  app.get(
+    "/api/test/guidechat",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.guidefindAll
+  );
+  app.get(
+    "/api/test/guidechat/:id",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.findOne
+  );
+  app.put(
+    "/api/test/guidechat/:id",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.update
+  );
+  app.delete(
+    "/api/test/guidechat/:id",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.delete
+  );
+
+
+  
   // guide profile
   app.get(
     "/api/test/guide/:id",

@@ -40,47 +40,28 @@
         />
       </div>
       <div class="form-group">
-        <label for="location">Location</label>
+        <label for="rating">Rating</label>
+        <input
+          type="number"
+          class="form-control"
+          id="rating"
+          v-model="Booking.rating"
+          v-validate="'required'"
+          name="rating"
+        />
+      </div>
+      <div class="form-group">
+        <label for="review">Review</label>
         <input
           type="text"
           class="form-control"
-          id="location"
-          v-model="Booking.location"
-          v-validate="'required|min:3|max:30'"
-          :disabled="validated ? disabled : ''"
-        />
-      </div>
-      <div class="form-group">
-        <label for="days">Days</label>
-        <input
-          type="number"
-          class="form-control"
-          id="days"
-          v-model="Booking.days"
-          name="days"
-          :disabled="validated ? disabled : ''"
+          id="review"
+          v-model="Booking.review"
+          v-validate="'required|min:6|max:40'"
+          name="review"
         />
       </div>
 
-      <div class="form-group">
-        <label for="cost">Price</label>
-        <input
-          type="number"
-          class="form-control"
-          id="cost"
-          v-model="Booking.cost"
-          name="cost"
-          :disabled="validated ? disabled : ''"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="date">Start Date</label>
-        <b-form-datepicker
-          v-model="Booking.start_date"
-          :min="min"
-        ></b-form-datepicker>
-      </div>
     </form>
 
     <button @click="saveBooking" class="btn btn-success">Book</button>
@@ -110,6 +91,8 @@ export default {
         location: '',
         start_date: '',
         end_date: '',
+        rating:'',
+        review:''
       },
       submitted: false,
       message: '',
@@ -118,20 +101,16 @@ export default {
     };
   },
   methods: {
-    getGuide(id) {
-      UserDataService.userPackageList(id)
+    getGuide(userId) {
+      UserDataService.userBooking(userId)
         .then((response) => {
           this.Booking = response.data;
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
         });
     },
     saveBooking() {
-      var dt = new Date(this.Booking.start_date);
-      dt.setDate(dt.getDate() + this.Booking.days);
-      dt = dt.toJSON().slice(0, 10).replace(/-/g, '-');
       var data = {
         userId: this.userId,
         username: this.username,
@@ -139,10 +118,13 @@ export default {
         package_name: this.Booking.package_name,
         location: this.Booking.location,
         start_date: this.Booking.start_date,
-        end_date: dt,
+        end_date: this.Booking.end_date,
+        rating: this.Booking.rating,
+        review: this.Booking.review,
       };
       console.log(data);
-      UserDataService.bookingcreate(data)
+      console.log(this.Booking.userId,data);
+      UserDataService.bookingupdate(this.Booking._id,data)
         .then((response) => {
           this.Booking.id = response.data.id;
           console.log(response.data);
@@ -159,7 +141,6 @@ export default {
   mounted() {
     this.message = '';
     this.getGuide(this.$route.params.id);
-    console.log(this.$route.params.id);
   },
 };
 </script>

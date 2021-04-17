@@ -72,7 +72,7 @@ export default {
       currentIndex: -1,
       username: '',
       package_name: '',
-      location:'',
+      location: '',
     };
   },
   methods: {

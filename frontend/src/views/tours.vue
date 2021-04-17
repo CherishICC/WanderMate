@@ -1,34 +1,45 @@
 <template>
   <div>
-      <div class="search">
-        <div class="pad-15-hor pad-15-ver search-parent">
-          <div class="search-bar" >
-            <b-form-input
-              @input="searchLocation()"
-              v-model="location"
-              type="text"
-              placeholder="Search by Location"
-            ></b-form-input>
-          </div>
-          <div>
-            <b-form-select @input="sort()" v-model="search.filter" :options="options"/>
-          </div>
+    <div class="search">
+      <div class="pad-15-hor pad-15-ver search-parent">
+        <div class="search-bar">
+          <b-form-input
+            @input="searchLocation()"
+            v-model="location"
+            type="text"
+            placeholder="Search by Location"
+          ></b-form-input>
+        </div>
+        <div>
+          <b-form-select
+            @input="sort()"
+            v-model="search.filter"
+            :options="options"
+          />
         </div>
       </div>
+    </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6 pad-15-ver card" v-for="(user, index) in users" :key="index">
+        <div
+          class="col-md-6 pad-15-ver card"
+          v-for="(user, index) in users"
+          :key="index"
+        >
           <div
             class="card-inner"
-            @mouseover="show_hover(true,index)"
-            @mouseout="show_hover(false,0)"
+            @mouseover="show_hover(true, index)"
+            @mouseout="show_hover(false, 0)"
           >
-            <img class="card-img" :src="user.imgUrl">
+            <img class="card-img" :src="user.imgUrl" />
 
-            <div class="card-bottom pad-15-hor" v-show="!hover_flag || active_id != index">
+            <div
+              class="card-bottom pad-15-hor"
+              v-show="!hover_flag || active_id != index"
+            >
               <!-- <div class="min-width-160">
                 <span class="bold">Ratings:</span> -->
-                <!-- <star-rating
+              <!-- <star-rating
                   :rating="wonder.ratings"
                   :show-rating="false"
                   :inline="true"
@@ -36,22 +47,28 @@
                 ></star-rating> -->
               <!-- </div> -->
               <div class="max-width-160">
-                <span class="bold">{{user.location}}</span>
+                <span class="bold">{{ user.location }}</span>
               </div>
             </div>
 
-            <div :class="{'card-hover':1}" v-show="hover_flag && active_id == index">
+            <div
+              :class="{ 'card-hover': 1 }"
+              v-show="hover_flag && active_id == index"
+            >
               <span
                 @click="make_active(index)"
-                :class="{ 'green':check_active(index)}"
+                :class="{ green: check_active(index) }"
               ></span>
-              <h5>Location : {{user.location}}</h5>
-              <h6>Guide : {{user.username}}</h6>
-              <h6>Days : {{user.days}}</h6>
-              <h6>Price : {{user.cost}}</h6>
-          <a class="badge badge-warning" :href="'/booking/' + user._id">
-            Book
-          </a>
+              <h5>Location : {{ user.location }}</h5>
+              <h6>Guide : {{ user.username }}</h6>
+              <h6>Days : {{ user.days }}</h6>
+              <h6>Price : {{ user.cost }}</h6>
+              <a class="badg`e badge-warning" :href="'/booking/' + user._id">
+                Book
+              </a>
+              <a class="badg`e badge-warning" :href="'/chat/' + user._id">
+                Chat
+              </a>
             </div>
           </div>
         </div>
@@ -76,7 +93,7 @@ export default {
       location: '',
       username: '',
       options: [
-        { value: null, text: "Sort By", disabled: true },
+        { value: null, text: 'Sort By', disabled: true },
         { value: 'a', text: 'Days' },
         { value: 'b', text: 'Cost' },
       ],
@@ -108,7 +125,6 @@ export default {
       this.currentIndex = index;
     },
     searchLocation() {
-      console.log(this.location);
       UserDataService.packagefindByLocation(this.location)
         .then((response) => {
           this.users = response.data;
@@ -130,7 +146,7 @@ export default {
     },
     check_active(id) {
       var flag = false;
-      this.wonders_data_actual.map(function(wonder) {
+      this.wonders_data_actual.map(function (wonder) {
         if (wonder.id == id) {
           flag = wonder.active_like;
         }
@@ -139,7 +155,9 @@ export default {
     },
     make_active(id) {
       this.likes.hit++;
-      this.wonders_data_actual = this.wonders_data_actual.map(function(wonder) {
+      this.wonders_data_actual = this.wonders_data_actual.map(function (
+        wonder
+      ) {
         if (wonder.id == id) {
           wonder.active_like = !wonder.active_like;
           wonder.active_like ? wonder.likes++ : wonder.likes--;
@@ -150,10 +168,10 @@ export default {
       var inside = this;
 
       inside.likes.count = 0;
-      this.wonders_data_actual.map(function(wonder) {
+      this.wonders_data_actual.map(function (wonder) {
         inside.likes.count += wonder.likes;
       });
-    }
+    },
   },
   mounted() {
     this.retrieveUsers();
