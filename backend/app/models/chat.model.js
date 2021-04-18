@@ -8,11 +8,6 @@ const Chat = mongoose.model(
       ref: 'User',
       required: true
     },
-    toUserId:{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    },
     from: String,
     to: String,
     msg: String

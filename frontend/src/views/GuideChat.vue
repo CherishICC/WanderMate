@@ -31,7 +31,7 @@
         type="text"
         class="form-control"
         id="to"
-        v-model="Chat.username"
+        v-model="Chat.to"
         v-validate="'required|min:3|max:20'"
         name="to"
       />
@@ -101,7 +101,7 @@ export default {
       var data = {
         userId: this.userId,
         from: this.username,
-        to: this.Chat.guide,
+        to: this.Chat.to,
         msg: this.Chat.msg,
       };
       console.log(data);

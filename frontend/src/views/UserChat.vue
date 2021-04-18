@@ -1,5 +1,18 @@
 <template>
-  <div class="list row">
+  <div>
+    <!-- <div class="search">
+      <div class="search-parent">
+        <div class="search-bar">
+          <b-form-input
+            @input="searchLocation()"
+            v-model="users.to"
+            type="text"
+            placeholder="Search by Location"
+          ></b-form-input>
+        </div>
+      </div>
+    </div> -->
+    <div class="list row">
     <div class="col-md-6">
       <ul class="list-group">
         <li
@@ -31,7 +44,7 @@
         type="text"
         class="form-control"
         id="to"
-        v-model="Chat.username"
+        v-model="details.username"
         v-validate="'required|min:3|max:20'"
         name="to"
         :disabled="validated ? disabled : ''"
@@ -51,6 +64,7 @@
     <button @click="sendChat" class="btn btn-success">Send</button>
     <p>{{ message }}</p>
   </div>
+  </div>
 </template>
 
 <script>
@@ -68,6 +82,9 @@ export default {
         to: '',
         msg: '',
       },
+      details:{
+        username:'',
+      },
       users: [],
       currentUser: null,
       submitted: false,
@@ -78,10 +95,10 @@ export default {
   },
   methods: {
     retrieveUsers() {
+      console.log("hi");
       UserDataService.userChatAll()
         .then((response) => {
           this.users = response.data;
-          console.log(this.users);
         })
         .catch((e) => {
           console.log(e);
@@ -96,33 +113,39 @@ export default {
       this.currentUser = user;
       this.currentIndex = index;
     },
-    // getChat() {
-    //   console.log(this.username)
-    //   UserDataService.GetChatByreceiver(this.username)
-    //     .then((response) => {
-    //       this.Chat = response.data;
-    //       console.log(response.data);
-    //     })
-    //     .catch((e) => {
-    //       console.log(e);
-    //     });
-    // },
+    getGuide(id) {
+      UserDataService.userPackageList(id)
+        .then((response) => {
+          this.details = response.data;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
     sendChat() {
       var data = {
         userId: this.userId,
         from: this.username,
-        to: this.Chat.guide,
+        to: this.details.username,
         msg: this.Chat.msg,
       };
-      console.log(data);
       UserDataService.chatcreate(data)
         .then((response) => {
           this.Chat.id = response.data.id;
-          console.log(response.data);
           this.submitted = true;
         })
         .catch((e) => {
           console.log('err:', e);
+        });
+    },
+    searchLocation() {
+      UserDataService.GetChatByreceiver(this.details.username)
+        .then((response) => {
+          console.log(this.details.username);
+          this.users = response.data;
+        })
+        .catch((e) => {
+          console.log(e);
         });
     },
   },
@@ -131,8 +154,8 @@ export default {
   },
   mounted() {
     this.retrieveUsers();
-    this.message = '';
-    // this.getChat();
+    this.getGuide(this.$route.params.id);
+    this.searchLocation();
   },
 };
 </script>

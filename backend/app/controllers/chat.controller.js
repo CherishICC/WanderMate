@@ -47,10 +47,10 @@ exports.guidefindAll = (req, res) => {
 
 // Retrieve all itineraries from the database.
 exports.findAll = (req, res) => {
-  var ObjectID = require('mongodb').ObjectID;
+  // var ObjectID = require('mongodb').ObjectID;
   const to = req.query.to;
   var condition = to ? { to: { $regex: new RegExp(to), $options: "i" } } : {};
-  console.log(to)
+  // console.log(to);
   // {"userId": new ObjectID(req.userId)}
   Chat.find(condition)
     .then(data => {
@@ -67,7 +67,7 @@ exports.findAll = (req, res) => {
 // Find a single User with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
-
+  console.log(id);
   Chat.findById(id)
     .then(data => {
       if (!data)
