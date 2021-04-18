@@ -69,6 +69,32 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="pref1">First Preference</label>
+            <input
+              v-model="user.pref1"
+              v-validate="'required|min:10|max:10'"
+              type="text"
+              class="form-control"
+              name="pref1"
+            />
+            <div v-if="submitted && errors.has('pref1')" class="alert-danger">
+              {{ errors.first('pref1') }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pref2">Second Preference</label>
+            <input
+              v-model="user.pref2"
+              v-validate="'required|min:10|max:10'"
+              type="text"
+              class="form-control"
+              name="pref2"
+            />
+            <div v-if="submitted && errors.has('pref2')" class="alert-danger">
+              {{ errors.first('pref2') }}
+            </div>
+          </div>
+          <div class="form-group">
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>
         </div>

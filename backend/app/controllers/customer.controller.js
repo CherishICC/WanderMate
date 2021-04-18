@@ -16,7 +16,8 @@ exports.create = (req, res) => {
     password: req.body.password,
     phone: req.body.phone,
     email: req.body.email,
-    // published: req.body.published ? req.body.published : false
+    pref1: req.body.pref1,
+    pref2: req.body.pref2,
   });
 
   // Save User in the database

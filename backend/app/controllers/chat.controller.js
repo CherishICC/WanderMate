@@ -47,12 +47,14 @@ exports.guidefindAll = (req, res) => {
 
 // Retrieve all itineraries from the database.
 exports.findAll = (req, res) => {
+  console.log(req.query);
   // var ObjectID = require('mongodb').ObjectID;
-  const to = req.query.to;
-  var condition = to ? { to: { $regex: new RegExp(to), $options: "i" } } : {};
-  // console.log(to);
-  // {"userId": new ObjectID(req.userId)}
-  Chat.find(condition)
+  // const to = req.query.to;
+  // var condition = to ? { to: { $regex: new RegExp(to), $options: "i" } } : {};
+  // var condition1 = from ? { from: { $regex: new RegExp(to), $options: "i" } } : {};
+  // console.log(condition1);
+  // { $and: [ {"userId": new ObjectID(req.userId)}, condition ] }
+  Chat.find()
     .then(data => {
       res.send(data);
     })

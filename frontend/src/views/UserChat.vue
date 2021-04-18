@@ -139,9 +139,10 @@ export default {
         });
     },
     searchLocation() {
-      UserDataService.GetChatByreceiver(this.details.username)
+      // console.log(this.details.username);
+      UserDataService.GetChatByreceiver("guide")
         .then((response) => {
-          console.log(this.details.username);
+          // console.log(this.details.username);
           this.users = response.data;
         })
         .catch((e) => {
@@ -153,7 +154,7 @@ export default {
     ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
   mounted() {
-    this.retrieveUsers();
+    // this.retrieveUsers();
     this.getGuide(this.$route.params.id);
     this.searchLocation();
   },

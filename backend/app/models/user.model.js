@@ -7,12 +7,14 @@ const User = mongoose.model(
     phone: String,
     email: String,
     password: String,
+    pref1: String,
+    pref2: String,
     roles: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Role"
       }
-    ]
+    ],
   })
 );
 
