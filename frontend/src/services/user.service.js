@@ -46,12 +46,15 @@ class UserService {
   userChatAll() {
     return axios.get(API_URL + `chat`, { headers: authHeader() });
   }
-  guideChatAll() {
-    return axios.get(API_URL + `guidechat`, { headers: authHeader() });
+  guideChatAll(to) {
+    return axios.get(API_URL + `guidechat?to=${to}`, { headers: authHeader() });
+  }
+  userListAll() {
+    return axios.get(API_URL + `userList`, { headers: authHeader() });
   }
   GetChatByreceiver(to) {
     // console.log(to);
-    return axios.get(API_URL + `chat?from=${to}`, {
+    return axios.get(API_URL + `chat?to=${to}`, {
       headers: authHeader(),
     });
   }

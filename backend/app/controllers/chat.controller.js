@@ -9,14 +9,11 @@ exports.create = (req, res) => {
     return;
   }
 
+  console.log(req.body);
   // Create a User
-  const newchat = new Chat({
-    userId:req.body.userId,
-    from:req.body.from,
-    to: req.body.to,
-    msg:req.body.msg,
-    // published: req.body.published ? req.body.published : false
-  });
+  const newchat = new Chat(
+    req.body
+  );
 
   newchat
     .save(newchat)
@@ -33,7 +30,20 @@ exports.create = (req, res) => {
 
 exports.guidefindAll = (req, res) => {
   var ObjectID = require('mongodb').ObjectID;
-  Chat.find({"userId": new ObjectID(req.userId)})
+  const to = req.query.to;
+   if(to===""){
+  Chat.find({"$or":[{"userId": new ObjectID(req.userId)},{"toUserId":new ObjectID(req.userId)}]})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving chat."
+      });
+    });}
+    else{
+      Chat.find({"$or":[{"userId": new ObjectID(req.userId),"toUserId":new ObjectID(req.query.to)},{"toUserId": new ObjectID(req.userId),"userId":new ObjectID(req.query.to)}]})
     .then(data => {
       res.send(data);
     })
@@ -43,18 +53,18 @@ exports.guidefindAll = (req, res) => {
           err.message || "Some error occurred while retrieving chat."
       });
     });
+    }
 };
 
-// Retrieve all itineraries from the database.
+// Retrieve all chats from the database.
 exports.findAll = (req, res) => {
   console.log(req.query);
-  // var ObjectID = require('mongodb').ObjectID;
-  // const to = req.query.to;
-  // var condition = to ? { to: { $regex: new RegExp(to), $options: "i" } } : {};
-  // var condition1 = from ? { from: { $regex: new RegExp(to), $options: "i" } } : {};
-  // console.log(condition1);
-  // { $and: [ {"userId": new ObjectID(req.userId)}, condition ] }
-  Chat.find()
+  var ObjectID = require('mongodb').ObjectID;
+  console.log(req.query);
+  const to = req.query.to;
+  
+
+  Chat.find({"$or":[{"userId": new ObjectID(req.userId),"toUserId":new ObjectID(req.query.to)},{"toUserId": new ObjectID(req.userId),"userId":new ObjectID(req.query.to)}]})
     .then(data => {
       res.send(data);
     })
@@ -64,6 +74,7 @@ exports.findAll = (req, res) => {
           err.message || "Some error occurred while retrieving chat."
       });
     });
+  
 };
 
 // Find a single User with an id

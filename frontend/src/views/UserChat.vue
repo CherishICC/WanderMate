@@ -84,6 +84,7 @@ export default {
       },
       details:{
         username:'',
+        userId:'',
       },
       users: [],
       currentUser: null,
@@ -117,6 +118,7 @@ export default {
       UserDataService.userPackageList(id)
         .then((response) => {
           this.details = response.data;
+          this.searchLocation();
         })
         .catch((e) => {
           console.log(e);
@@ -127,22 +129,23 @@ export default {
         userId: this.userId,
         from: this.username,
         to: this.details.username,
+        toUserId: this.details.userId,
         msg: this.Chat.msg,
       };
+      console.log(data);
       UserDataService.chatcreate(data)
         .then((response) => {
           this.Chat.id = response.data.id;
           this.submitted = true;
+          this.searchLocation();
         })
         .catch((e) => {
           console.log('err:', e);
         });
     },
-    searchLocation() {
-      // console.log(this.details.username);
-      UserDataService.GetChatByreceiver("guide")
+    async searchLocation() {
+      UserDataService.GetChatByreceiver(this.details.userId)
         .then((response) => {
-          // console.log(this.details.username);
           this.users = response.data;
         })
         .catch((e) => {
@@ -156,7 +159,7 @@ export default {
   mounted() {
     // this.retrieveUsers();
     this.getGuide(this.$route.params.id);
-    this.searchLocation();
+    // console.log(this.$route.params.id);
   },
 };
 </script>

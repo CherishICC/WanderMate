@@ -6,10 +6,10 @@
           class="list-group-item bg-transparent"
           style="border: none"
           :class="{ active: index == currentIndex }"
-          v-for="(user, index) in users"
-          :key="index"
+          v-for="(chat, index) in chats"
+          :key="chat._id"
         >
-          {{ user.from + ' : ' + user.msg }}
+          {{ chat.from + ' : ' + chat.msg }}
         </li>
       </ul>
     </div>
@@ -27,14 +27,9 @@
     </div>
     <div class="form-group">
       <label for="to">To</label>
-      <input
-        type="text"
-        class="form-control"
-        id="to"
-        v-model="Chat.to"
-        v-validate="'required|min:3|max:20'"
-        name="to"
-      />
+      <b-form-select v-model="toUserId" :options="options" @input="retrieveChats">
+
+      </b-form-select>
       <!-- :disabled="validated ? disabled : ''" -->
     </div>
     <div class="form-group">
@@ -48,7 +43,7 @@
         name="msg"
       />
     </div>
-    <button @click="sendChat" class="btn btn-success">Send</button>
+    <button @click="sendChat" class="btn btn-success" :disabled="toUserId===''">Send</button>
     <p>{{ message }}</p>
   </div>
 </template>
@@ -67,8 +62,11 @@ export default {
         from: '',
         to: '',
         msg: '',
+        toUserId:''
       },
+      toUserId:"",
       users: [],
+      chats:[],
       currentUser: null,
       submitted: false,
       message: '',
@@ -78,10 +76,10 @@ export default {
   },
   methods: {
     retrieveUsers() {
-      UserDataService.guideChatAll()
+      UserDataService.userListAll()
         .then((response) => {
           this.users = response.data;
-          console.log(this.users);
+          // console.log(this.users);
         })
         .catch((e) => {
           console.log(e);
@@ -97,19 +95,30 @@ export default {
           console.log(e);
         });
     },
+    retrieveChats(){
+      UserDataService.guideChatAll(this.toUserId)
+        .then((response) => {
+          this.chats = response.data;
+          console.log(this.chats);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
     sendChat() {
+      const toName = this.users.find((item)=>item._id===this.toUserId).username;
       var data = {
         userId: this.userId,
         from: this.username,
-        to: this.Chat.to,
+        to: toName,
         msg: this.Chat.msg,
+        toUserId:this.toUserId
       };
-      console.log(data);
       UserDataService.guidechatcreate(data)
         .then((response) => {
           this.Chat.id = response.data.id;
-          console.log(response.data);
           this.submitted = true;
+          this.retrieveChats();
         })
         .catch((e) => {
           console.log('err:', e);
@@ -138,12 +147,20 @@ export default {
   },
   computed: {
     ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
+    options(){
+      const arr=[ { value: "", text: 'Please select an option' }]
+      this.users.forEach((item)=>{
+        arr.push({value:item._id,text:item.username});
+      })
+      return arr;
+    }
   },
   mounted() {
     this.retrieveUsers();
+    this.retrieveChats();
     this.message = '';
     // this.getChat(this.$route.params.id);
-    console.log(this.$route.params.id);
+    // console.log(this.$route.params.id);
   },
 };
 </script>

@@ -50,6 +50,22 @@ exports.findAll = (req, res) => {
     });
 };
 
+
+// // Retrieve all Users from the database.
+// exports.findUsersAll = (req, res) => {
+//    const username = req.query.username;
+//    const role = new Role({name:"User"});
+//   User.find({roles})
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while retrieving users."
+//       });
+//     });
+// };
 // Find a single User with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;

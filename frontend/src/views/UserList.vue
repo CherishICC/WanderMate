@@ -69,6 +69,7 @@ export default {
       currentIndex: -1,
       username: '',
       validated: '',
+      currentRole:'',
     };
   },
   methods: {
@@ -76,7 +77,6 @@ export default {
       UserDataService.getAll()
         .then((response) => {
           this.users = response.data;
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);

@@ -116,6 +116,11 @@ module.exports = function(app) {
     chat_controller.create
   );
   app.get(
+    "/api/test/userList",
+    [authJwt.verifyToken, authJwt.isGuide],
+    cust_controller.findAll
+  );
+  app.get(
     "/api/test/guidechat",
     [authJwt.verifyToken, authJwt.isGuide],
     chat_controller.guidefindAll
