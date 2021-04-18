@@ -142,6 +142,9 @@ class UserService {
   getAll() {
     return axios.get(API_URL + `admin`, { headers: authHeader() });
   }
+  getAllRoles() {
+    return axios.get(API_URL + `roles`, { headers: authHeader() });
+  }
   get(id) {
     return axios.get(API_URL + `admin/${id}`, { headers: authHeader() });
   }

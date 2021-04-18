@@ -1,6 +1,7 @@
 const { authJwt } = require("../middlewares");
 const controller = require("../controllers/user.controller");
 const cust_controller = require("../controllers/customer.controller");
+const role_controller = require("../controllers/role.controller");
 const guide_controller = require("../controllers/itinerary.controller");
 const book_controller = require("../controllers/booking.controller");
 const blog_controller = require("../controllers/blog.controller");
@@ -222,6 +223,11 @@ module.exports = function(app) {
     "/api/test/admin",
     [authJwt.verifyToken, authJwt.isAdmin],
     cust_controller.findAll
+  );
+  app.get(
+    "/api/test/roles",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    role_controller.findAll
   );
   app.get(
     "/api/test/admin/:id",
