@@ -1,5 +1,5 @@
 <template>
-  <div class="list row">
+  <div class="inner">
     <div class="col-md-6">
       <ul class="list-group">
         <li
@@ -9,42 +9,41 @@
           v-for="(chat, index) in chats"
           :key="chat._id"
         >
-          {{ chat.from + ' : ' + chat.msg }}
+          {{ chat.from }} {{ ' : ' }} {{ chat.msg }}
         </li>
       </ul>
     </div>
-    <div class="form-group">
-      <label for="from">From</label>
-      <input
-        type="text"
-        class="form-control"
-        id="from"
-        v-model="username"
-        v-validate="'required|min:3|max:20'"
-        name="from"
-        :disabled="validated ? disabled : ''"
-      />
+    <hr />
+    <div class="col-md-6">
+      <div class="form-group form-inline">
+        <label for="to">To :</label>
+        <b-form-select
+          v-model="toUserId"
+          :options="options"
+          @input="retrieveChats"
+        >
+        </b-form-select>
+      </div>
+      <div class="form-group form-inline">
+        <label for="msg"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="msg"
+          v-model="Chat.msg"
+          v-validate="'required|min:1'"
+          name="msg"
+        />
+        <button
+          @click="sendChat"
+          class="btn btn-success"
+          :disabled="toUserId === ''"
+        >
+          Send
+        </button>
+        <p>{{ message }}</p>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="to">To</label>
-      <b-form-select v-model="toUserId" :options="options" @input="retrieveChats">
-
-      </b-form-select>
-      <!-- :disabled="validated ? disabled : ''" -->
-    </div>
-    <div class="form-group">
-      <label for="msg">Message</label>
-      <input
-        type="text"
-        class="form-control"
-        id="msg"
-        v-model="Chat.msg"
-        v-validate="'required|min:10'"
-        name="msg"
-      />
-    </div>
-    <button @click="sendChat" class="btn btn-success" :disabled="toUserId===''">Send</button>
-    <p>{{ message }}</p>
   </div>
 </template>
 
@@ -62,11 +61,11 @@ export default {
         from: '',
         to: '',
         msg: '',
-        toUserId:''
+        toUserId: '',
       },
-      toUserId:"",
+      toUserId: '',
       users: [],
-      chats:[],
+      chats: [],
       currentUser: null,
       submitted: false,
       message: '',
@@ -95,7 +94,7 @@ export default {
           console.log(e);
         });
     },
-    retrieveChats(){
+    retrieveChats() {
       UserDataService.guideChatAll(this.toUserId)
         .then((response) => {
           this.chats = response.data;
@@ -106,13 +105,14 @@ export default {
         });
     },
     sendChat() {
-      const toName = this.users.find((item)=>item._id===this.toUserId).username;
+      const toName = this.users.find((item) => item._id === this.toUserId)
+        .username;
       var data = {
         userId: this.userId,
         from: this.username,
         to: toName,
         msg: this.Chat.msg,
-        toUserId:this.toUserId
+        toUserId: this.toUserId,
       };
       UserDataService.guidechatcreate(data)
         .then((response) => {
@@ -147,13 +147,15 @@ export default {
   },
   computed: {
     ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
-    options(){
-      const arr=[ { value: "", text: 'Please select an option' }]
-      this.users.forEach((item)=>{
-        arr.push({value:item._id,text:item.username});
-      })
+    options() {
+      const arr = [
+        { value: '', text: 'Please select an option', disabled: true },
+      ];
+      this.users.forEach((item) => {
+        arr.push({ value: item._id, text: item.username });
+      });
       return arr;
-    }
+    },
   },
   mounted() {
     this.retrieveUsers();
@@ -169,5 +171,8 @@ export default {
 .edit-form {
   max-width: 300px;
   margin: auto;
+}
+.inner {
+  margin-left: 250px;
 }
 </style>

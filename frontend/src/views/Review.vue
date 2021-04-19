@@ -3,25 +3,12 @@
     <h3>Package</h3>
     <form>
       <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          v-model="username"
-          v-validate="'required|min:3|max:20'"
-          name="username"
-          :disabled="validated ? disabled : ''"
-        />
-      </div>
-
-      <div class="form-group">
         <label for="guide">Guide</label>
         <input
           type="text"
           class="form-control"
           id="guide"
-          v-model="Booking.username"
+          v-model="Booking.guide"
           v-validate="'required|min:3|max:20'"
           name="guide"
           :disabled="validated ? disabled : ''"
@@ -39,7 +26,7 @@
           :disabled="validated ? disabled : ''"
         />
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="rating">Rating</label>
         <input
           type="number"
@@ -49,10 +36,19 @@
           v-validate="'required'"
           name="rating"
         />
-      </div>
+      </div> -->
+              <div class="min-width-200">
+                <span class="bold">Rating :</span>
+                <star-rating
+                  :rating="Booking.rating"
+                  :show-rating="false"
+                  :inline="true"
+                  :star-size="30"
+                ></star-rating>
+              </div>
       <div class="form-group">
         <label for="review">Review</label>
-        <input
+        <textarea
           type="text"
           class="form-control"
           id="review"
@@ -61,10 +57,9 @@
           name="review"
         />
       </div>
-
     </form>
 
-    <button @click="saveBooking" class="btn btn-success">Book</button>
+    <button @click="saveBooking" class="btn btn-success">Review</button>
     <p>{{ message }}</p>
   </div>
 
@@ -91,8 +86,8 @@ export default {
         location: '',
         start_date: '',
         end_date: '',
-        rating:'',
-        review:''
+        rating: '',
+        review: '',
       },
       submitted: false,
       message: '',
@@ -123,8 +118,8 @@ export default {
         review: this.Booking.review,
       };
       console.log(data);
-      console.log(this.Booking.userId,data);
-      UserDataService.bookingupdate(this.Booking._id,data)
+      console.log(this.Booking.userId, data);
+      UserDataService.bookingupdate(this.Booking._id, data)
         .then((response) => {
           this.Booking.id = response.data.id;
           console.log(response.data);

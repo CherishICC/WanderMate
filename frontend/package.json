@@ -23,6 +23,7 @@
     "vue": "^2.6.10",
     "vue-input-autowidth": "^1.0.11",
     "vue-router": "^3.0.3",
+    "vue-star-rating": "^1.7.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

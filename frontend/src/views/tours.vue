@@ -37,15 +37,6 @@
               class="card-bottom pad-15-hor"
               v-show="!hover_flag || active_id != index"
             >
-              <!-- <div class="min-width-160">
-                <span class="bold">Ratings:</span> -->
-              <!-- <star-rating
-                  :rating="wonder.ratings"
-                  :show-rating="false"
-                  :inline="true"
-                  :star-size="15"
-                ></star-rating> -->
-              <!-- </div> -->
               <div class="max-width-160">
                 <span class="bold">{{ user.location }}</span>
               </div>
@@ -63,12 +54,15 @@
               <h6>Guide : {{ user.username }}</h6>
               <h6>Days : {{ user.days }}</h6>
               <h6>Price : {{ user.cost }}</h6>
-              <a class="badg`e badge-warning" :href="'/booking/' + user._id">
-                Book
-              </a>
-              <a class="badg`e badge-warning" :href="'/chat/' + user._id">
-                Chat
-              </a>
+              <div class="row">
+                <a class="btn btn-warning" :href="'/booking/' + user._id">
+                  Book
+                </a>
+
+                <a class="btn btn-primary" :href="'/chat/' + user._id">
+                  Chat
+                </a>
+              </div>
             </div>
           </div>
         </div>

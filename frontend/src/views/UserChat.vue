@@ -1,18 +1,5 @@
 <template>
-  <div>
-    <!-- <div class="search">
-      <div class="search-parent">
-        <div class="search-bar">
-          <b-form-input
-            @input="searchLocation()"
-            v-model="users.to"
-            type="text"
-            placeholder="Search by Location"
-          ></b-form-input>
-        </div>
-      </div>
-    </div> -->
-    <div class="list row">
+  <div class="inner">
     <div class="col-md-6">
       <ul class="list-group">
         <li
@@ -26,44 +13,24 @@
         </li>
       </ul>
     </div>
-    <div class="form-group">
-      <label for="from">From</label>
-      <input
-        type="text"
-        class="form-control"
-        id="from"
-        v-model="username"
-        v-validate="'required|min:3|max:20'"
-        name="from"
-        :disabled="validated ? disabled : ''"
-      />
+    <hr />
+    <div class="col-md-6">
+      <p>From : {{ username }}</p>
+      <p>To : {{ details.username }}</p>
+      <div class="form-group form-inline">
+        <label for="msg"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="msg"
+          v-model="Chat.msg"
+          v-validate="'required|min:1'"
+          name="msg"
+        />
+        <button @click="sendChat" class="btn btn-success">Send</button>
+        <p>{{ message }}</p>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="to">To</label>
-      <input
-        type="text"
-        class="form-control"
-        id="to"
-        v-model="details.username"
-        v-validate="'required|min:3|max:20'"
-        name="to"
-        :disabled="validated ? disabled : ''"
-      />
-    </div>
-    <div class="form-group">
-      <label for="msg">Message</label>
-      <input
-        type="text"
-        class="form-control"
-        id="msg"
-        v-model="Chat.msg"
-        v-validate="'required|min:10'"
-        name="msg"
-      />
-    </div>
-    <button @click="sendChat" class="btn btn-success">Send</button>
-    <p>{{ message }}</p>
-  </div>
   </div>
 </template>
 
@@ -82,9 +49,9 @@ export default {
         to: '',
         msg: '',
       },
-      details:{
-        username:'',
-        userId:'',
+      details: {
+        username: '',
+        userId: '',
       },
       users: [],
       currentUser: null,
@@ -96,7 +63,7 @@ export default {
   },
   methods: {
     retrieveUsers() {
-      console.log("hi");
+      console.log('hi');
       UserDataService.userChatAll()
         .then((response) => {
           this.users = response.data;
@@ -157,9 +124,7 @@ export default {
     ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
   mounted() {
-    // this.retrieveUsers();
     this.getGuide(this.$route.params.id);
-    // console.log(this.$route.params.id);
   },
 };
 </script>
@@ -168,5 +133,8 @@ export default {
 .edit-form {
   max-width: 300px;
   margin: auto;
+}
+.inner {
+  margin-left: 250px;
 }
 </style>
