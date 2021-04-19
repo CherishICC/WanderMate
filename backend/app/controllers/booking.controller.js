@@ -10,18 +10,7 @@ exports.create = (req, res) => {
   }
 
   // Create a User
-  const booking = new Booking({
-    userId:req.body.userId,
-    username:req.body.username,
-    guide: req.body.guide,
-    package_name: req.body.package_name,
-    location: req.body.location,
-    start_date:req.body.start_date,
-    end_date:req.body.end_date,
-    review:req.body.review,
-    rating:req.body.rating,
-    // published: req.body.published ? req.body.published : false
-  });
+  const booking = new Booking(req.body);
 
   booking
     .save(booking)

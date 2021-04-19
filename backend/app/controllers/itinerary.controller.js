@@ -10,16 +10,7 @@ exports.create = (req, res) => {
   }
 
   // Create a User
-  const itinerary = new Itinerary({
-    imgUrl:req.body.imgUrl,
-    userId:req.body.userId,
-    username:req.body.username,
-    package_name: req.body.package_name,
-    location: req.body.location,
-    days:req.body.days,
-    cost: req.body.cost,
-    // published: req.body.published ? req.body.published : false
-  });
+  const itinerary = new Itinerary(req.body);
 
   itinerary
     .save(itinerary)

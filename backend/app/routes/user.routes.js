@@ -57,6 +57,16 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isUser],
     guide_controller.findOne
   );
+  app.get(
+    "/api/test/packageget/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    guide_controller.findOne
+  );
+  app.put(
+    "/api/test/packagerating/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    guide_controller.update
+  );
 
 
   // user blog
