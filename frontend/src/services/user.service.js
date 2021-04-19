@@ -105,6 +105,12 @@ class UserService {
   packagecreate(data) {
     return axios.post(API_URL + `package`, data, { headers: authHeader() });
   }
+  UserPackageGet(id) {
+    return axios.get(API_URL + `packageget/${id}`, { headers: authHeader() });
+  }
+  packageEditRating(id,data) {
+    return axios.put(API_URL + `packagerating/${id}`, data, { headers: authHeader() });
+  }
   packageupdate(id, data) {
     return axios.put(API_URL + `package/${id}`, data, {
       headers: authHeader(),

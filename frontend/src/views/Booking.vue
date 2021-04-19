@@ -122,7 +122,6 @@ export default {
       UserDataService.userPackageList(id)
         .then((response) => {
           this.Booking = response.data;
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
@@ -134,6 +133,7 @@ export default {
       dt = dt.toJSON().slice(0, 10).replace(/-/g, '-');
       var data = {
         userId: this.userId,
+        packageId : this.Booking._id,
         username: this.username,
         guide: this.Booking.username,
         package_name: this.Booking.package_name,
@@ -141,11 +141,9 @@ export default {
         start_date: this.Booking.start_date,
         end_date: dt,
       };
-      console.log(data);
       UserDataService.bookingcreate(data)
         .then((response) => {
           this.Booking.id = response.data.id;
-          console.log(response.data);
           this.submitted = true;
         })
         .catch((e) => {
@@ -159,7 +157,6 @@ export default {
   mounted() {
     this.message = '';
     this.getGuide(this.$route.params.id);
-    console.log(this.$route.params.id);
   },
 };
 </script>

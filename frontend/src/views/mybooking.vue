@@ -123,17 +123,6 @@ export default {
       }
     },
 
-    removeAllUsers() {
-      UserDataService.deleteAll()
-        .then((response) => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-
     searchLocation() {
       UserDataService.bookingfindByLocation(this.location)
         .then((response) => {

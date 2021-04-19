@@ -59,7 +59,7 @@
       </div>
     </form>
 
-    <button @click="saveBooking" class="btn btn-success">Review</button>
+    <button @click="saveBooking" class="btn btn-success">Submit Review</button>
     <p>{{ message }}</p>
   </div>
 
@@ -80,15 +80,30 @@ export default {
     return {
       Booking: {
         id: null,
+        packageId:'',
         username: '',
         guide: '',
         package_name: '',
         location: '',
         start_date: '',
         end_date: '',
-        rating: '',
+        Rating: 0,
         review: '',
       },
+      Itenary: {
+        id:null,
+        // userId: null,
+        // username: '',
+        // package_name: '',
+        // location: '',
+        // days: 0,
+        // cost: 0,
+        count: 0,
+        // imgUrl:'',
+        rating:'',
+      },
+      packageid:null,
+      rating1:0,
       submitted: false,
       message: '',
       validated: '',
@@ -105,6 +120,7 @@ export default {
           console.log(e);
         });
     },
+
     saveBooking() {
       var data = {
         userId: this.userId,
@@ -117,15 +133,44 @@ export default {
         rating: this.Booking.rating,
         review: this.Booking.review,
       };
-      console.log(data);
-      console.log(this.Booking.userId, data);
       UserDataService.bookingupdate(this.Booking._id, data)
         .then((response) => {
           this.Booking.id = response.data.id;
-          console.log(response.data);
+          // console.log(response.data);
           this.submitted = true;
-        })
-        .catch((e) => {
+          UserDataService.UserPackageGet(this.Booking.packageId)
+            .then((response) => {
+            this.Itenary = response.data;
+            this.packageid = this.Booking.packageId;
+            this.rating1 = this.Itenary.rating;
+            // console.log(this.packageid+"   "+this.rating1);
+            var data1 =  {
+              id: this.Itenary.id,
+              username: this.Itenary.username,
+              package_name: this.Itenary.package_name,
+              location: this.Itenary.location,
+              // change rating here
+              rating: 3+this.rating1,
+              days: this.Itenary.days,
+              cost: this.Itenary.cost,
+              count: this.Itenary.count+1,
+            }
+          // console.log(this.packageid);
+          UserDataService.packageEditRating(this.packageid,data1)
+          .then((response) => {
+            this.Booking.id = response.data.id;
+            console.log(response.data);
+            this.submitted = true;
+          })
+          .catch((e) => {
+            console.log('err:', e);
+          });
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+          })
+          .catch((e) => {
           console.log('err:', e);
         });
     },

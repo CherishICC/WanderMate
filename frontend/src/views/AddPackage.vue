@@ -129,6 +129,7 @@ export default {
         location: this.pack_info.location,
         days: this.pack_info.days,
         cost: this.pack_info.cost,
+        rating: 5,
       };
       // console.log(data);
       UserService.packagecreate(data)
