@@ -34,10 +34,27 @@
   </div>
 </template>
 
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'it',
+      includedLanguages: 'de,en,es,fr,it',
+      gaTrack: true,
+      gaId: 'UA-XXXXXXXX-X'
+    },
+    'google_translate_element'
+  );
+}
+</script>
 <script>
 import UserDataService from '../services/user.service';
 import { mapGetters } from 'vuex';
-
+// const translate = require('google-translate-api');
+// import Vue from 'vue';
+// import VueTranslate from 'vue-translate-plugin';
+// Vue.use(VueTranslate);
 export default {
   name: 'Chat',
   data() {
@@ -62,6 +79,17 @@ export default {
     };
   },
   methods: {
+    // changeLanguage() {
+    //   translate('Ik spreek Engels', { to: 'en' })
+    //     .then((res) => {
+    //       console.log('hello');
+    //       console.log(res.text);
+    //       console.log(res.from.language.iso);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //     });
+    // },
     retrieveUsers() {
       console.log('hi');
       UserDataService.userChatAll()
@@ -124,6 +152,7 @@ export default {
     ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
   mounted() {
+    this.changeLanguage();
     this.getGuide(this.$route.params.id);
   },
 };

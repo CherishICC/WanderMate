@@ -25,7 +25,9 @@ class UserService {
     return axios.post(API_URL + `booking`, data, { headers: authHeader() });
   }
   bookingupdate(id, data) {
-    return axios.put(API_URL + `booking/${id}`, data, { headers: authHeader() });
+    return axios.put(API_URL + `booking/${id}`, data, {
+      headers: authHeader(),
+    });
   }
   // packages in user page
   userPackageListAll() {
@@ -108,8 +110,10 @@ class UserService {
   UserPackageGet(id) {
     return axios.get(API_URL + `packageget/${id}`, { headers: authHeader() });
   }
-  packageEditRating(id,data) {
-    return axios.put(API_URL + `packagerating/${id}`, data, { headers: authHeader() });
+  packageEditRating(id, data) {
+    return axios.put(API_URL + `packagerating/${id}`, data, {
+      headers: authHeader(),
+    });
   }
   packageupdate(id, data) {
     return axios.put(API_URL + `package/${id}`, data, {

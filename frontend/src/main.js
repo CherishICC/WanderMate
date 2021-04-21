@@ -10,7 +10,7 @@ import VeeValidate from 'vee-validate';
 import Vuex from 'vuex';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import StarRating from 'vue-star-rating'
+import StarRating from 'vue-star-rating';
 import {
   faHome,
   faUser,

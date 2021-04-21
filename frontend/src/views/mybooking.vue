@@ -59,10 +59,7 @@
           </div>
 
           <div v-if="review">
-            <a
-              class="badge badge-warning"
-              :href="'/review/' + currentUser._id"
-            >
+            <a class="badge badge-warning" :href="'/review/' + currentUser._id">
               Review
             </a>
           </div>

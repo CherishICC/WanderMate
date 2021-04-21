@@ -37,15 +37,15 @@
           name="rating"
         />
       </div> -->
-              <div class="min-width-200">
-                <span class="bold">Rating :</span>
-                <star-rating
-                  :rating="Booking.rating"
-                  :show-rating="false"
-                  :inline="true"
-                  :star-size="30"
-                ></star-rating>
-              </div>
+      <div class="min-width-200">
+        <span class="bold">Rating :</span>
+        <star-rating
+          :rating="Booking.rating"
+          :show-rating="false"
+          :inline="true"
+          :star-size="30"
+        ></star-rating>
+      </div>
       <div class="form-group">
         <label for="review">Review</label>
         <textarea
@@ -80,30 +80,24 @@ export default {
     return {
       Booking: {
         id: null,
-        packageId:'',
+        packageId: '',
         username: '',
         guide: '',
         package_name: '',
         location: '',
         start_date: '',
         end_date: '',
-        Rating: 0,
-        review: '',
+        rating: 0,
+        review:''
       },
       Itenary: {
-        id:null,
-        // userId: null,
-        // username: '',
-        // package_name: '',
-        // location: '',
-        // days: 0,
-        // cost: 0,
+        id: null,
         count: 0,
-        // imgUrl:'',
-        rating:'',
+        rating: '',
+        reviews: [''],
       },
-      packageid:null,
-      rating1:0,
+      packageid: null,
+      rating1: 0,
       submitted: false,
       message: '',
       validated: '',
@@ -136,41 +130,38 @@ export default {
       UserDataService.bookingupdate(this.Booking._id, data)
         .then((response) => {
           this.Booking.id = response.data.id;
-          // console.log(response.data);
           this.submitted = true;
           UserDataService.UserPackageGet(this.Booking.packageId)
             .then((response) => {
-            this.Itenary = response.data;
-            this.packageid = this.Booking.packageId;
-            this.rating1 = this.Itenary.rating;
-            // console.log(this.packageid+"   "+this.rating1);
-            var data1 =  {
-              id: this.Itenary.id,
-              username: this.Itenary.username,
-              package_name: this.Itenary.package_name,
-              location: this.Itenary.location,
-              // change rating here
-              rating: 3+this.rating1,
-              days: this.Itenary.days,
-              cost: this.Itenary.cost,
-              count: this.Itenary.count+1,
-            }
-          // console.log(this.packageid);
-          UserDataService.packageEditRating(this.packageid,data1)
-          .then((response) => {
-            this.Booking.id = response.data.id;
-            console.log(response.data);
-            this.submitted = true;
-          })
-          .catch((e) => {
-            console.log('err:', e);
-          });
-          })
-          .catch((e) => {
-            console.log(e);
-          });
-          })
-          .catch((e) => {
+              this.Itenary = response.data;
+              this.packageid = this.Booking.packageId;
+              this.rating1 = this.Itenary.rating;
+              this.reviews = this.Itenary.reviews;
+              console.log(this.reviews.push("helll0"));
+              var data1 = {
+                id: this.Itenary.id,
+                // change rating here
+                rating: 3 + this.rating1,
+                count: this.Itenary.count + 1,
+                reviews: this.reviews.push("this.Booking.review")
+              };
+              console.log(this.Booking.review);
+              console.log(data1.reviews);
+              UserDataService.packageEditRating(this.packageid, data1)
+                .then((response) => {
+                  this.Booking.id = response.data.id;
+                  // console.log(response.data);
+                  this.submitted = true;
+                })
+                .catch((e) => {
+                  console.log('err:', e);
+                });
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        })
+        .catch((e) => {
           console.log('err:', e);
         });
     },

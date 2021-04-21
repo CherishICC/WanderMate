@@ -133,7 +133,7 @@ export default {
       dt = dt.toJSON().slice(0, 10).replace(/-/g, '-');
       var data = {
         userId: this.userId,
-        packageId : this.Booking._id,
+        packageId: this.Booking._id,
         username: this.username,
         guide: this.Booking.username,
         package_name: this.Booking.package_name,

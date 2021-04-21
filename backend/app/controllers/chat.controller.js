@@ -58,9 +58,7 @@ exports.guidefindAll = (req, res) => {
 
 // Retrieve all chats from the database.
 exports.findAll = (req, res) => {
-  console.log(req.query);
   var ObjectID = require('mongodb').ObjectID;
-  console.log(req.query);
   const to = req.query.to;
   
 
