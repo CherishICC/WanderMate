@@ -9,6 +9,9 @@
             type="text"
             placeholder="Search by Location"
           ></b-form-input>
+          <span class="search-icon">
+            <i class="fas fa-search"></i>
+          </span>
         </div>
         <div>
           <b-form-select
@@ -22,7 +25,7 @@
     <div class="container-fluid">
       <div class="row">
         <div
-          class="col-md-6 pad-15-ver card"
+          class="col-md-6 card pad-15-ver"
           v-for="(user, index) in users"
           :key="index"
         >
@@ -37,6 +40,15 @@
               class="card-bottom pad-15-hor"
               v-show="!hover_flag || active_id != index"
             >
+              <div class="min-width-160">
+                <span class="bold">Ratings:</span>
+                <star-rating
+                  :rating="user.rating"
+                  :show-rating="false"
+                  :inline="true"
+                  :star-size="17"
+                ></star-rating>
+              </div>
               <div class="max-width-160">
                 <span class="bold">{{ user.package_name }}</span>
               </div>
@@ -88,7 +100,7 @@ export default {
       username: '',
       options: [
         { value: null, text: 'Sort By', disabled: true },
-        { value: 'a', text: 'Days' },
+        { value: 'a', text: 'Rating' },
         { value: 'b', text: 'Cost' },
       ],
       search: { filter: null, text: '' },
@@ -135,7 +147,7 @@ export default {
             return b.cost - a.cost;
           })
         : this.users.sort(function (a, b) {
-            return b.days - a.days;
+            return b.rating - a.rating;
           });
     },
     check_active(id) {
@@ -184,6 +196,13 @@ p.ex1 {
   margin-top: 25px;
   font-size: 30px;
   margin-left: 330px;
+}
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 </style>
 <style scoped lang="scss">

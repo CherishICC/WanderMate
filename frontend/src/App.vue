@@ -83,7 +83,7 @@
         </div>
       </nav>
 
-      <div class="container">
+      <div class="container-fluid">
         <router-view />
       </div>
     </div>
@@ -140,7 +140,13 @@ export default {
   width: 100%;
   height: 100%;
 }
-
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 /* #container{
   background-color: lightgrey;
   border-color: black; */
