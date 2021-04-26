@@ -38,7 +38,7 @@
               v-show="!hover_flag || active_id != index"
             >
               <div class="max-width-160">
-                <span class="bold">{{ user.location }}</span>
+                <span class="bold">{{ user.package_name }}</span>
               </div>
             </div>
 

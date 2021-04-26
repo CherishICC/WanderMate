@@ -120,32 +120,11 @@ export default {
         });
     },
 
-    // updatePublished(status) {
-    //   var data = {
-    //     id: this.currentUser.id,
-    //     username: this.currentUser.username,
-    //     password: this.currentUser.password,
-    //     // description: this.currentUser.description,
-    //     phone: this.currentUser.phone,
-    //     email: this.currentUser.email,
-    //     // published: status
-    //   };
-
-    //   UserDataService.update(this.currentUser._id, data)
-    //     .then(response => {
-    //       this.currentUser.published = status;
-    //       console.log(response.data);
-    //     })
-    //     .catch(e => {
-    //       console.log(e);
-    //     });
-    // },
-
     updatePackage() {
       UserDataService.packageupdate(this.currentUser._id, this.currentUser)
         .then((response) => {
           console.log(response.data);
-          this.message = 'The User was updated successfully!';
+          this.message = 'Package updated successfully!';
         })
         .catch((e) => {
           console.log(e);

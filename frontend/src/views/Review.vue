@@ -26,23 +26,14 @@
           :disabled="validated ? disabled : ''"
         />
       </div>
-      <!-- <div class="form-group">
-        <label for="rating">Rating</label>
-        <input
-          type="number"
-          class="form-control"
-          id="rating"
-          v-model="Booking.rating"
-          v-validate="'required'"
-          name="rating"
-        />
-      </div> -->
       <div class="min-width-200">
         <span class="bold">Rating :</span>
         <star-rating
-          :rating="Booking.rating"
+          v-model="Booking.rating"
+          v-bind:increment="0.5"
           :show-rating="false"
           :inline="true"
+          @rating-selected="setRating"
           :star-size="30"
         ></star-rating>
       </div>
@@ -88,7 +79,7 @@ export default {
         start_date: '',
         end_date: '',
         rating: 0,
-        review:''
+        review: '',
       },
       Itenary: {
         id: null,
@@ -109,6 +100,7 @@ export default {
       UserDataService.userBooking(userId)
         .then((response) => {
           this.Booking = response.data;
+          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
@@ -116,47 +108,53 @@ export default {
     },
 
     saveBooking() {
-      var data = {
-        userId: this.userId,
-        username: this.username,
-        guide: this.Booking.username,
-        package_name: this.Booking.package_name,
-        location: this.Booking.location,
-        start_date: this.Booking.start_date,
-        end_date: this.Booking.end_date,
-        rating: this.Booking.rating,
-        review: this.Booking.review,
-      };
-      UserDataService.bookingupdate(this.Booking._id, data)
+      console.log(this.Booking.packageId);
+      UserDataService.UserPackageGet(this.Booking.packageId)
         .then((response) => {
-          this.Booking.id = response.data.id;
-          this.submitted = true;
-          UserDataService.UserPackageGet(this.Booking.packageId)
+          const average = (array) =>
+            array.reduce((a, b) => a + b) / array.length;
+          this.Itenary = response.data;
+          this.packageid = this.Booking.packageId;
+          this.rating1 = this.Itenary.rating;
+          this.ratings = this.Itenary.ratings;
+          this.reviews = this.Itenary.reviews;
+          this.ratings.push(this.Booking.rating);
+          this.reviews.push(this.Booking.review);
+          var data1 = {
+            id: this.Itenary.id,
+            rating: average(this.ratings),
+            count: this.Itenary.count + 1,
+            ratings: this.ratings,
+            reviews: this.reviews,
+          };
+          console.log(data1.ratings);
+          console.log(data1.reviews);
+          UserDataService.packageEditRating(this.packageid, data1)
             .then((response) => {
-              this.Itenary = response.data;
-              this.packageid = this.Booking.packageId;
-              this.rating1 = this.Itenary.rating;
-              this.reviews = this.Itenary.reviews;
-              console.log(this.reviews.push("helll0"));
-              var data1 = {
-                id: this.Itenary.id,
-                // change rating here
-                rating: 3 + this.rating1,
-                count: this.Itenary.count + 1,
-                reviews: this.reviews.push("this.Booking.review")
-              };
-              console.log(this.Booking.review);
-              console.log(data1.reviews);
-              UserDataService.packageEditRating(this.packageid, data1)
-                .then((response) => {
-                  this.Booking.id = response.data.id;
-                  // console.log(response.data);
-                  this.submitted = true;
-                })
-                .catch((e) => {
-                  console.log('err:', e);
-                });
+              this.Booking.id = response.data.id;
+              this.submitted = true;
             })
+            .catch((e) => {
+              console.log('err:', e);
+            });
+          var data = {
+            userId: this.userId,
+            username: this.username,
+            guide: this.Booking.guide,
+            package_name: this.Booking.package_name,
+            location: this.Booking.location,
+            start_date: this.Booking.start_date,
+            end_date: this.Booking.end_date,
+            rating: data1.rating,
+            review: this.Booking.review,
+          };
+
+          UserDataService.bookingupdate(this.Booking._id, data)
+            .then((response) => {
+              this.Booking.id = response.data.id;
+              this.submitted = true;
+            })
+
             .catch((e) => {
               console.log(e);
             });
@@ -164,6 +162,9 @@ export default {
         .catch((e) => {
           console.log('err:', e);
         });
+    },
+    setRating(rating_in) {
+      this.rating = rating_in;
     },
   },
   computed: {

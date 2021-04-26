@@ -47,6 +47,15 @@
           <div>
             <label><strong>Cost:</strong></label> {{ currentUser.cost }}
           </div>
+          <div>
+            <label><strong>Average Rating:</strong></label> {{ currentUser.rating }}
+          </div>
+          <div>
+            <label><strong>Ratings:</strong></label> {{ currentUser.ratings }}
+          </div>
+          <div>
+            <label><strong>Reviews:</strong></label> {{ currentUser.reviews }}
+          </div>
 
           <a class="badge badge-warning" :href="'/package/' + currentUser._id">
             Edit

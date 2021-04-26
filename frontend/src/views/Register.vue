@@ -68,7 +68,49 @@
               {{ errors.first('password') }}
             </div>
           </div>
-          <div class="form-group">
+
+          <div id="container" style="margin: 20px auto 0; width: 270px">
+            <label>Select Preferences for Seasons</label>
+            <br />
+            <ejs-dropdownlist
+              v-model="user.pref1"
+              v-validate="'required'"
+              ref="seasons"
+              :query="Query1"
+              :dataSource="seasonData"
+              :index="seasonindex"
+              :fields="seasonfields"
+              :change="onSeasonChange"
+              name="season1"
+              placeholder="Select a season"
+            ></ejs-dropdownlist>
+              <div
+                v-if="submitted && errors.has('season1')"
+                class="alert-danger"
+              >
+                Please select a Season
+              </div>
+            <div class="padding-top">
+              <ejs-dropdownlist
+                v-model="user.pref1"
+                v-validate="'required'"
+                :query="Query2"
+                :dataSource="season2Data"
+                :index="season2index"
+                :fields="season2fields"
+                :enabled="season2enabled"
+                placeholder="Select a season"
+                name="season2"
+              ></ejs-dropdownlist>
+              <div
+                v-if="submitted && errors.has('season2')"
+                class="alert-danger"
+              >
+                Please select a Season
+              </div>
+            </div>
+          </div>
+          <!-- <div class="form-group">
             <label for="pref1">First Preference</label>
             <input
               v-model="user.pref1"
@@ -81,6 +123,7 @@
               {{ errors.first('pref1') }}
             </div>
           </div>
+
           <div class="form-group">
             <label for="pref2">Second Preference</label>
             <input
@@ -93,7 +136,7 @@
             <div v-if="submitted && errors.has('pref2')" class="alert-danger">
               {{ errors.first('pref2') }}
             </div>
-          </div>
+          </div> -->
           <div class="form-group">
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>
@@ -113,6 +156,7 @@
 
 <script>
 import User from '../models/user';
+import { Query } from '@syncfusion/ej2-data';
 
 export default {
   name: 'Register',
@@ -122,6 +166,26 @@ export default {
       submitted: false,
       successful: false,
       message: '',
+      seasonData: [
+        { SeasonName: 'Summer', SeasonId: '1' },
+        { SeasonName: 'Winter', SeasonId: '2' },
+        { SeasonName: 'Rainy', SeasonId: '3' },
+      ],
+      season2Data: [
+        { Season2Name: 'Winter', SeasonId: '1', Season2Id: '101' },
+        { Season2Name: 'Rainy', SeasonId: '1', Season2Id: '102' },
+        { Season2Name: 'Summer', SeasonId: '2', Season2Id: '103' },
+        { Season2Name: 'Rainy', SeasonId: '2', Season2Id: '104' },
+        { Season2Name: 'Summer', SeasonId: '3', Season2Id: '105' },
+        { Season2Name: 'Winter', SeasonId: '3', Season2Id: '106' },
+      ],
+      seasonfields: { value: 'SeasonId', text: 'SeasonName' },
+      season2fields: { value: 'Season2Id', text: 'Season2Name' },
+      seasonindex: 1,
+      season2index: 0,
+      Query1: null,
+      Query2: null,
+      season2enabled: false,
     };
   },
   computed: {
@@ -157,6 +221,14 @@ export default {
           );
         }
       });
+    },
+    onSeasonChange() {
+      this.Query2 = new Query().where(
+        'SeasonId',
+        'equal',
+        this.$refs.seasons.ej2Instances.value
+      );
+      this.season2enabled = true;
     },
   },
 };
@@ -194,5 +266,12 @@ label {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+
+@import '../../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../../node_modules/@syncfusion/ej2-vue-dropdowns/styles/material.css';
+#container .padding-top {
+  padding-top: 35px;
 }
 </style>

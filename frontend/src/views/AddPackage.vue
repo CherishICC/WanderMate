@@ -83,7 +83,6 @@
 
     <div v-else>
       <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newPackage">Add</button>
     </div>
   </div>
 </template>
@@ -114,7 +113,6 @@ export default {
     $('.dropdown-toggle').dropdown();
     $('.dropdown-menu a').click(function () {
       $('#dropdownMenuButton').text($(this).text());
-      // $('#AddPackage').__vue__.setRole($(this).text());
       ref.setLocation($(this).text());
     });
   },

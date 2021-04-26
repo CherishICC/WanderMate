@@ -18,6 +18,8 @@ import {
   faSignInAlt,
   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
+import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+Vue.use(DropDownListPlugin);
 
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 

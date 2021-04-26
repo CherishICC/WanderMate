@@ -24,7 +24,7 @@
             :key="index"
             @click="setActiveUser(user, index)"
           >
-            {{ user.location }}
+            {{ user.package_name }}
           </li>
         </ul>
       </div>
@@ -55,7 +55,7 @@
             <label><strong>Rating:</strong></label> {{ currentUser.rating }}
           </div>
           <div>
-            <label><strong>Review:</strong></label> {{ currentUser.review }}
+            <label><strong>Latest Review:</strong></label> {{ currentUser.review }}
           </div>
 
           <div v-if="review">

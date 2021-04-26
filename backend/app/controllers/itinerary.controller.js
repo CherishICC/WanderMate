@@ -84,6 +84,8 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
+  console.log("hi")
+  console.log(req.body)
   Itinerary.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
@@ -97,6 +99,7 @@ exports.update = (req, res) => {
         message: "Error updating User with id=" + id
       });
     });
+    
 };
 
 // Delete a User with the specified id in the request
