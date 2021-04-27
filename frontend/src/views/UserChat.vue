@@ -15,7 +15,7 @@
     </div>
     <hr />
     <div class="col-md-6">
-      <p>From : {{ username }}</p>
+      <!-- <p>From : {{ username }}</p> -->
       <p>To : {{ details.username }}</p>
       <div class="form-group form-inline">
         <label for="msg"></label>
@@ -34,15 +34,18 @@
   </div>
 </template>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script
+  type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+></script>
 <script type="text/javascript">
-  function googleTranslateElementInit() {
+function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
       pageLanguage: 'it',
       includedLanguages: 'de,en,es,fr,it',
       gaTrack: true,
-      gaId: 'UA-XXXXXXXX-X'
+      gaId: 'UA-XXXXXXXX-X',
     },
     'google_translate_element'
   );
@@ -113,7 +116,7 @@ export default {
       UserDataService.userPackageList(id)
         .then((response) => {
           this.details = response.data;
-          this.searchLocation();
+          this.searchChat();
         })
         .catch((e) => {
           console.log(e);
@@ -132,13 +135,13 @@ export default {
         .then((response) => {
           this.Chat.id = response.data.id;
           this.submitted = true;
-          this.searchLocation();
+          this.searchChat();
         })
         .catch((e) => {
           console.log('err:', e);
         });
     },
-    async searchLocation() {
+    async searchChat() {
       UserDataService.GetChatByreceiver(this.details.userId)
         .then((response) => {
           this.users = response.data;
@@ -152,7 +155,7 @@ export default {
     ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
   mounted() {
-    this.changeLanguage();
+    // this.changeLanguage();
     this.getGuide(this.$route.params.id);
   },
 };

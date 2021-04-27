@@ -144,13 +144,13 @@ export default {
       this.pack_info.location = location;
       if (location == 'Bangalore') {
         this.pack_info.imgUrl =
-          'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-taj-mahal.jpg.rend.hgtvcom.616.462.suffix/1491581548979.jpeg';
+          'https://i.postimg.cc/sDd6dVwY/Bangalore.jpg';
       } else if (location == 'Hyderabad') {
         this.pack_info.imgUrl =
-          'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-great-wall-of-china.jpg.rend.hgtvcom.616.462.suffix/1491581549051.jpeg';
+          'https://i.postimg.cc/qMThHYnh/Hyderabad.jpg';
       } else if (location == 'Chennai') {
         this.pack_info.imgUrl =
-          'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/10/12/new-seven-wonders-christ-the-redeemer.jpg.rend.hgtvcom.616.462.suffix/1491581548898.jpeg';
+          'https://i.postimg.cc/HnRCHFvJ/Chennai.jpg';
       }
     },
     newPackage() {

@@ -17,6 +17,5 @@ export default class Itinerary {
     this.cost = cost;
     this.imgUrl = imgUrl;
     this.rating = rating;
-    //   this.password = password;
   }
 }

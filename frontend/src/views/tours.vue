@@ -22,10 +22,10 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid grid-list-md">
       <div class="row">
         <div
-          class="col-md-6 card pad-15-ver"
+          class="col-md-6 card"
           v-for="(user, index) in users"
           :key="index"
         >
