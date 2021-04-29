@@ -147,12 +147,4 @@ export default {
     margin-right: auto;
     margin-left: auto;
 }
-/* #container{
-  background-color: lightgrey;
-  border-color: black; */
-/* justify-content: center; */
-/* border-style: dotted;
-  border-width: 1px;
-  padding: 8px;
-  } */
 </style>

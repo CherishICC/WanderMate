@@ -84,12 +84,9 @@
               name="season1"
               placeholder="Select a season"
             ></ejs-dropdownlist>
-              <div
-                v-if="submitted && errors.has('season1')"
-                class="alert-danger"
-              >
-                Please select a Season
-              </div>
+            <div v-if="submitted && errors.has('season1')" class="alert-danger">
+              Please select a Season
+            </div>
             <div class="padding-top">
               <ejs-dropdownlist
                 v-model="user.pref1"
@@ -110,33 +107,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="form-group">
-            <label for="pref1">First Preference</label>
-            <input
-              v-model="user.pref1"
-              v-validate="'required|min:10|max:10'"
-              type="text"
-              class="form-control"
-              name="pref1"
-            />
-            <div v-if="submitted && errors.has('pref1')" class="alert-danger">
-              {{ errors.first('pref1') }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="pref2">Second Preference</label>
-            <input
-              v-model="user.pref2"
-              v-validate="'required|min:10|max:10'"
-              type="text"
-              class="form-control"
-              name="pref2"
-            />
-            <div v-if="submitted && errors.has('pref2')" class="alert-danger">
-              {{ errors.first('pref2') }}
-            </div>
-          </div> -->
           <div class="form-group">
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>
@@ -204,6 +174,7 @@ export default {
       this.submitted = true;
       this.$validator.validate().then((isValid) => {
         if (isValid) {
+          console.log(this.user);
           this.$store.dispatch('auth/register', this.user).then(
             (data) => {
               this.message = data.message;

@@ -143,14 +143,11 @@ export default {
     setLocation(location) {
       this.pack_info.location = location;
       if (location == 'Bangalore') {
-        this.pack_info.imgUrl =
-          'https://i.postimg.cc/sDd6dVwY/Bangalore.jpg';
+        this.pack_info.imgUrl = 'https://i.postimg.cc/sDd6dVwY/Bangalore.jpg';
       } else if (location == 'Hyderabad') {
-        this.pack_info.imgUrl =
-          'https://i.postimg.cc/qMThHYnh/Hyderabad.jpg';
+        this.pack_info.imgUrl = 'https://i.postimg.cc/qMThHYnh/Hyderabad.jpg';
       } else if (location == 'Chennai') {
-        this.pack_info.imgUrl =
-          'https://i.postimg.cc/HnRCHFvJ/Chennai.jpg';
+        this.pack_info.imgUrl = 'https://i.postimg.cc/HnRCHFvJ/Chennai.jpg';
       }
     },
     newPackage() {

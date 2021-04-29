@@ -36,10 +36,6 @@ db.mongoose
     process.exit();
   });
 
-// simple route
-// app.get("/", (req, res) => {
-//   res.json({ message: "Welcome to bezkoder application." });
-// });
 app.get('/', function (req,res) {
   res.sendFile(path + "index.html");
 });

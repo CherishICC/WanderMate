@@ -88,6 +88,7 @@ export default {
       deleted: false,
       message: '',
       submitted: '',
+      validated: '',
     };
   },
   methods: {

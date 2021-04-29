@@ -24,11 +24,7 @@
     </div>
     <div class="container-fluid grid-list-md">
       <div class="row">
-        <div
-          class="col-md-6 card"
-          v-for="(user, index) in users"
-          :key="index"
-        >
+        <div class="col-md-6 card" v-for="(user, index) in users" :key="index">
           <div
             class="card-inner"
             @mouseover="show_hover(true, index)"
