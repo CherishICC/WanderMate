@@ -89,7 +89,7 @@
             </div>
             <div class="padding-top">
               <ejs-dropdownlist
-                v-model="user.pref1"
+                v-model="user.pref2"
                 v-validate="'required'"
                 :query="Query2"
                 :dataSource="season2Data"

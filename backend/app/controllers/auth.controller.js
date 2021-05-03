@@ -2,13 +2,20 @@ const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
-// const Itinerary = db.itinerary;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
-  const user = new User(req.body);
+  const user = new User({
+    username: req.body.username,
+    email: req.body.email,
+    password: bcrypt.hashSync(req.body.password, 8),
+    phone: req.body.phone,
+    pref1: req.body.pref1,
+    pref2: req.body.pref2,
+    
+  });
 
   user.save((err, user) => {
     if (err) {
@@ -58,7 +65,6 @@ exports.signup = (req, res) => {
     }
   });
 };
-
 
 exports.signin = (req, res) => {
   User.findOne({
