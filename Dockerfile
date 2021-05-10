@@ -11,7 +11,8 @@ COPY backend/package.json /app
 RUN npm install
 
 COPY backend /app
-RUN npm run dev
+# RUN npm run dev
+RUN npm run build
 
 # RUN mkdir /frontend_app
 
