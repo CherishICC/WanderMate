@@ -55,7 +55,8 @@
             <label><strong>Rating:</strong></label> {{ currentUser.rating }}
           </div>
           <div>
-            <label><strong>Latest Review:</strong></label> {{ currentUser.review }}
+            <label><strong>Latest Review:</strong></label>
+            {{ currentUser.review }}
           </div>
 
           <div v-if="review">

@@ -48,7 +48,8 @@
             <label><strong>Cost:</strong></label> {{ currentUser.cost }}
           </div>
           <div>
-            <label><strong>Average Rating:</strong></label> {{ currentUser.rating }}
+            <label><strong>Average Rating:</strong></label>
+            {{ currentUser.rating }}
           </div>
           <div>
             <label><strong>Ratings:</strong></label> {{ currentUser.ratings }}
