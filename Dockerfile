@@ -2,38 +2,34 @@
 
 FROM node:10-alpine as build-step
 
-RUN mkdir /app
+# RUN mkdir /app
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY backend/package.json /app
-
-RUN npm install
-
-COPY backend /app
-# RUN npm run dev
-RUN npm run build
-
-# RUN mkdir /frontend_app
-
-# WORKDIR /frontend_app
-
-# COPY frontend/package.json /frontend_app
+# COPY backend/package.json /app
 
 # RUN npm install
 
-# RUN npm run lint --fix
+# COPY backend /app
+# RUN npm run dev
 
-# COPY frontend /frontend_app
+RUN mkdir /frontend_app
 
-# RUN npm run serve
+WORKDIR /frontend_app
+
+COPY frontend/package.json /frontend_app
+
+RUN npm install
+
+RUN npm run lint --fix
+
+COPY frontend /frontend_app
+
+# RUN npm build
 
 # Stage 2
 
 
 FROM nginx:1.17.1-alpine
 
-EXPOSE 8082
-
-COPY --from=build-step /app/build /usr/share/nginx/html
-
+EXPOSE 8081
