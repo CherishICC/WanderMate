@@ -46,7 +46,7 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Location
+        Location
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">Bangalore</a>
@@ -54,6 +54,66 @@
           <a class="dropdown-item" href="#">Chennai</a>
         </div>
       </div>
+
+      <!-- <div class="dropdown" id="seasonDropdown">
+        <label for="dropdownMenuButtonseason" style="margin-right: 30px"
+          >Season</label
+        >
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButtonseason"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+        Season
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonseason">
+          <a class="dropdown-item" href="#">Summer</a>
+          <a class="dropdown-item" href="#">Winter</a>
+          <a class="dropdown-item" href="#">Rainy</a>
+        </div>
+      </div> -->
+
+      <div id="container" style="margin: 20px auto 0; width: 270px">
+            <label>Select Preferences for Seasons</label>
+            <br />
+            <ejs-dropdownlist
+              v-model="pack_info.season"
+              v-validate="'required'"
+              ref="seasons"
+              :query="Query1"
+              :dataSource="seasonData"
+              :index="seasonindex"
+              :fields="seasonfields"
+              :change="onSeasonChange"
+              name="season1"
+              placeholder="Select a season"
+            ></ejs-dropdownlist>
+            <!-- <div v-if="submitted && errors.has('season1')" class="alert-danger">
+              Please select a Season
+            </div> -->
+            <!-- <div class="padding-top">
+              <ejs-dropdownlist
+                v-model="user.pref2"
+                v-validate="'required'"
+                :query="Query2"
+                :dataSource="season2Data"
+                :index="season2index"
+                :fields="season2fields"
+                :enabled="season2enabled"
+                placeholder="Select a season"
+                name="season2"
+              ></ejs-dropdownlist>
+              <div
+                v-if="submitted && errors.has('season2')"
+                class="alert-danger"
+              >
+                Please select a Season
+              </div>
+            </div> -->
+          </div>
 
       <div class="form-group">
         <label for="days">Total Days</label>
@@ -77,7 +137,6 @@
           name="cost"
         />
       </div>
-
       <button @click="savePackage" class="btn btn-success">Submit</button>
     </div>
 
@@ -91,6 +150,7 @@
 import { mapGetters } from 'vuex';
 import UserService from '../services/user.service';
 import $ from 'jquery';
+import { Query } from '@syncfusion/ej2-data';
 
 export default {
   name: 'AddPackage',
@@ -103,7 +163,28 @@ export default {
         location: '',
         days: '',
         cost: '',
+        season:'',
       },
+      seasonData: [
+        { SeasonName: 'Summer', SeasonId: '1' },
+        { SeasonName: 'Winter', SeasonId: '2' },
+        { SeasonName: 'Rainy', SeasonId: '3' },
+      ],
+      season2Data: [
+        { Season2Name: 'Winter', SeasonId: '1', Season2Id: '101' },
+        { Season2Name: 'Rainy', SeasonId: '1', Season2Id: '102' },
+        { Season2Name: 'Summer', SeasonId: '2', Season2Id: '103' },
+        { Season2Name: 'Rainy', SeasonId: '2', Season2Id: '104' },
+        { Season2Name: 'Summer', SeasonId: '3', Season2Id: '105' },
+        { Season2Name: 'Winter', SeasonId: '3', Season2Id: '106' },
+      ],
+      seasonfields: { value: 'SeasonId', text: 'SeasonName' },
+      season2fields: { value: 'Season2Id', text: 'Season2Name' },
+      seasonindex: 1,
+      season2index: 0,
+      Query1: null,
+      Query2: null,
+      season2enabled: false,
       submitted: false,
       validated: '',
     };
@@ -115,6 +196,11 @@ export default {
       $('#dropdownMenuButton').text($(this).text());
       ref.setLocation($(this).text());
     });
+    // $('.dropdown-toggle').dropdown();
+    // $('.dropdown-menu b').click(function () {
+    //   $('#dropdownMenuButtonseason').text($(this).text());
+    //   ref.setSeason($(this).text());
+    // });
   },
   methods: {
     savePackage() {
@@ -128,8 +214,9 @@ export default {
         days: this.pack_info.days,
         cost: this.pack_info.cost,
         rating: 5,
+        season: this.pack_info.season,
       };
-      // console.log(data);
+      console.log(data);
       UserService.packagecreate(data)
         .then((response) => {
           this.pack_info.id = response.data.id;
@@ -150,9 +237,20 @@ export default {
         this.pack_info.imgUrl = 'https://i.postimg.cc/HnRCHFvJ/Chennai.jpg';
       }
     },
+    setSeason(season) {
+      this.pack_info.season = season;
+    },
     newPackage() {
       this.submitted = false;
       this.pack_info = {};
+    },
+    onSeasonChange() {
+      this.Query2 = new Query().where(
+        'SeasonId',
+        'equal',
+        this.$refs.seasons.ej2Instances.value
+      );
+      this.season2enabled = true;
     },
   },
   computed: {

@@ -7,7 +7,8 @@ export default class Itinerary {
     days,
     cost,
     imgUrl,
-    rating
+    rating,
+    season,
   ) {
     this.userid = userid;
     this.username = username;
@@ -17,5 +18,6 @@ export default class Itinerary {
     this.cost = cost;
     this.imgUrl = imgUrl;
     this.rating = rating;
+    this.season = season;
   }
 }

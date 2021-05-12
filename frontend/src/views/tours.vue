@@ -7,7 +7,7 @@
             @input="searchLocation()"
             v-model="location"
             type="text"
-            placeholder="Search by Location"
+            placeholder="Search by Location or Season"
           ></b-form-input>
           <span class="search-icon">
             <i class="fas fa-search"></i>
@@ -76,6 +76,25 @@
         </div>
       </div>
     </div>
+    <!-- <div id="demo">
+    <input type="text" class="form-control" v-model="search"/>
+    
+    <br/>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>eyes</th>
+          <th>age</th>
+        </tr>
+      </thead>
+      <tr v-for="user in users | filterBy customFilter" :key="user">
+        <td>{{ person.name }}</td>
+        <td>{{ person.eyes }}</td>
+        <td>{{ person.age }}</td>
+      </tr>
+  </table>
+  </div> -->
   </div>
 </template>
 
@@ -93,6 +112,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       location: '',
+      season:'',
       username: '',
       options: [
         { value: null, text: 'Sort By', disabled: true },
@@ -103,6 +123,11 @@ export default {
     };
   },
   methods: {
+    customFilter: function(person) {
+          return person.name.indexOf(this.search) != -1
+          || person.eyes.indexOf(this.search) != -1
+          ;
+      },
     show_hover(flag, active_id) {
       this.hover_flag = flag;
       this.active_id = active_id;
@@ -138,6 +163,10 @@ export default {
     },
     sort() {
       //console.log(this.search.filter);
+      this.search.filter == 'c'
+        ? this.users.sort(function (a, b) {
+            return b.cost - a.cost;
+          }):
       this.search.filter == 'b'
         ? this.users.sort(function (a, b) {
             return b.cost - a.cost;

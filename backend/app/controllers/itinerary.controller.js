@@ -9,7 +9,6 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a User
   const itinerary = new Itinerary(req.body);
 
   itinerary
@@ -141,16 +140,3 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// Find all published itineraries
-// exports.findAllPublished = (req, res) => {
-//     Itinerary.find({ published: true })
-//     .then(data => {
-//       res.send(data);
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving itineraries."
-//       });
-//     });
-// };

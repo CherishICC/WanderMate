@@ -18,6 +18,7 @@ const Itinerary = mongoose.model(
     cost: Number,
     count: Number,
     imgUrl:String,
+    season: String,
   })
 );
 
