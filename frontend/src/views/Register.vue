@@ -69,7 +69,7 @@
             </div>
           </div>
 
-          <div id="container" style="margin: 20px auto 0; width: 270px">
+          <!-- <div id="container" style="margin: 20px auto 0; width: 270px">
             <label>Select Preferences for Seasons</label>
             <br />
             <ejs-dropdownlist
@@ -106,7 +106,7 @@
                 Please select a Season
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="form-group">
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>

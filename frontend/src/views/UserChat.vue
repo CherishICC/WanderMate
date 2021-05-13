@@ -9,13 +9,13 @@
           v-for="(user, index) in users"
           :key="index"
         >
-          {{ user.from + ' : ' + user.msg }}
+          <span class="text-primary">{{ user.from }}</span>
+          {{ ' : ' + user.msg }}
         </li>
       </ul>
     </div>
     <hr />
     <div class="col-md-6">
-      <!-- <p>From : {{ username }}</p> -->
       <p>To : {{ details.username }}</p>
       <div class="form-group form-inline">
         <label for="msg"></label>
@@ -39,17 +39,17 @@
   src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
 ></script>
 <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    {
-      pageLanguage: 'it',
-      includedLanguages: 'de,en,es,fr,it',
-      gaTrack: true,
-      gaId: 'UA-XXXXXXXX-X',
-    },
-    'google_translate_element'
-  );
-}
+// function googleTranslateElementInit() {
+//   new google.translate.TranslateElement(
+//     {
+//       pageLanguage: 'it',
+//       includedLanguages: 'de,en,es,fr,it',
+//       gaTrack: true,
+//       gaId: 'UA-XXXXXXXX-X',
+//     },
+//     'google_translate_element'
+//   );
+// }
 </script>
 <script>
 import UserDataService from '../services/user.service';

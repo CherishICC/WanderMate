@@ -7,7 +7,7 @@
             @input="searchLocation()"
             v-model="location"
             type="text"
-            placeholder="Search by Location or Season"
+            placeholder="Search by Location"
           ></b-form-input>
           <span class="search-icon">
             <i class="fas fa-search"></i>
@@ -112,7 +112,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       location: '',
-      season:'',
+      season: '',
       username: '',
       options: [
         { value: null, text: 'Sort By', disabled: true },
@@ -123,11 +123,12 @@ export default {
     };
   },
   methods: {
-    customFilter: function(person) {
-          return person.name.indexOf(this.search) != -1
-          || person.eyes.indexOf(this.search) != -1
-          ;
-      },
+    customFilter: function (person) {
+      return (
+        person.name.indexOf(this.search) != -1 ||
+        person.eyes.indexOf(this.search) != -1
+      );
+    },
     show_hover(flag, active_id) {
       this.hover_flag = flag;
       this.active_id = active_id;
@@ -166,8 +167,8 @@ export default {
       this.search.filter == 'c'
         ? this.users.sort(function (a, b) {
             return b.cost - a.cost;
-          }):
-      this.search.filter == 'b'
+          })
+        : this.search.filter == 'b'
         ? this.users.sort(function (a, b) {
             return b.cost - a.cost;
           })

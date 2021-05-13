@@ -50,7 +50,7 @@
         </div>
         <div v-else>
           <br />
-          <p>Please click on a Tour...</p>
+          <p>Click on a User</p>
         </div>
       </div>
     </div>

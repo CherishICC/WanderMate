@@ -46,7 +46,7 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-        Location
+          Location
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">Bangalore</a>
@@ -76,7 +76,7 @@
         </div>
       </div> -->
 
-      <div id="container" style="margin: 20px auto 0; width: 270px">
+      <!-- <div id="container" style="margin: 20px auto 0; width: 270px">
             <label>Select Preferences for Seasons</label>
             <br />
             <ejs-dropdownlist
@@ -90,11 +90,11 @@
               :change="onSeasonChange"
               name="season1"
               placeholder="Select a season"
-            ></ejs-dropdownlist>
-            <!-- <div v-if="submitted && errors.has('season1')" class="alert-danger">
+            ></ejs-dropdownlist> -->
+      <!-- <div v-if="submitted && errors.has('season1')" class="alert-danger">
               Please select a Season
             </div> -->
-            <!-- <div class="padding-top">
+      <!-- <div class="padding-top">
               <ejs-dropdownlist
                 v-model="user.pref2"
                 v-validate="'required'"
@@ -113,7 +113,7 @@
                 Please select a Season
               </div>
             </div> -->
-          </div>
+      <!-- </div> -->
 
       <div class="form-group">
         <label for="days">Total Days</label>
@@ -163,7 +163,7 @@ export default {
         location: '',
         days: '',
         cost: '',
-        season:'',
+        season: '',
       },
       seasonData: [
         { SeasonName: 'Summer', SeasonId: '1' },

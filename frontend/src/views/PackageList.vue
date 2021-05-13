@@ -143,7 +143,7 @@ export default {
 p.ex1 {
   margin-top: 25px;
   font-size: 30px;
-  margin-left: 330px;
+  margin-left: 400px;
 }
 </style>
 <style scoped lang="scss">

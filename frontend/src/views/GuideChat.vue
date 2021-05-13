@@ -9,7 +9,8 @@
           v-for="(chat, index) in chats"
           :key="chat._id"
         >
-          {{ chat.from }} {{ ' : ' }} {{ chat.msg }}
+          <span class="text-primary">{{ chat.from }}</span>
+          {{ ' : ' + chat.msg }}
         </li>
       </ul>
     </div>

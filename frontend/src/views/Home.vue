@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <header class="jumbotron">
-      <h3>Welcome to Wander Mate!</h3>
+  <div class="center">
+    <header>
+      <h1>Welcome to Wander Mate!</h1>
     </header>
   </div>
 </template>
@@ -33,3 +33,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.center {
+  padding: 70px 0;
+  text-align: center;
+}
+</style>
