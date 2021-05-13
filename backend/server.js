@@ -7,7 +7,7 @@ const app = express();
 const path = __dirname + '/app/views/';
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8080"
 };
 
 app.use(cors({origin:"*"}));
@@ -39,6 +39,7 @@ db.mongoose
 app.get('/', function (req,res) {
   res.sendFile(path + "index.html");
 });
+
 
 // routes
 require("./app/routes/auth.routes")(app);
@@ -85,3 +86,7 @@ function initial() {
     }
   });
 }
+
+app.get("/*", (req, res) => {
+  res.sendFile(path+ "index.html");
+});
