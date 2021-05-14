@@ -1,4 +1,4 @@
-# Wande Mate
+# Wander Mate
 
 ## Project setup
 ```
