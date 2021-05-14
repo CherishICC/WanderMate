@@ -6,14 +6,17 @@ const Role = db.role;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
+var log4js = require("log4js");
+var logger = log4js.getLogger();
+
 exports.signup = (req, res) => {
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
     phone: req.body.phone,
-    pref1: req.body.pref1,
-    pref2: req.body.pref2,
+    // pref1: req.body.pref1,
+    // pref2: req.body.pref2,
     
   });
 
@@ -78,6 +81,8 @@ exports.signin = (req, res) => {
       }
 
       if (!user) {
+        logger.level = "error";
+        logger.error("User Not found.");
         return res.status(404).send({ message: "User Not found." });
       }
 
@@ -87,6 +92,8 @@ exports.signin = (req, res) => {
       );
 
       if (!passwordIsValid) {
+        logger.level = "debug";
+        logger.error("Invalid Password!");
         return res.status(401).send({
           accessToken: null,
           message: "Invalid Password!"
@@ -109,5 +116,7 @@ exports.signin = (req, res) => {
         roles: authorities,
         accessToken: token
       });
+      logger.level = "debug";
+      logger.info("Logged in");
     });
 };

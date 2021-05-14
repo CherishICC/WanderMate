@@ -5,7 +5,6 @@ const dbConfig = require("./app/config/db.config");
 
 const app = express();
 const path = __dirname + '/app/views/';
-
 var corsOptions = {
   origin: "http://localhost:8080"
 };
@@ -90,3 +89,12 @@ function initial() {
 app.get("/*", (req, res) => {
   res.sendFile(path+ "index.html");
 });
+// cToF = function(celsius) {
+//   if(!Number.isInteger(celsius)) return undefined;
+//   return celsius * 9 / 5 + 32;
+// }
+
+// fToC = function(fahrenheit) {
+//   if(!Number.isInteger(fahrenheit)) return undefined;
+//   return (fahrenheit - 32) * 5 / 9;
+// }
