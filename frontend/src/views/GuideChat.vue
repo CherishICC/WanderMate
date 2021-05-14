@@ -79,7 +79,6 @@ export default {
       UserDataService.userListAll()
         .then((response) => {
           this.users = response.data;
-          // console.log(this.users);
         })
         .catch((e) => {
           console.log(e);
@@ -162,8 +161,6 @@ export default {
     this.retrieveUsers();
     this.retrieveChats();
     this.message = '';
-    // this.getChat(this.$route.params.id);
-    // console.log(this.$route.params.id);
   },
 };
 </script>

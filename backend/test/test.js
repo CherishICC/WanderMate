@@ -10,7 +10,6 @@ const app = myApp.listen(8080);
 
 
 beforeAll(async ()=>{ 
-    console.log("hello");
     await db.mongoose
     .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
       useNewUrlParser: true,
@@ -64,32 +63,32 @@ describe('Testing login', function () {
     });
 });
 
-// describe('Testing signup', function () {
-//     it('return status code', async ()=> {
-//       const response = await request(app).post('/api/auth/signup').send({
-//         username: "user6",
-//         email: "user6@gmail.com",
-//         password:"admin123",
-//         phone: "1234577890"
-//         }).expect(200);
-//     });
-//     it('return status code', async ()=> {
-//         const response = await request(app).post('/api/auth/signup').send({
-//           username: "admin3",
-//           email: "admin3@gmail.com",
-//           password:"admin123",
-//           phone: "123457890",
-//           }).expect(200);
-//       });
-//       it('return status code', async ()=> {
-//         const response = await request(app).post('/api/auth/signup').send({
-//           username: "admin",
-//           email: "admin2@gmail.com",
-//           password:"admin123",
-//           phone: "1234567890",
-//           }).expect(400);
-//       });
-// });
+describe('Testing signup', function () {
+    it('return status code', async ()=> {
+      const response = await request(app).post('/api/auth/signup').send({
+        username: "user9",
+        email: "user9@gmail.com",
+        password:"admin123",
+        phone: "1934578990"
+        }).expect(200);
+    });
+    it('return status code', async ()=> {
+        const response = await request(app).post('/api/auth/signup').send({
+          username: "admin9",
+          email: "admin9@gmail.com",
+          password:"admin123",
+          phone: "1239957690",
+          }).expect(200);
+      });
+      it('return status code', async ()=> {
+        const response = await request(app).post('/api/auth/signup').send({
+          username: "admin",
+          email: "admin@gmail.com",
+          password:"admin123",
+          phone: "1238567890",
+          }).expect(400);
+      });
+});
 
 describe('Testing user', function () {
     let token;

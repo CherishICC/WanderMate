@@ -76,25 +76,6 @@
         </div>
       </div>
     </div>
-    <!-- <div id="demo">
-    <input type="text" class="form-control" v-model="search"/>
-    
-    <br/>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>name</th>
-          <th>eyes</th>
-          <th>age</th>
-        </tr>
-      </thead>
-      <tr v-for="user in users | filterBy customFilter" :key="user">
-        <td>{{ person.name }}</td>
-        <td>{{ person.eyes }}</td>
-        <td>{{ person.age }}</td>
-      </tr>
-  </table>
-  </div> -->
   </div>
 </template>
 
@@ -163,7 +144,6 @@ export default {
         });
     },
     sort() {
-      //console.log(this.search.filter);
       this.search.filter == 'c'
         ? this.users.sort(function (a, b) {
             return b.cost - a.cost;

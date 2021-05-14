@@ -196,16 +196,10 @@ export default {
       $('#dropdownMenuButton').text($(this).text());
       ref.setLocation($(this).text());
     });
-    // $('.dropdown-toggle').dropdown();
-    // $('.dropdown-menu b').click(function () {
-    //   $('#dropdownMenuButtonseason').text($(this).text());
-    //   ref.setSeason($(this).text());
-    // });
   },
   methods: {
     savePackage() {
       var data = {
-        // to be changed
         imgUrl: this.pack_info.imgUrl,
         userId: this.userId,
         username: this.username,

@@ -56,7 +56,7 @@
 
   <div v-else>
     <br />
-    <p>Booking Successful!</p>
+    <p></p>
   </div>
 </template>
 
@@ -158,6 +158,7 @@ export default {
             .catch((e) => {
               console.log(e);
             });
+            this.$router.push({ name: 'mytours' });
         })
         .catch((e) => {
           console.log('err:', e);

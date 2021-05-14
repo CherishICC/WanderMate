@@ -102,9 +102,6 @@ export default {
     setActiveUser(user, index) {
       this.currentUser = user;
       this.currentIndex = index;
-      // const toName = this.allRoles.find((allRoles)=>allRoles._id===this.currentUser.roles).name;
-      // console.log(this.allRoles[0]._id);
-      // console.log(this.currentUser.roles[0]);
       if (this.allRoles[0]._id == this.currentUser.roles[0]) {
         this.currentRole = 'user';
       } else if (this.allRoles[0]._id == this.currentUser.roles[1]) {

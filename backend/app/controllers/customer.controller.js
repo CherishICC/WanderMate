@@ -79,21 +79,6 @@ exports.findAll = (req, res) => {
 };
 
 
-// // Retrieve all Users from the database.
-// exports.findUsersAll = (req, res) => {
-//    const username = req.query.username;
-//    const role = new Role({name:"User"});
-//   User.find({roles})
-//     .then(data => {
-//       res.send(data);
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving users."
-//       });
-//     });
-// };
 // Find a single User with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
@@ -164,24 +149,6 @@ exports.delete = (req, res) => {
       logger.error("Could not delete User with id=" + id);
       res.status(500).send({
         message: "Could not delete User with id=" + id
-      });
-    });
-};
-
-// Delete all Users from the database.
-exports.deleteAll = (req, res) => {
-  User.deleteMany({})
-    .then(data => {
-      loggerinfo.info(`${data.deletedCount} Users were deleted successfully!`);
-      res.send({
-        message: `${data.deletedCount} Users were deleted successfully!`
-      });
-    })
-    .catch(err => {
-      logger.error(err.message || "Some error occurred while removing all users.");
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all users."
       });
     });
 };

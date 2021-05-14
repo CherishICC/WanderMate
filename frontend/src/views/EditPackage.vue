@@ -80,7 +80,6 @@
     <button class="badge badge-danger mr-2" @click="deletePackage">
       Delete
     </button>
-    <!-- <p>{{ message }}</p> -->
     <button type="submit" class="badge badge-success" @click="updatePackage">
       Update
     </button>
@@ -95,7 +94,6 @@
 
 <script>
 import UserDataService from '../services/user.service';
-// import UserAuthService from '../services/auth.service';
 
 export default {
   name: 'EditPackage',

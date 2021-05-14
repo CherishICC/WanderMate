@@ -24,7 +24,7 @@ log4js.configure({
 var logger = log4js.getLogger('logerror');
 var loggerinfo = log4js.getLogger('loginfo');
 
-// Create and Save a new User
+// Create and Save a new itinerary 
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.package_name) {
@@ -86,27 +86,27 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single User with an id
+// Find a single itinerary with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Itinerary.findById(id)
     .then(data => {
       if (!data){
-        logger.error("Not found User with id " + id);
-        res.status(404).send({ message: "Not found User with id " + id });
+        logger.error("Not found itinerary with id " + id);
+        res.status(404).send({ message: "Not found itinerary with id " + id });
       }
       else res.send(data);
     })
     .catch(err => {
-      logger.error("Error retrieving User with id=" + id );
+      logger.error("Error retrieving itinerary with id=" + id );
       res
         .status(500)
-        .send({ message: "Error retrieving User with id=" + id });
+        .send({ message: "Error retrieving itinerary with id=" + id });
     });
 };
 
-// Update a User by the id in the request
+// Update a itinerary by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
     logger.error("Data to update can not be empty!");
@@ -120,24 +120,24 @@ exports.update = (req, res) => {
   Itinerary.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
-        logger.error(`Cannot update User with id=${id}. Maybe User was not found!`);
+        logger.error(`Cannot update itinerary with id=${id}. Maybe itinerary was not found!`);
         res.status(404).send({
-          message: `Cannot update User with id=${id}. Maybe User was not found!`
+          message: `Cannot update itinerary with id=${id}. Maybe itinerary was not found!`
         });
       } else {
         loggerinfo.info("");
-        res.send({ message: "User was updated successfully." });}
+        res.send({ message: "itinerary was updated successfully." });}
     })
     .catch(err => {
-      logger.error("Error updating User with id=" + id);
+      logger.error("Error updating itinerary with id=" + id);
       res.status(500).send({
-        message: "Error updating User with id=" + id
+        message: "Error updating itinerary with id=" + id
       });
     });
     
 };
 
-// Delete a User with the specified id in the request
+// Delete a itinerary with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -159,24 +159,6 @@ exports.delete = (req, res) => {
       logger.error("Could not delete itinerary with id=" + id);
       res.status(500).send({
         message: "Could not delete itinerary with id=" + id
-      });
-    });
-};
-
-// Delete all itineraries from the database.
-exports.deleteAll = (req, res) => {
-    Itinerary.deleteMany({})
-    .then(data => {
-      loggerinfo.info("");
-      res.send({
-        message: `${data.deletedCount} itinerary were deleted successfully!`
-      });
-    })
-    .catch(err => {
-      logger.error(err.message || "Some error occurred while removing all itineraries.");
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all itineraries."
       });
     });
 };

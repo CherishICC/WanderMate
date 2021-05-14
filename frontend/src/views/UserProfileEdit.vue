@@ -77,9 +77,8 @@
 </template>
 
 <script>
-// var bcrypt = require("bcryptjs");
 import UserDataService from '../services/user.service';
-// import UserAuthService from '../services/auth.service';
+
 export default {
   name: 'guide',
   data() {
@@ -104,7 +103,6 @@ export default {
         });
     },
     updateGuide() {
-      // this.currentUser.password = bcrypt.hashSync(this.currentUser.password, 8)
       UserDataService.userupdate(this.currentUser._id, this.currentUser)
         .then((response) => {
           console.log(response.data);

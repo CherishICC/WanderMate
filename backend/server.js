@@ -17,9 +17,6 @@ db.mongoose
     process.exit();
   });
 
-// app.get('/', function (req,res) {
-//   res.sendFile(path + "index.html");
-// });
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

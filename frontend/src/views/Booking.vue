@@ -78,9 +78,9 @@
         <label for="date">Start Date</label>
         <b-form-datepicker
           v-model="Booking.start_date"
-          :min="min"
         ></b-form-datepicker>
       </div>
+          <!-- :min="min" -->
     </form>
 
     <button @click="saveBooking" class="btn btn-success">Book</button>

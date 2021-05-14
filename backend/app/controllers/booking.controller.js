@@ -24,7 +24,7 @@ log4js.configure({
 var logger = log4js.getLogger('logerror');
 var loggerinfo = log4js.getLogger('loginfo');
 
-// Create and Save a new User
+// Create and Save a new booking 
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.package_name) {
@@ -33,7 +33,7 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a User
+  // Create a booking 
   const booking = new Booking(req.body);
 
   booking
@@ -69,24 +69,22 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single User with an id
+// Find a single booking with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Booking.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found User with id " + id });
+        res.status(404).send({ message: "Not found booking with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving User with id=" + id });
+        .send({ message: "Error retrieving booking with id=" + id });
     });
 };
-
-// Update a User by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
@@ -109,44 +107,5 @@ exports.update = (req, res) => {
       message: "Error updating User with id=" + id
     });
     console.log(err)
-    });
-};
-
-// Delete a User with the specified id in the request
-exports.delete = (req, res) => {
-  const id = req.params.id;
-
-  Booking.findByIdAndRemove(id, { useFindAndModify: false })
-    .then(data => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot delete booking with id=${id}. Maybe booking was not found!`
-        });
-      } else {
-        res.send({
-          message: "booking was deleted successfully!"
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Could not delete booking with id=" + id
-      });
-    });
-};
-
-// Delete all itineraries from the database.
-exports.deleteAll = (req, res) => {
-    Booking.deleteMany({})
-    .then(data => {
-      res.send({
-        message: `${data.deletedCount} booking were deleted successfully!`
-      });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all itineraries."
-      });
     });
 };
