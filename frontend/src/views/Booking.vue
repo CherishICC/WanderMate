@@ -76,12 +76,14 @@
 
       <div class="form-group">
         <label for="date">Start Date</label>
-         <b-form-datepicker v-model="Booking.start_date" :min="min"></b-form-datepicker>
+        <b-form-datepicker
+          v-model="Booking.start_date"
+        ></b-form-datepicker>
       </div>
-
+          <!-- :min="min" -->
     </form>
 
-    <button @click="saveBooking" class="btn btn-success">Submit</button>
+    <button @click="saveBooking" class="btn btn-success">Book</button>
     <p>{{ message }}</p>
   </div>
 
@@ -95,11 +97,10 @@
 import UserDataService from '../services/user.service';
 import { mapGetters } from 'vuex';
 
-
 export default {
   name: 'Booking',
   data() {
-    const minDate = new Date()
+    const minDate = new Date();
     return {
       Booking: {
         id: null,
@@ -112,7 +113,7 @@ export default {
       },
       submitted: false,
       message: '',
-      validated:'',
+      validated: '',
       min: minDate,
     };
   },
@@ -121,7 +122,6 @@ export default {
       UserDataService.userPackageList(id)
         .then((response) => {
           this.Booking = response.data;
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
@@ -130,9 +130,10 @@ export default {
     saveBooking() {
       var dt = new Date(this.Booking.start_date);
       dt.setDate(dt.getDate() + this.Booking.days);
-      dt = dt.toJSON().slice(0,10).replace(/-/g,'-');
+      dt = dt.toJSON().slice(0, 10).replace(/-/g, '-');
       var data = {
-        userId:this.userId,
+        userId: this.userId,
+        packageId: this.Booking._id,
         username: this.username,
         guide: this.Booking.username,
         package_name: this.Booking.package_name,
@@ -140,11 +141,9 @@ export default {
         start_date: this.Booking.start_date,
         end_date: dt,
       };
-      console.log(data);
       UserDataService.bookingcreate(data)
         .then((response) => {
           this.Booking.id = response.data.id;
-          console.log(response.data);
           this.submitted = true;
         })
         .catch((e) => {
@@ -153,7 +152,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({username:'auth/getUsername',userId:'auth/getUserId'}),
+    ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
   mounted() {
     this.message = '';

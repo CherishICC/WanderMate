@@ -1,15 +1,39 @@
 const db = require("../models");
 const Blog = db.blog;
 
-// Create and Save a new User
+var log4js = require("log4js");
+
+log4js.configure({
+  appenders: {
+    fileLogs: { type: 'file', filename: '../wandermate.log' },
+    console: { type: 'console' },
+    out: {
+        type: 'stdout',
+        layout: {
+            type: 'pattern',
+            pattern: '%[[%d{yyyy-MM-dd hh:mm:ss.SSS}] [%p] %c -%] %m',
+        },
+    },
+  },
+  categories: {
+    logerror: { appenders: ['fileLogs'], level: 'error' },
+    loginfo: { appenders: ['fileLogs'], level: 'debug' },
+    default: { appenders: ['console', 'fileLogs'], level: 'trace' }
+  }
+});
+var logger = log4js.getLogger('logerror');
+var loggerinfo = log4js.getLogger('loginfo');
+
+// Create and Save a new blog
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.location) {
+    logger.error("Content can not be empty!");
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
-  // Create a User
+  // Create a blog
   const newblog = new Blog({
     username:req.body.username,
     location: req.body.location,
@@ -20,12 +44,14 @@ exports.create = (req, res) => {
   newblog
     .save(newblog)
     .then(data => {
+      loggerinfo.info("Blog added.")
       res.send(data);
     })
     .catch(err => {
+      logger.error(err.message || "Some error occurred while creating the Package.");
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the User."
+          err.message || "Some error occurred while creating the blog."
       });
     });
 };
@@ -36,93 +62,31 @@ exports.findAll = (req, res) => {
   var condition = location ? { location: { $regex: new RegExp(location), $options: "i" } } : {};
   Blog.find(condition)
     .then(data => {
+      loggerinfo.info("Blogs retreived.");
       res.send(data);
     })
     .catch(err => {
+      logger.error(err.message || "Some error occurred while retreiving blogs.");
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving itineraries."
+          err.message || "Some error occurred while retrieving blogs."
       });
     });
 };
 
-// Find a single User with an id
+// Find a single blog with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Blog.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found User with id " + id });
+        res.status(404).send({ message: "Not found blog with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving User with id=" + id });
-    });
-};
-
-// Update a User by the id in the request
-exports.update = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({
-      message: "Data to update can not be empty!"
-    });
-  }
-
-  const id = req.params.id;
-
-  Blog.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-    .then(data => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot update User with id=${id}. Maybe User was not found!`
-        });
-      } else res.send({ message: "User was updated successfully." });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error updating User with id=" + id
-      });
-    });
-};
-
-// Delete a User with the specified id in the request
-exports.delete = (req, res) => {
-  const id = req.params.id;
-
-  Blog.findByIdAndRemove(id, { useFindAndModify: false })
-    .then(data => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot delete blog with id=${id}. Maybe blog was not found!`
-        });
-      } else {
-        res.send({
-          message: "blog was deleted successfully!"
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Could not delete blog with id=" + id
-      });
-    });
-};
-
-// Delete all itineraries from the database.
-exports.deleteAll = (req, res) => {
-    Blog.deleteMany({})
-    .then(data => {
-      res.send({
-        message: `${data.deletedCount} blog were deleted successfully!`
-      });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all itineraries."
-      });
+        .send({ message: "Error retrieving blog with id=" + id });
     });
 };

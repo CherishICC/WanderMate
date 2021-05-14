@@ -8,6 +8,11 @@ const Booking = mongoose.model(
       ref: 'User',
       required: true
     },
+    packageId:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Itinerary',
+      required: true
+    },
     username:String,
     guide:String,
     package_name: String,

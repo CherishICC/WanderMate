@@ -52,28 +52,6 @@
         </div>
       </div>
 
-      <!-- <div v-if="guide.roles=='guide'" class="form-group">
-        <label for="description">Description</label>
-        <input
-          class="form-control"
-          id="description"
-          required
-          v-model="guide.description"
-          name="description"
-        />
-      </div> -->
-
-      <!-- <div v-if="guide.roles=='guide'" class="form-group">
-        <label for="location">Location</label>
-        <input
-          class="form-control"
-          id="location"
-          required
-          v-model="guide.location"
-          name="location"
-        />
-      </div> -->
-
       <div class="form-group">
         <label for="phone">Phone</label>
         <input
@@ -126,9 +104,7 @@ export default {
       guide: {
         id: null,
         username: '',
-        // description: "",
         roles: '',
-        // published: false
       },
       submitted: false,
     };
@@ -138,7 +114,6 @@ export default {
     $('.dropdown-toggle').dropdown();
     $('.dropdown-menu a').click(function () {
       $('#dropdownMenuButton').text($(this).text());
-      // $('#AddGuide').__vue__.setRole($(this).text());
       ref.setRole($(this).text());
     });
   },
@@ -147,7 +122,6 @@ export default {
       var data = {
         username: this.guide.username,
         password: this.guide.password,
-        // description: this.guide.description,
         roles: [this.guide.roles],
         phone: this.guide.phone,
         email: this.guide.email,

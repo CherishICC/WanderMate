@@ -78,7 +78,7 @@
 
 <script>
 import UserDataService from '../services/user.service';
-// import UserAuthService from '../services/auth.service';
+
 export default {
   name: 'AdminProfileEdit',
   data() {
@@ -88,6 +88,7 @@ export default {
       deleted: false,
       message: '',
       submitted: '',
+      validated: '',
     };
   },
   methods: {

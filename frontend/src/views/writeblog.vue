@@ -23,7 +23,9 @@
           name="experience"
         />
       </div>
-      <button @click="savePackage" class="btn btn-success">Submit</button>
+      <div class="text-center">
+        <button @click="savePackage" class="btn btn-success">Submit</button>
+      </div>
     </div>
 
     <div v-else>
@@ -47,7 +49,6 @@ export default {
         username: '',
         location: '',
         experience: '',
-        // published: false
       },
       submitted: false,
     };
@@ -57,7 +58,6 @@ export default {
     $('.dropdown-toggle').dropdown();
     $('.dropdown-menu a').click(function () {
       $('#dropdownMenuButton').text($(this).text());
-      // $('#AddPackage').__vue__.setRole($(this).text());
       ref.setRole($(this).text());
     });
   },
@@ -79,23 +79,20 @@ export default {
           console.log(e);
         });
     },
-    // setRole(role){
-    //   this.pack_info.roles=role;
-    // },
     newPackage() {
       this.submitted = false;
       this.pack_info = {};
     },
   },
   computed: {
-    ...mapGetters({username:'auth/getUsername',userId:'auth/getUserId'}),
+    ...mapGetters({ username: 'auth/getUsername', userId: 'auth/getUserId' }),
   },
 };
 </script>
 
 <style>
 .submit-form {
-  max-width: 300px;
+  max-width: 400px;
   margin: auto;
   margin-top: 30px;
 }

@@ -20,6 +20,9 @@
               >Add Packages</router-link
             >
           </li>
+          <li v-if="showGuideBoard" class="nav-item">
+            <router-link to="/guidechat" class="nav-link">Chat</router-link>
+          </li>
           <li v-if="showUserBoard" class="nav-item">
             <router-link to="/tours" class="nav-link">
               <font-awesome-icon icon="home" />Home</router-link
@@ -80,7 +83,7 @@
         </div>
       </nav>
 
-      <div class="container">
+      <div class="container-fluid">
         <router-view />
       </div>
     </div>
@@ -137,13 +140,11 @@ export default {
   width: 100%;
   height: 100%;
 }
-
-/* #container{
-  background-color: lightgrey;
-  border-color: black; */
-/* justify-content: center; */
-/* border-style: dotted;
-  border-width: 1px;
-  padding: 8px;
-  } */
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 </style>

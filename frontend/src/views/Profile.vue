@@ -8,10 +8,6 @@
       <strong>Email:</strong>
       {{ currentUser.email }}
     </p>
-    <p>
-      <strong>Phone:</strong>
-      {{ currentUser.phone }}
-    </p>
     <strong>Roles:</strong>
     <ul>
       <li v-for="(role, index) in currentUser.roles" :key="index">
@@ -25,12 +21,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'Profile',
   computed: {
     currentUser() {
+      console.log(this.$store.state.auth.user);
       return this.$store.state.auth.user;
     },
+    ...mapGetters({ phone: 'auth/getUsername' }),
   },
   mounted() {
     if (!this.currentUser) {
@@ -39,3 +38,10 @@ export default {
   },
 };
 </script>
+<style>
+.container {
+  margin: auto;
+  margin-top: 30px;
+  margin-left: 300px;
+}
+</style>

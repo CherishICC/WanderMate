@@ -1,0 +1,549 @@
+[2021-05-14T19:42:08.426] [INFO] loginfo - Logged in
+[2021-05-14T19:43:15.788] [ERROR] logerror - User Not found.
+[2021-05-14T19:48:34.592] [ERROR] logerror - Invalid Password!
+[2021-05-14T19:50:55.618] [INFO] loginfo - User logged in successfully
+[2021-05-14T20:09:02.976] [INFO] loginfo - User logged in successfully
+[2021-05-14T20:11:00.843] [INFO] loginfo - User with username guide is logged in successfully
+[2021-05-14T20:11:45.545] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T20:13:29.471] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:04:55.036] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:04:55.048] [ERROR] logerror - User Not found.
+[2021-05-14T23:04:55.079] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:04:55.110] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:04:55.138] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:04:55.166] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:04:55.180] [INFO] loginfo - Blog added.
+[2021-05-14T23:04:55.207] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:05:05.496] [INFO] loginfo - Users retreived.
+[2021-05-14T23:05:38.669] [INFO] loginfo - Users retreived.
+[2021-05-14T23:05:52.367] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:05:52.392] [ERROR] logerror - User Not found.
+[2021-05-14T23:05:52.456] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:05:52.518] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:05:52.581] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:05:52.649] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:05:52.698] [INFO] loginfo - Blog added.
+[2021-05-14T23:05:52.755] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:06:09.614] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:06:27.216] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:06:29.637] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:06:41.558] [INFO] loginfo - 
+[2021-05-14T23:06:44.348] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:07:54.787] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:07:54.796] [ERROR] logerror - User Not found.
+[2021-05-14T23:07:54.825] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:07:54.854] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:07:54.883] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:07:54.909] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:07:54.926] [INFO] loginfo - Blog added.
+[2021-05-14T23:07:54.956] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:07:55.019] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:10:19.645] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:10:22.192] [INFO] loginfo - Bookings retreived.
+[2021-05-14T23:10:23.827] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:13:43.358] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:13:43.367] [ERROR] logerror - User Not found.
+[2021-05-14T23:13:43.401] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:13:43.433] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:13:43.461] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:13:43.489] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:13:43.504] [INFO] loginfo - Blog added.
+[2021-05-14T23:13:43.531] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:13:43.538] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:13:43.597] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:13:43.662] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:14:35.638] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:14:35.648] [ERROR] logerror - User Not found.
+[2021-05-14T23:14:35.678] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:14:35.708] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:14:35.736] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:14:35.765] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:14:35.781] [INFO] loginfo - Blog added.
+[2021-05-14T23:14:35.808] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:14:35.876] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:14:35.940] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:19:13.232] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:19:13.240] [ERROR] logerror - User Not found.
+[2021-05-14T23:19:13.267] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:19:13.294] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:19:13.320] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:19:13.345] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:19:13.359] [INFO] loginfo - Blog added.
+[2021-05-14T23:19:13.385] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:19:13.390] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:19:13.444] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:19:13.499] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:19:41.074] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:19:41.082] [ERROR] logerror - User Not found.
+[2021-05-14T23:19:41.110] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:19:41.138] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:19:41.165] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:19:41.190] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:19:41.203] [INFO] loginfo - Blog added.
+[2021-05-14T23:19:41.229] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:19:41.234] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:19:41.259] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:19:41.314] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:21:04.801] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:21:04.809] [ERROR] logerror - User Not found.
+[2021-05-14T23:21:04.837] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:21:04.865] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:21:04.891] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:21:04.916] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:21:04.929] [INFO] loginfo - Blog added.
+[2021-05-14T23:21:04.955] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:21:04.960] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:21:04.987] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:21:05.004] [ERROR] logerror - Chat validation failed: toUserId: Path `toUserId` is required., userId: Path `userId` is required.
+[2021-05-14T23:21:05.057] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:21:05.111] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:21:44.673] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:21:45.975] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:21:56.591] [INFO] loginfo - 
+[2021-05-14T23:21:58.075] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:22:01.330] [INFO] loginfo - Users retreived.
+[2021-05-14T23:22:01.336] [INFO] loginfo - Chat retreived.
+[2021-05-14T23:22:06.439] [INFO] loginfo - Chat retreived.
+[2021-05-14T23:22:09.159] [INFO] loginfo - Chat retreived.
+[2021-05-14T23:22:11.653] [INFO] loginfo - Chat retreived.
+[2021-05-14T23:22:14.213] [INFO] loginfo - Chat retreived.
+[2021-05-14T23:22:33.728] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:22:35.717] [INFO] loginfo - Bookings retreived.
+[2021-05-14T23:22:39.114] [INFO] loginfo - Bookings retreived.
+[2021-05-14T23:22:42.237] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:22:44.784] [INFO] loginfo - Chat retreived.
+[2021-05-14T23:23:10.103] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:10.111] [ERROR] logerror - User Not found.
+[2021-05-14T23:23:10.140] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:23:10.168] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:23:10.194] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:23:10.220] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:10.233] [INFO] loginfo - Blog added.
+[2021-05-14T23:23:10.259] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:10.264] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:23:10.289] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:10.345] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:23:10.399] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:23:23.487] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:23.495] [ERROR] logerror - User Not found.
+[2021-05-14T23:23:23.522] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:23:23.550] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:23:23.576] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:23:23.601] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:23.614] [INFO] loginfo - Blog added.
+[2021-05-14T23:23:23.640] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:23.645] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:23:23.671] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:23:23.742] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:23:23.797] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:27:49.956] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:27:49.965] [ERROR] logerror - User Not found.
+[2021-05-14T23:27:49.996] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:27:50.025] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:27:50.056] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:27:50.085] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:27:50.100] [INFO] loginfo - Blog added.
+[2021-05-14T23:27:50.128] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:27:50.133] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:27:50.161] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:27:50.241] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:27:50.302] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:28:04.042] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:28:04.050] [ERROR] logerror - User Not found.
+[2021-05-14T23:28:04.078] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:28:04.107] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:28:04.133] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:28:04.160] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:28:04.174] [INFO] loginfo - Blog added.
+[2021-05-14T23:28:04.200] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:28:04.205] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:28:04.230] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:28:04.277] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:28:04.331] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:29:12.244] [INFO] loginfo - Chat retreived.
+[2021-05-14T23:29:17.420] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:30:34.336] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:30:34.345] [ERROR] logerror - User Not found.
+[2021-05-14T23:30:34.377] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:30:34.407] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:30:34.435] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:30:34.463] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:30:34.478] [INFO] loginfo - Blog added.
+[2021-05-14T23:30:34.508] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:30:34.513] [ERROR] logerror - Content can not be empty!
+[2021-05-14T23:30:34.540] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:30:34.596] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:30:34.650] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:38:39.632] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:38:39.640] [ERROR] logerror - User Not found.
+[2021-05-14T23:38:39.670] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:38:39.699] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:38:39.726] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:38:39.753] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:38:39.767] [INFO] loginfo - Blog added.
+[2021-05-14T23:38:39.794] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:38:39.801] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:38:39.852] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:38:39.884] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:38:39.939] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:38:39.972] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:38:39.979] [ERROR] logerror - Itinerary validation failed: userId: Path `userId` is required.
+[2021-05-14T23:40:37.797] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:40:37.805] [ERROR] logerror - User Not found.
+[2021-05-14T23:40:37.834] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:40:37.863] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:40:37.890] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:40:37.917] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:40:37.931] [INFO] loginfo - Blog added.
+[2021-05-14T23:40:37.960] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:40:37.967] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:40:37.994] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:40:38.025] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:40:38.082] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:40:38.115] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:40:38.121] [ERROR] logerror - Itinerary validation failed: userId: Path `userId` is required.
+[2021-05-14T23:41:06.458] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:06.465] [ERROR] logerror - User Not found.
+[2021-05-14T23:41:06.495] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:41:06.524] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:41:06.551] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:41:06.579] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:06.596] [INFO] loginfo - Blog added.
+[2021-05-14T23:41:06.623] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:06.631] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:41:06.659] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:06.690] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:41:06.745] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:41:06.779] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:41:06.786] [ERROR] logerror - Itinerary validation failed: userId: Path `userId` is required.
+[2021-05-14T23:41:53.876] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:53.885] [ERROR] logerror - User Not found.
+[2021-05-14T23:41:53.914] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:41:53.942] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:41:53.969] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:41:53.995] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:54.010] [INFO] loginfo - Blog added.
+[2021-05-14T23:41:54.037] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:54.045] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:41:54.073] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:41:54.103] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:41:54.158] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:41:54.190] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:41:54.196] [ERROR] logerror - Itinerary validation failed: userId: Path `userId` is required.
+[2021-05-14T23:46:51.197] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:46:51.205] [ERROR] logerror - User Not found.
+[2021-05-14T23:46:51.234] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:46:51.264] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:46:51.291] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:46:51.317] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:46:51.332] [INFO] loginfo - Blog added.
+[2021-05-14T23:46:51.358] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:46:51.366] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:46:51.393] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:46:51.425] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:46:51.481] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:46:51.514] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:46:51.520] [ERROR] logerror - Itinerary validation failed: userId: Path `userId` is required.
+[2021-05-14T23:48:51.139] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:48:51.148] [ERROR] logerror - User Not found.
+[2021-05-14T23:48:51.177] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:48:51.205] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:48:51.231] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:48:51.258] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:48:51.272] [INFO] loginfo - Blog added.
+[2021-05-14T23:48:51.299] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:48:51.307] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:48:51.335] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:48:51.367] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:48:51.423] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:48:51.457] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:48:51.463] [ERROR] logerror - Itinerary validation failed: userId: Path `userId` is required.
+[2021-05-14T23:49:33.691] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:50:30.886] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:50:30.894] [ERROR] logerror - User Not found.
+[2021-05-14T23:50:30.922] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:50:30.951] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:50:30.979] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:50:31.006] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:50:31.020] [INFO] loginfo - Blog added.
+[2021-05-14T23:50:31.046] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:50:31.053] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:50:31.080] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:50:31.110] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:50:31.165] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:50:31.200] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:51:00.065] [INFO] loginfo - Packages retreived.
+[2021-05-14T23:51:33.835] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:51:33.843] [ERROR] logerror - User Not found.
+[2021-05-14T23:51:33.873] [ERROR] logerror - Invalid Password!
+[2021-05-14T23:51:33.901] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:51:33.928] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:51:33.954] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:51:33.969] [INFO] loginfo - Blog added.
+[2021-05-14T23:51:33.996] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:51:34.003] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-14T23:51:34.029] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-14T23:51:34.061] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:51:34.116] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-14T23:51:34.149] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T23:51:34.155] [INFO] loginfo - 
+[2021-05-14T23:51:34.183] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T00:53:24.955] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T00:53:26.635] [INFO] loginfo - Bookings retreived.
+[2021-05-15T00:59:39.081] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T00:59:39.089] [ERROR] logerror - User Not found.
+[2021-05-15T00:59:39.117] [ERROR] logerror - Invalid Password!
+[2021-05-15T00:59:39.145] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T00:59:39.174] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T00:59:39.239] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T00:59:39.253] [INFO] loginfo - Blog added.
+[2021-05-15T00:59:39.279] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T00:59:39.286] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-15T00:59:39.312] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T00:59:39.341] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T00:59:39.375] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T00:59:39.434] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:00:20.071] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:00:20.079] [ERROR] logerror - User Not found.
+[2021-05-15T01:00:20.106] [ERROR] logerror - Invalid Password!
+[2021-05-15T01:00:20.133] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:00:20.158] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:00:20.228] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:00:20.257] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:00:20.283] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:00:20.292] [INFO] loginfo - Blog added.
+[2021-05-15T01:00:20.319] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:00:20.326] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-15T01:00:20.351] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:00:20.379] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:00:20.416] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:00:20.471] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:01:23.474] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:01:23.482] [ERROR] logerror - User Not found.
+[2021-05-15T01:01:23.513] [ERROR] logerror - Invalid Password!
+[2021-05-15T01:01:23.543] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:01:23.570] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:01:23.613] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:01:23.646] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:01:23.702] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:01:23.760] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:01:23.770] [INFO] loginfo - Blog added.
+[2021-05-15T01:01:23.798] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:01:23.807] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-15T01:01:23.835] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:01:23.867] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:01:23.909] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:01:23.971] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:02:05.050] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:02:07.049] [INFO] loginfo - Users retreived.
+[2021-05-15T01:02:12.843] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:02:13.120] [INFO] loginfo - Users retreived.
+[2021-05-15T01:02:18.498] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:02:18.679] [INFO] loginfo - Users retreived.
+[2021-05-15T01:02:24.058] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:02:24.365] [INFO] loginfo - Users retreived.
+[2021-05-15T01:02:30.078] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:02:30.199] [INFO] loginfo - Users retreived.
+[2021-05-15T01:02:35.972] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:02:36.103] [INFO] loginfo - Users retreived.
+[2021-05-15T01:02:41.491] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:02:41.845] [INFO] loginfo - Users retreived.
+[2021-05-15T01:02:46.224] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:02:46.493] [INFO] loginfo - Users retreived.
+[2021-05-15T01:04:59.799] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:04:59.808] [ERROR] logerror - User Not found.
+[2021-05-15T01:04:59.836] [ERROR] logerror - Invalid Password!
+[2021-05-15T01:04:59.865] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:04:59.894] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:04:59.934] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:04:59.967] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:05:00.001] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:05:00.058] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:05:00.068] [INFO] loginfo - Blog added.
+[2021-05-15T01:05:00.095] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:05:00.102] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-15T01:05:00.129] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:05:00.159] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:05:00.197] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:05:00.259] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:05:44.717] [INFO] loginfo - Users retreived.
+[2021-05-15T01:05:50.694] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:05:50.987] [INFO] loginfo - Users retreived.
+[2021-05-15T01:05:55.541] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:05:55.817] [INFO] loginfo - Users retreived.
+[2021-05-15T01:06:00.417] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:06:00.494] [INFO] loginfo - Users retreived.
+[2021-05-15T01:06:04.891] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:06:05.178] [INFO] loginfo - Users retreived.
+[2021-05-15T01:06:15.361] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:06:15.369] [ERROR] logerror - User Not found.
+[2021-05-15T01:06:15.396] [ERROR] logerror - Invalid Password!
+[2021-05-15T01:06:15.423] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:06:15.449] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:06:15.500] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:06:15.534] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:06:15.563] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:06:15.573] [INFO] loginfo - Blog added.
+[2021-05-15T01:06:15.600] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:06:15.607] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-15T01:06:15.633] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:06:15.661] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:06:15.695] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:06:15.753] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:07:18.175] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:07:18.183] [ERROR] logerror - User Not found.
+[2021-05-15T01:07:18.213] [ERROR] logerror - Invalid Password!
+[2021-05-15T01:07:18.243] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:07:18.269] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:07:18.336] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:07:18.351] [INFO] loginfo - Blog added.
+[2021-05-15T01:07:18.379] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:07:18.385] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-15T01:07:18.413] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:07:18.445] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:07:18.480] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:07:18.563] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:07:53.977] [INFO] loginfo - Users retreived.
+[2021-05-15T01:07:58.278] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:07:58.538] [INFO] loginfo - Users retreived.
+[2021-05-15T01:08:02.661] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:08:02.772] [INFO] loginfo - Users retreived.
+[2021-05-15T01:08:09.200] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:08:09.208] [ERROR] logerror - User Not found.
+[2021-05-15T01:08:09.234] [ERROR] logerror - Invalid Password!
+[2021-05-15T01:08:09.261] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:08:09.287] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:08:09.325] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:08:09.354] [INFO] loginfo - User was registered successfully!
+[2021-05-15T01:08:09.384] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:08:09.392] [INFO] loginfo - Blog added.
+[2021-05-15T01:08:09.419] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:08:09.425] [ERROR] logerror - Booking validation failed: packageId: Path `packageId` is required., userId: Path `userId` is required.
+[2021-05-15T01:08:09.451] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:08:09.480] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:08:09.541] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:08:09.597] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:38:31.319] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:38:33.147] [INFO] loginfo - Users retreived.
+[2021-05-15T01:38:57.782] [INFO] loginfo - Users retreived.
+[2021-05-15T01:39:03.318] [INFO] loginfo - Users retreived.
+[2021-05-15T01:39:12.736] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:39:14.065] [INFO] loginfo - Users retreived.
+[2021-05-15T01:39:31.067] [INFO] loginfo - Users retreived.
+[2021-05-15T01:39:38.000] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:39:38.061] [INFO] loginfo - Users retreived.
+[2021-05-15T01:39:42.599] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:39:42.778] [INFO] loginfo - Users retreived.
+[2021-05-15T01:40:20.383] [INFO] loginfo - User was Registered successfully
+[2021-05-15T01:40:38.276] [INFO] loginfo - User 'temp user' logged in successfully
+[2021-05-15T01:40:40.600] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:40:52.056] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:40:53.767] [INFO] loginfo - Users retreived.
+[2021-05-15T01:41:16.887] [INFO] loginfo - User 'temp user' logged in successfully
+[2021-05-15T01:41:26.456] [INFO] loginfo - User 'admin' logged in successfully
+[2021-05-15T01:41:28.676] [INFO] loginfo - Users retreived.
+[2021-05-15T01:41:35.208] [INFO] loginfo - User was deleted successfully!
+[2021-05-15T01:41:35.267] [INFO] loginfo - Users retreived.
+[2021-05-15T01:41:50.976] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:41:53.055] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:42:06.419] [INFO] loginfo - 
+[2021-05-15T01:42:06.540] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:42:11.531] [INFO] loginfo - 
+[2021-05-15T01:42:11.634] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:42:18.195] [INFO] loginfo - Users retreived.
+[2021-05-15T01:42:18.197] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:42:21.161] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:42:23.676] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:42:29.335] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:43:06.624] [INFO] loginfo - Package created.
+[2021-05-15T01:43:08.452] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:43:20.077] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:43:21.668] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:43:39.629] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:44:14.385] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-15T01:44:15.940] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:20.574] [INFO] loginfo - 
+[2021-05-15T01:44:20.634] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:25.303] [INFO] loginfo - 
+[2021-05-15T01:44:25.494] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:30.106] [INFO] loginfo - 
+[2021-05-15T01:44:30.239] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:50.370] [INFO] loginfo - Package created.
+[2021-05-15T01:44:52.474] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:55.144] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:55.381] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:56.141] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:56.316] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:56.712] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:56.898] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:57.612] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:57.901] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:58.849] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:44:59.274] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:00.320] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:00.621] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:00.797] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:00.899] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:01.078] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:01.212] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:01.872] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:02.087] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:02.663] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:02.821] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:19.931] [INFO] loginfo - Package created.
+[2021-05-15T01:45:21.547] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:23.160] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:23.368] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:24.077] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:24.253] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:45:32.914] [INFO] loginfo - Users retreived.
+[2021-05-15T01:45:32.926] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:45:37.899] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:45:53.802] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:45:56.499] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:45:58.801] [INFO] loginfo - Chat retreived.
+[2021-05-15T01:47:25.003] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:47:27.467] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:49:01.682] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:49:34.296] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:49:37.748] [INFO] loginfo - Blogs retreived.
+[2021-05-15T01:50:05.370] [INFO] loginfo - Blogs retreived.
+[2021-05-15T01:50:06.959] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:50:09.037] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:50:47.416] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:50:49.070] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:53:00.486] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:56:07.662] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:56:28.378] [INFO] loginfo - 
+[2021-05-15T01:56:32.726] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:56:54.156] [INFO] loginfo - 
+[2021-05-15T01:56:57.124] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:57:11.097] [INFO] loginfo - 
+[2021-05-15T01:57:13.153] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:57:19.200] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:57:44.183] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:57:54.423] [INFO] loginfo - 
+[2021-05-15T01:57:56.015] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:58:14.368] [INFO] loginfo - User 'guide1' logged in successfully
+[2021-05-15T01:58:16.366] [INFO] loginfo - Packages retreived.
+[2021-05-15T01:59:17.484] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T01:59:19.362] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:59:26.162] [INFO] loginfo - Bookings retreived.
+[2021-05-15T01:59:40.158] [INFO] loginfo - 
+[2021-05-15T02:02:17.712] [INFO] loginfo - 
+[2021-05-15T02:02:20.518] [INFO] loginfo - Bookings retreived.
+[2021-05-15T02:02:49.723] [INFO] loginfo - 
+[2021-05-15T02:03:36.185] [INFO] loginfo - Bookings retreived.
+[2021-05-15T02:17:40.871] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T02:17:43.387] [INFO] loginfo - Bookings retreived.
+[2021-05-15T02:17:52.442] [INFO] loginfo - 
+[2021-05-15T02:17:52.596] [ERROR] logerror - Not found itinerary with id 609edcdd0d27e5c6519f0efc
+[2021-05-15T02:18:34.617] [INFO] loginfo - Bookings retreived.
+[2021-05-15T02:18:41.969] [INFO] loginfo - 
+[2021-05-15T02:18:42.038] [INFO] loginfo - Bookings retreived.
+[2021-05-15T02:19:04.478] [INFO] loginfo - Blog added.
+[2021-05-15T02:19:05.830] [INFO] loginfo - Blogs retreived.
+[2021-05-15T02:21:51.692] [INFO] loginfo - User 'user' logged in successfully
+[2021-05-15T02:21:54.374] [INFO] loginfo - Bookings retreived.
+[2021-05-15T02:22:04.834] [INFO] loginfo - 
+[2021-05-15T02:22:04.856] [INFO] loginfo - Bookings retreived.

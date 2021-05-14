@@ -47,6 +47,16 @@
           <div>
             <label><strong>Cost:</strong></label> {{ currentUser.cost }}
           </div>
+          <div>
+            <label><strong>Average Rating:</strong></label>
+            {{ currentUser.rating }}
+          </div>
+          <div>
+            <label><strong>Ratings:</strong></label> {{ currentUser.ratings }}
+          </div>
+          <div>
+            <label><strong>Reviews:</strong></label> {{ currentUser.reviews }}
+          </div>
 
           <a class="badge badge-warning" :href="'/package/' + currentUser._id">
             Edit
@@ -72,7 +82,7 @@ export default {
       currentIndex: -1,
       username: '',
       package_name: '',
-      location:'',
+      location: '',
     };
   },
   methods: {
@@ -133,7 +143,7 @@ export default {
 p.ex1 {
   margin-top: 25px;
   font-size: 30px;
-  margin-left: 330px;
+  margin-left: 400px;
 }
 </style>
 <style scoped lang="scss">

@@ -28,6 +28,8 @@ class AuthService {
       phone: user.phone,
       email: user.email,
       password: user.password,
+      pref1: user.pref1,
+      pref2: user.pref2,
     });
   }
 

@@ -42,7 +42,7 @@
           </div>
           <div>
             <label><strong>Role:</strong></label>
-             {{ currentUser.roles }}
+            {{ this.currentRole }}
           </div>
           <a class="badge badge-warning" :href="'/admin/' + currentUser._id">
             Edit
@@ -50,7 +50,7 @@
         </div>
         <div v-else>
           <br />
-          <p>Please click on a Tour...</p>
+          <p>Click on a User</p>
         </div>
       </div>
     </div>
@@ -65,10 +65,12 @@ export default {
   data() {
     return {
       users: [],
+      allRoles: [],
       currentUser: null,
       currentIndex: -1,
       username: '',
       validated: '',
+      currentRole: '',
     };
   },
   methods: {
@@ -76,7 +78,15 @@ export default {
       UserDataService.getAll()
         .then((response) => {
           this.users = response.data;
-          console.log(response.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    retrieveRoles() {
+      UserDataService.getAllRoles()
+        .then((response) => {
+          this.allRoles = response.data;
         })
         .catch((e) => {
           console.log(e);
@@ -92,6 +102,13 @@ export default {
     setActiveUser(user, index) {
       this.currentUser = user;
       this.currentIndex = index;
+      if (this.allRoles[0]._id == this.currentUser.roles[0]) {
+        this.currentRole = 'user';
+      } else if (this.allRoles[0]._id == this.currentUser.roles[1]) {
+        this.currentRole = 'guide';
+      } else {
+        this.currentRole = 'admin';
+      }
     },
 
     removeAllUsers() {
@@ -118,6 +135,7 @@ export default {
   },
   mounted() {
     this.retrieveUsers();
+    this.retrieveRoles();
   },
 };
 </script>

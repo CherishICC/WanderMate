@@ -11,9 +11,14 @@ const Itinerary = mongoose.model(
     username:String,
     package_name: String,
     location: String,
+    rating: Number,
+    ratings:[Number],
+    reviews:[String],
     days: Number,
     cost: Number,
+    count: Number,
     imgUrl:String,
+    season: String,
   })
 );
 

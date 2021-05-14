@@ -10,6 +10,7 @@ import VeeValidate from 'vee-validate';
 import Vuex from 'vuex';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import StarRating from 'vue-star-rating';
 import {
   faHome,
   faUser,
@@ -17,6 +18,8 @@ import {
   faSignInAlt,
   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
+import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+Vue.use(DropDownListPlugin);
 
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 
@@ -30,7 +33,7 @@ Vue.use(VeeValidate, {
   },
 });
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-
+Vue.component('star-rating', StarRating);
 Vue.use(Vuex);
 
 new Vue({

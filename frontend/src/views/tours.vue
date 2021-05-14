@@ -1,57 +1,76 @@
 <template>
   <div>
-      <div class="search">
-        <div class="pad-15-hor pad-15-ver search-parent">
-          <div class="search-bar" >
-            <b-form-input
-              @input="searchLocation()"
-              v-model="location"
-              type="text"
-              placeholder="Search by Location"
-            ></b-form-input>
-          </div>
-          <div>
-            <b-form-select @input="sort()" v-model="search.filter" :options="options"/>
-          </div>
+    <div class="search">
+      <div class="pad-15-hor pad-15-ver search-parent">
+        <div class="search-bar">
+          <b-form-input
+            @input="searchLocation()"
+            v-model="location"
+            type="text"
+            placeholder="Search by Location"
+          ></b-form-input>
+          <span class="search-icon">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+        <div>
+          <b-form-select
+            @input="sort()"
+            v-model="search.filter"
+            :options="options"
+          />
         </div>
       </div>
-    <div class="container-fluid">
+    </div>
+    <div class="container-fluid grid-list-md">
       <div class="row">
-        <div class="col-md-6 pad-15-ver card" v-for="(user, index) in users" :key="index">
+        <div class="col-md-6 card" v-for="(user, index) in users" :key="index">
           <div
             class="card-inner"
-            @mouseover="show_hover(true,index)"
-            @mouseout="show_hover(false,0)"
+            @mouseover="show_hover(true, index)"
+            @mouseout="show_hover(false, 0)"
           >
-            <img class="card-img" :src="user.imgUrl">
+            <img class="card-img" :src="user.imgUrl" />
 
-            <div class="card-bottom pad-15-hor" v-show="!hover_flag || active_id != index">
-              <!-- <div class="min-width-160">
-                <span class="bold">Ratings:</span> -->
-                <!-- <star-rating
-                  :rating="wonder.ratings"
+            <div
+              class="card-bottom pad-15-hor"
+              v-show="!hover_flag || active_id != index"
+            >
+              <div class="min-width-160">
+                <span class="bold">Ratings:</span>
+                <star-rating
+                  :rating="user.rating"
                   :show-rating="false"
                   :inline="true"
-                  :star-size="15"
-                ></star-rating> -->
-              <!-- </div> -->
+                  :star-size="17"
+                ></star-rating>
+              </div>
               <div class="max-width-160">
-                <span class="bold">{{user.location}}</span>
+                <span class="bold">{{ user.package_name }}</span>
               </div>
             </div>
 
-            <div :class="{'card-hover':1}" v-show="hover_flag && active_id == index">
+            <div
+              :class="{ 'card-hover': 1 }"
+              v-show="hover_flag && active_id == index"
+            >
               <span
                 @click="make_active(index)"
-                :class="{ 'green':check_active(index)}"
+                :class="{ green: check_active(index) }"
               ></span>
-              <h5>Location : {{user.location}}</h5>
-              <h6>Guide : {{user.username}}</h6>
-              <h6>Days : {{user.days}}</h6>
-              <h6>Price : {{user.cost}}</h6>
-          <a class="badge badge-warning" :href="'/booking/' + user._id">
-            Book
-          </a>
+              <h5>Location : {{ user.location }}</h5>
+              <h6>Guide : {{ user.username }}</h6>
+              <h6>Days : {{ user.days }}</h6>
+              <h6>Price : {{ user.cost }}</h6>
+              <div class="row">
+                <a class="btn btn-warning" :href="'/booking/' + user._id">
+                  Book
+                </a>
+
+                <a class="btn btn-primary" :href="'/chat/' + user._id">
+                  Chat
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -74,16 +93,23 @@ export default {
       currentUser: null,
       currentIndex: -1,
       location: '',
+      season: '',
       username: '',
       options: [
-        { value: null, text: "Sort By", disabled: true },
-        { value: 'a', text: 'Days' },
+        { value: null, text: 'Sort By', disabled: true },
+        { value: 'a', text: 'Rating' },
         { value: 'b', text: 'Cost' },
       ],
       search: { filter: null, text: '' },
     };
   },
   methods: {
+    customFilter: function (person) {
+      return (
+        person.name.indexOf(this.search) != -1 ||
+        person.eyes.indexOf(this.search) != -1
+      );
+    },
     show_hover(flag, active_id) {
       this.hover_flag = flag;
       this.active_id = active_id;
@@ -108,7 +134,6 @@ export default {
       this.currentIndex = index;
     },
     searchLocation() {
-      console.log(this.location);
       UserDataService.packagefindByLocation(this.location)
         .then((response) => {
           this.users = response.data;
@@ -119,18 +144,21 @@ export default {
         });
     },
     sort() {
-      //console.log(this.search.filter);
-      this.search.filter == 'b'
+      this.search.filter == 'c'
+        ? this.users.sort(function (a, b) {
+            return b.cost - a.cost;
+          })
+        : this.search.filter == 'b'
         ? this.users.sort(function (a, b) {
             return b.cost - a.cost;
           })
         : this.users.sort(function (a, b) {
-            return b.days - a.days;
+            return b.rating - a.rating;
           });
     },
     check_active(id) {
       var flag = false;
-      this.wonders_data_actual.map(function(wonder) {
+      this.wonders_data_actual.map(function (wonder) {
         if (wonder.id == id) {
           flag = wonder.active_like;
         }
@@ -139,7 +167,9 @@ export default {
     },
     make_active(id) {
       this.likes.hit++;
-      this.wonders_data_actual = this.wonders_data_actual.map(function(wonder) {
+      this.wonders_data_actual = this.wonders_data_actual.map(function (
+        wonder
+      ) {
         if (wonder.id == id) {
           wonder.active_like = !wonder.active_like;
           wonder.active_like ? wonder.likes++ : wonder.likes--;
@@ -150,10 +180,10 @@ export default {
       var inside = this;
 
       inside.likes.count = 0;
-      this.wonders_data_actual.map(function(wonder) {
+      this.wonders_data_actual.map(function (wonder) {
         inside.likes.count += wonder.likes;
       });
-    }
+    },
   },
   mounted() {
     this.retrieveUsers();
@@ -172,6 +202,13 @@ p.ex1 {
   margin-top: 25px;
   font-size: 30px;
   margin-left: 330px;
+}
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 </style>
 <style scoped lang="scss">

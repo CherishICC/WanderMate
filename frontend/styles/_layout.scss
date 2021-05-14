@@ -2,11 +2,13 @@
 @import 'variables';
 
 .pad-15-hor {
+    left: 15px;
     padding: 0px 15px;
 }
 
 .pad-15-ver {
-    padding: 15px 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .green {

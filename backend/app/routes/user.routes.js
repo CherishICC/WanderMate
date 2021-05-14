@@ -1,9 +1,11 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/user.controller");
 const cust_controller = require("../controllers/customer.controller");
+const role_controller = require("../controllers/role.controller");
 const guide_controller = require("../controllers/itinerary.controller");
 const book_controller = require("../controllers/booking.controller");
 const blog_controller = require("../controllers/blog.controller");
+const chat_controller = require("../controllers/chat.controller");
+
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -14,7 +16,6 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/api/test/all", controller.allAccess);
 
   // user booking
   app.post(
@@ -37,11 +38,6 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isUser],
     book_controller.update
   );
-  app.delete(
-    "/api/test/booking/:id",
-    [authJwt.verifyToken, authJwt.isUser],
-    book_controller.delete
-  );
 
   // list all available packages
   app.get(
@@ -53,6 +49,16 @@ module.exports = function(app) {
     "/api/test/packagebooking/:id",
     [authJwt.verifyToken, authJwt.isUser],
     guide_controller.findOne
+  );
+  app.get(
+    "/api/test/packageget/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    guide_controller.findOne
+  );
+  app.put(
+    "/api/test/packagerating/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    guide_controller.update
   );
 
 
@@ -72,17 +78,60 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isUser],
     blog_controller.findOne
   );
-  app.put(
-    "/api/test/blog/:id",
+
+
+
+  // user chat
+  app.post(
+    "/api/test/chat",
     [authJwt.verifyToken, authJwt.isUser],
-    blog_controller.update
+    chat_controller.create
   );
-  app.delete(
-    "/api/test/blog/:id",
+  app.get(
+    "/api/test/chat",
     [authJwt.verifyToken, authJwt.isUser],
-    blog_controller.delete
+    chat_controller.findAll
+  );
+  app.get(
+    "/api/test/chat/:id",
+    [authJwt.verifyToken, authJwt.isUser],
+    chat_controller.findOne
   );
 
+  // guide chat
+  app.post(
+    "/api/test/guidechat",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.create
+  );
+  app.get(
+    "/api/test/userList",
+    [authJwt.verifyToken, authJwt.isGuide],
+    cust_controller.findAll
+  );
+  app.get(
+    "/api/test/guidechat",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.guidefindAll
+  );
+  app.get(
+    "/api/test/guidechat/:id",
+    [authJwt.verifyToken, authJwt.isGuide],
+    chat_controller.findOne
+  );
+  // app.put(
+  //   "/api/test/guidechat/:id",
+  //   [authJwt.verifyToken, authJwt.isGuide],
+  //   chat_controller.update
+  // );
+  // app.delete(
+  //   "/api/test/guidechat/:id",
+  //   [authJwt.verifyToken, authJwt.isGuide],
+  //   chat_controller.delete
+  // );
+
+
+  
   // guide profile
   app.get(
     "/api/test/guide/:id",
@@ -145,11 +194,6 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isGuide],
     guide_controller.delete
   );
-  app.delete(
-    "/api/test/package",
-    [authJwt.verifyToken, authJwt.isGuide],
-    guide_controller.deleteAll
-  );
   
 
   // admin
@@ -162,6 +206,11 @@ module.exports = function(app) {
     "/api/test/admin",
     [authJwt.verifyToken, authJwt.isAdmin],
     cust_controller.findAll
+  );
+  app.get(
+    "/api/test/roles",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    role_controller.findAll
   );
   app.get(
     "/api/test/admin/:id",
@@ -177,10 +226,5 @@ module.exports = function(app) {
     "/api/test/admin/:id",
     [authJwt.verifyToken, authJwt.isAdmin],
     cust_controller.delete
-  );
-  app.delete(
-    "/api/test/admin",
-    [authJwt.verifyToken, authJwt.isAdmin],
-    cust_controller.deleteAll
   );
 };

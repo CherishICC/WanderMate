@@ -62,23 +62,8 @@
       <div v-if="submitted && errors.has('email')" class="alert-danger">
         {{ errors.first('email') }}
       </div>
-      <!-- <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentUser.published ? "Published" : "Pending" }}
-      </div> -->
     </form>
 
-    <!-- <button class="badge badge-primary mr-2"
-      v-if="currentUser.published"
-      @click="updatePublished(false)"
-    >
-      UnPublish
-    </button>
-    <button v-else class="badge badge-primary mr-2"
-      @click="updatePublished(true)"
-    >
-      Publish
-    </button> -->
 
     <button class="badge badge-danger mr-2" @click="deleteGuide">Delete</button>
 
@@ -96,7 +81,7 @@
 
 <script>
 import UserDataService from '../services/user.service';
-// import UserAuthService from '../services/auth.service';
+
 export default {
   name: 'AdminUserEdit',
   data() {
@@ -120,25 +105,7 @@ export default {
           console.log(e);
         });
     },
-    // updatePublished(status) {
-    //   var data = {
-    //     id: this.currentUser.id,
-    //     username: this.currentUser.username,
-    //     password: this.currentUser.password,
-    //     // description: this.currentUser.description,
-    //     phone: this.currentUser.phone,
-    //     email: this.currentUser.email,
-    //     // published: status
-    //   };
-    //   UserDataService.update(this.currentUser._id, data)
-    //     .then(response => {
-    //       this.currentUser.published = status;
-    //       console.log(response.data);
-    //     })
-    //     .catch(e => {
-    //       console.log(e);
-    //     });
-    // },
+
     updateGuide() {
       UserDataService.update(this.currentUser._id, this.currentUser)
         .then((response) => {

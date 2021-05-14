@@ -11,10 +11,14 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/vue-fontawesome": "^0.1.7",
+    "@syncfusion/ej2-data": "^19.1.56",
+    "@syncfusion/ej2-vue-dropdowns": "^19.1.57",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^2.6.5",
+    "google-translate-api": "^2.3.0",
+    "i": "^0.3.6",
     "jquery": "^3.4.1",
     "node-sass": "^5.0.0",
     "popper.js": "^1.15.0",
@@ -23,6 +27,7 @@
     "vue": "^2.6.10",
     "vue-input-autowidth": "^1.0.11",
     "vue-router": "^3.0.3",
+    "vue-star-rating": "^1.7.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

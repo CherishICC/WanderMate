@@ -8,10 +8,6 @@
       <strong>Email:</strong>
       {{ currentUser.email }}
     </p>
-    <p>
-      <strong>Phone:</strong>
-      {{ currentUser.phone }}
-    </p>
     <strong>Roles:</strong>
     <ul>
       <li v-for="(role, index) in currentUser.roles" :key="index">
@@ -37,3 +33,10 @@ export default {
   },
 };
 </script>
+<style>
+.container {
+  margin: auto;
+  margin-top: 30px;
+  margin-left: 300px;
+}
+</style>

@@ -1,6 +1,14 @@
 export default class Booking {
   constructor(
-    userid, username, guide, package_name, location, start_date, end_date, review,
+    userid,
+    packageId,
+    username,
+    guide,
+    package_name,
+    location,
+    start_date,
+    end_date,
+    review,
     rating
   ) {
     this.userid = userid;
@@ -12,5 +20,6 @@ export default class Booking {
     this.end_date = end_date;
     this.review = review;
     this.rating = rating;
+    this.packageId = packageId;
   }
 }

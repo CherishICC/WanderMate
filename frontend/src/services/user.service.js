@@ -13,7 +13,7 @@ class UserService {
     return axios.get(API_URL + `booking`, { headers: authHeader() });
   }
   userBooking(id) {
-    return axios.get(API_URL + `booking${id}`, { headers: authHeader() });
+    return axios.get(API_URL + `booking/${id}`, { headers: authHeader() });
   }
   bookingfindByLocation(location) {
     return axios.get(API_URL + `booking?location=${location}`, {
@@ -24,7 +24,11 @@ class UserService {
     console.log(authHeader(), data);
     return axios.post(API_URL + `booking`, data, { headers: authHeader() });
   }
-
+  bookingupdate(id, data) {
+    return axios.put(API_URL + `booking/${id}`, data, {
+      headers: authHeader(),
+    });
+  }
   // packages in user page
   userPackageListAll() {
     return axios.get(API_URL + `packagebooking`, { headers: authHeader() });
@@ -35,10 +39,32 @@ class UserService {
     });
   }
   packagefindByLocation(location) {
-    console.log(API_URL + `packagebooking?location=${location}`);
     return axios.get(API_URL + `packagebooking?location=${location}`, {
       headers: authHeader(),
     });
+  }
+
+  // chat
+  userChatAll() {
+    return axios.get(API_URL + `chat`, { headers: authHeader() });
+  }
+  guideChatAll(to) {
+    return axios.get(API_URL + `guidechat?to=${to}`, { headers: authHeader() });
+  }
+  userListAll() {
+    return axios.get(API_URL + `userList`, { headers: authHeader() });
+  }
+  GetChatByreceiver(to) {
+    // console.log(to);
+    return axios.get(API_URL + `chat?to=${to}`, {
+      headers: authHeader(),
+    });
+  }
+  chatcreate(data) {
+    return axios.post(API_URL + `chat`, data, { headers: authHeader() });
+  }
+  guidechatcreate(data) {
+    return axios.post(API_URL + `guidechat`, data, { headers: authHeader() });
   }
 
   // blogs in user page
@@ -81,6 +107,14 @@ class UserService {
   packagecreate(data) {
     return axios.post(API_URL + `package`, data, { headers: authHeader() });
   }
+  UserPackageGet(id) {
+    return axios.get(API_URL + `packageget/${id}`, { headers: authHeader() });
+  }
+  packageEditRating(id, data) {
+    return axios.put(API_URL + `packagerating/${id}`, data, {
+      headers: authHeader(),
+    });
+  }
   packageupdate(id, data) {
     return axios.put(API_URL + `package/${id}`, data, {
       headers: authHeader(),
@@ -117,6 +151,9 @@ class UserService {
   // admin
   getAll() {
     return axios.get(API_URL + `admin`, { headers: authHeader() });
+  }
+  getAllRoles() {
+    return axios.get(API_URL + `roles`, { headers: authHeader() });
   }
   get(id) {
     return axios.get(API_URL + `admin/${id}`, { headers: authHeader() });

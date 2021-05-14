@@ -24,7 +24,7 @@
             :key="index"
             @click="setActiveUser(user, index)"
           >
-            {{ user.location }}
+            {{ user.package_name }}
           </li>
         </ul>
       </div>
@@ -38,7 +38,8 @@
             <label><strong>Guide:</strong></label> {{ currentUser.guide }}
           </div>
           <div>
-            <label><strong>Package:</strong></label> {{ currentUser.package_name }}
+            <label><strong>Package:</strong></label>
+            {{ currentUser.package_name }}
           </div>
           <div>
             <label><strong>Location:</strong></label> {{ currentUser.location }}
@@ -50,13 +51,19 @@
           <div>
             <label><strong>End Date:</strong></label> {{ currentUser.end_date }}
           </div>
-          
-          <div v-if="review">
-            <a class="badge badge-warning" :href="'/booking/' + currentUser._id">
-            Review
-          </a>
+          <div>
+            <label><strong>Rating:</strong></label> {{ currentUser.rating }}
           </div>
-          
+          <div>
+            <label><strong>Latest Review:</strong></label>
+            {{ currentUser.review }}
+          </div>
+
+          <div v-if="review">
+            <a class="badge badge-warning" :href="'/review/' + currentUser._id">
+              Review
+            </a>
+          </div>
         </div>
         <div v-else>
           <br />
@@ -79,7 +86,7 @@ export default {
       currentUser: null,
       currentIndex: -1,
       location: '',
-      review:'',
+      review: '',
     };
   },
   methods: {
@@ -103,23 +110,15 @@ export default {
     setActiveUser(user, index) {
       this.currentUser = user;
       this.currentIndex = index;
-      var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'-');
-      if ((this.currentUser.end_date) <= currentDateWithFormat) {    
-           this.review = true;   
-       }else {    
-           this.review = false    
-       } 
-    },
-
-    removeAllUsers() {
-      UserDataService.deleteAll()
-        .then((response) => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      var currentDateWithFormat = new Date()
+        .toJSON()
+        .slice(0, 10)
+        .replace(/-/g, '-');
+      if (this.currentUser.end_date <= currentDateWithFormat) {
+        this.review = true;
+      } else {
+        this.review = false;
+      }
     },
 
     searchLocation() {
@@ -131,10 +130,10 @@ export default {
         .catch((e) => {
           console.log(e);
         });
-    },    
+    },
   },
   computed: {
-    ...mapGetters({username:'auth/getUsername'}),
+    ...mapGetters({ username: 'auth/getUsername' }),
   },
   mounted() {
     this.retrieveUsers();
