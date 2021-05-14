@@ -1,26 +1,8 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const dbConfig = require("./app/config/db.config");
-
-const app = express();
-const path = __dirname + '/app/views/';
-var corsOptions = {
-  origin: "http://localhost:8080"
-};
-
-app.use(cors({origin:"*"}));
-
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path));
-
 const db = require("./app/models");
+const dbConfig = require("./app/config/db.config");
 const Role = db.role;
-
+const app = require('./app');
+const path = __dirname + '/app/views/';
 db.mongoose
   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,
@@ -35,14 +17,9 @@ db.mongoose
     process.exit();
   });
 
-app.get('/', function (req,res) {
-  res.sendFile(path + "index.html");
-});
-
-
-// routes
-require("./app/routes/auth.routes")(app);
-require("./app/routes/user.routes")(app);
+// app.get('/', function (req,res) {
+//   res.sendFile(path + "index.html");
+// });
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
@@ -86,15 +63,6 @@ function initial() {
   });
 }
 
-app.get("/*", (req, res) => {
-  res.sendFile(path+ "index.html");
-});
-// cToF = function(celsius) {
-//   if(!Number.isInteger(celsius)) return undefined;
-//   return celsius * 9 / 5 + 32;
-// }
-
-// fToC = function(fahrenheit) {
-//   if(!Number.isInteger(fahrenheit)) return undefined;
-//   return (fahrenheit - 32) * 5 / 9;
-// }
+app.get("*", (req, res) => {
+    res.sendFile(path+ "index.html");
+  });
