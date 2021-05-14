@@ -91,7 +91,7 @@ describe('Testing login', function () {
 //       });
 // });
 
-describe('Testing blog', function () {
+describe('Testing user', function () {
     let token;
     beforeEach((done)=>{return request(app).post('/api/auth/signin').send({
                     username:"user",
@@ -107,26 +107,75 @@ describe('Testing blog', function () {
             experience: "very good service"
         }).expect(200);
     });
+    it('return status code', async ()=> {
+        const response = await request(app).post('/api/test/booking').set('x-access-token', token).send({
+              username:"user",
+              guide:"guide",
+              package_name:'package',
+              days:2,
+              price:1000,
+              location:"hyderabad",
+              experience: "very good service"
+          }).expect(500);
+      });
+      it('return status code', async ()=> {
+        const response = await request(app).post('/api/test/chat/607d5cdd6d775b3c4ddd11c6').set('x-access-token', token).send({
+              from:"user",
+              to:"guide",
+              msg:'nice package keep it up'
+          }).expect(404);
+      });
 });
 
-describe('Testing blog', function () {
+describe('Testing guide', function () {
+    let token;
+    let userid;
+    beforeEach((done)=>{return request(app).post('/api/auth/signin').send({
+                    username:"guide",
+                    password:"admin123"}).end((err, response) => {
+                    userid = response.body.userId;
+                    token = response.body.accessToken;
+                        done();
+                      })});
+    afterEach((done)=>{token=undefined;done()})
+    // it('return status code', async ()=> {
+    //   const response = await request(app).delete('/api/test/package/609a124c838b6f3060323b36').set('x-access-token', token).send({
+    //     }).expect(200);
+    // });
+    it('return status code', async ()=> {
+        const response = await request(app).get('/api/test/package/607d5cdd6d775b3c4ddd11c6').set('x-access-token', token).send({
+          }).expect(200);
+      });
+});
+
+describe('Testing admin', function () {
     let token;
     beforeEach((done)=>{return request(app).post('/api/auth/signin').send({
-                    username:"user1",
+                    username:"admin",
                     password:"admin123"}).end((err, response) => {
                     token = response.body.accessToken;
                         done();
                       })});
     afterEach((done)=>{token=undefined;done()})
     it('return status code', async ()=> {
-      const response = await request(app).put('/api/test/admin/6077cddd3647219b6fb812eb').set('x-access-token', token).send({
-            username:"admin",
+      const response = await request(app).put('/api/test/admin/6077ce0d3647219b6fb812ec').set('x-access-token', token).send({
+            username:"user1",
             password:"admin123",
             email: "user1@gmail.com",
             phone:"2222222222"
         }).expect(200);
     });
+    it('return status code', async ()=> {
+        const response = await request(app).get('/api/test/admin/6077ce0d3647219b6fb812ec').set('x-access-token', token).send({
+              username:"user1",
+              password:"admin123",
+              email: "user1@gmail.com",
+              phone:"2222222222"
+          }).expect(200);
+      });
 });
+
+
 
 
 
