@@ -1,0 +1,8 @@
+[2021-05-14T19:42:08.426] [INFO] loginfo - Logged in
+[2021-05-14T19:43:15.788] [ERROR] logerror - User Not found.
+[2021-05-14T19:48:34.592] [ERROR] logerror - Invalid Password!
+[2021-05-14T19:50:55.618] [INFO] loginfo - User logged in successfully
+[2021-05-14T20:09:02.976] [INFO] loginfo - User logged in successfully
+[2021-05-14T20:11:00.843] [INFO] loginfo - User with username guide is logged in successfully
+[2021-05-14T20:11:45.545] [INFO] loginfo - User 'guide' logged in successfully
+[2021-05-14T20:13:29.471] [ERROR] logerror - Content can not be empty!

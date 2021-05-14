@@ -1,10 +1,34 @@
 const db = require("../models");
 const Booking = db.booking;
 
+var log4js = require("log4js");
+
+log4js.configure({
+  appenders: {
+    fileLogs: { type: 'file', filename: '../wandermate.log' },
+    console: { type: 'console' },
+    out: {
+        type: 'stdout',
+        layout: {
+            type: 'pattern',
+            pattern: '%[[%d{yyyy-MM-dd hh:mm:ss.SSS}] [%p] %c -%] %m',
+        },
+    },
+  },
+  categories: {
+    logerror: { appenders: ['fileLogs'], level: 'error' },
+    loginfo: { appenders: ['fileLogs'], level: 'debug' },
+    default: { appenders: ['console', 'fileLogs'], level: 'trace' }
+  }
+});
+var logger = log4js.getLogger('logerror');
+var loggerinfo = log4js.getLogger('loginfo');
+
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.package_name) {
+    logger.error("Content can not be empty!");
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
@@ -18,9 +42,10 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch(err => {
+      logger.error(err.message || "Some error occurred while creating the Booking.");
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the User."
+          err.message || "Some error occurred while creating the Booking."
       });
     });
 };
@@ -32,12 +57,14 @@ exports.findAll = (req, res) => {
   var condition = location ? { location: { $regex: new RegExp(location), $options: "i" } }: {};
   Booking.find({ $and: [ {"userId": new ObjectID(req.userId)}, condition ] } )
     .then(data => {
+      loggerinfo.info("Bookings retreived.");
       res.send(data);
     })
     .catch(err => {
+      logger.error(err.message || "Some error occurred while retrieving bookings.");
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving itineraries."
+          err.message || "Some error occurred while retrieving bookings."
       });
     });
 };
@@ -123,17 +150,3 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-
-// Find all published itineraries
-// exports.findAllPublished = (req, res) => {
-//     booking.find({ published: true })
-//     .then(data => {
-//       res.send(data);
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving itineraries."
-//       });
-//     });
-// };

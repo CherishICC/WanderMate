@@ -7,7 +7,27 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 var log4js = require("log4js");
-var logger = log4js.getLogger();
+
+log4js.configure({
+  appenders: {
+    fileLogs: { type: 'file', filename: '../wandermate.log' },
+    console: { type: 'console' },
+    out: {
+        type: 'stdout',
+        layout: {
+            type: 'pattern',
+            pattern: '%[[%d{yyyy-MM-dd hh:mm:ss.SSS}] [%p] %c -%] %m',
+        },
+    },
+  },
+  categories: {
+    logerror: { appenders: ['fileLogs'], level: 'error' },
+    loginfo: { appenders: ['fileLogs'], level: 'debug' },
+    default: { appenders: ['console', 'fileLogs'], level: 'trace' }
+  }
+});
+var logger = log4js.getLogger('logerror');
+var loggerinfo = log4js.getLogger('loginfo');
 
 exports.signup = (req, res) => {
   const user = new User({
@@ -22,6 +42,7 @@ exports.signup = (req, res) => {
 
   user.save((err, user) => {
     if (err) {
+      looger.error(err);
       res.status(500).send({ message: err });
       return;
     }
@@ -33,6 +54,7 @@ exports.signup = (req, res) => {
         },
         (err, roles) => {
           if (err) {
+            logger.error(err);
             res.status(500).send({ message: err });
             return;
           }
@@ -40,10 +62,11 @@ exports.signup = (req, res) => {
           user.roles = roles.map(role => role._id);
           user.save(err => {
             if (err) {
+              logger.error(err);
               res.status(500).send({ message: err });
               return;
             }
-
+            loggerinfo.info("User was Registered successfully");
             res.send({ message: "User was registered successfully!" });
           });
         }
@@ -51,6 +74,7 @@ exports.signup = (req, res) => {
     } else {
       Role.findOne({ name: "user" }, (err, role) => {
         if (err) {
+          logger.error(err);
           res.status(500).send({ message: err });
           return;
         }
@@ -58,10 +82,12 @@ exports.signup = (req, res) => {
         user.roles = [role._id];
         user.save(err => {
           if (err) {
+            logger.error(err);
             res.status(500).send({ message: err });
             return;
           }
 
+          loggerinfo.info("User was registered successfully!");
           res.send({ message: "User was registered successfully!" });
         });
       });
@@ -76,12 +102,12 @@ exports.signin = (req, res) => {
     .populate("roles", "-__v")
     .exec((err, user) => {
       if (err) {
+        logger.error(err);
         res.status(500).send({ message: err });
         return;
       }
 
       if (!user) {
-        logger.level = "error";
         logger.error("User Not found.");
         return res.status(404).send({ message: "User Not found." });
       }
@@ -92,7 +118,6 @@ exports.signin = (req, res) => {
       );
 
       if (!passwordIsValid) {
-        logger.level = "debug";
         logger.error("Invalid Password!");
         return res.status(401).send({
           accessToken: null,
@@ -116,7 +141,6 @@ exports.signin = (req, res) => {
         roles: authorities,
         accessToken: token
       });
-      logger.level = "debug";
-      logger.info("Logged in");
+      loggerinfo.info("User '"+ user.username+"' logged in successfully");
     });
 };
