@@ -14,8 +14,11 @@ pipeline {
         }
     stage('Deploy') {
         steps {
-            sh 'npm install'
-            sh 'npm build'
+            ssh script: '''
+            npm install
+            cd backend
+            npm test
+            '''
             }
         }
      stage('Building Docker image'){

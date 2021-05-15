@@ -142,7 +142,7 @@ describe('Testing guide', function () {
     //     }).expect(200);
     // });
     it('return status code', async ()=> {
-        const response = await request(app).get('/api/test/package/607d5cdd6d775b3c4ddd11c6').set('x-access-token', token).send({
+        const response = await request(app).get('/api/test/package/609eda3a0d27e5c6519f0ef9 ').set('x-access-token', token).send({
           }).expect(200);
       });
 });
