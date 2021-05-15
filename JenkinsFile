@@ -9,13 +9,16 @@ pipeline {
     stages {
     stage('Git clone') {
         steps {
-            git branch: 'Login', url: 'https://github.com/CherishICC/WanderMate.git'
+            git branch: 'master', url: 'https://github.com/CherishICC/WanderMate.git'
             }
         }
     stage('Deploy') {
         steps {
-            sh 'npm install'
-            sh 'npm build'
+            sh script: '''
+            npm install
+            cd backend
+            npm test
+            '''
             }
         }
      stage('Building Docker image'){
