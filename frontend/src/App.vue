@@ -10,7 +10,7 @@
             <router-link to="/admin" class="nav-link">All Users</router-link>
           </li>
           <li v-if="showAdminBoard" class="nav-item">
-            <router-link to="/addUser" class="nav-link">Add User</router-link>
+            <router-link to="/addUser" class="nav-link">Add Users</router-link>
           </li>
           <li v-if="showGuideBoard" class="nav-item">
             <router-link to="/package" class="nav-link">Packages</router-link>
