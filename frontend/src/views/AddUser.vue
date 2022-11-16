@@ -53,7 +53,7 @@
       </div>
 
       <div class="form-group">
-        <label for="phone">Phone</label>
+        <label for="phone">Phone Number</label>
         <input
           v-model="guide.phone"
           v-validate="'required|min:10|max:10'"
